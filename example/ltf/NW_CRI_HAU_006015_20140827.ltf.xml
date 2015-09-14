@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_TEXT SYSTEM "ltf.v1.5.dtd">
+<LCTL_TEXT>
+<DOC id="NW_CRI_HAU_006015_20140827" tokenization="tokenization_parameters.v2.0" grammar="manual" raw_text_char_length="749" raw_text_md5="5e2b75a8fdcd95ce76b71c61699536c1">
+<TEXT>
+<SEG id="segment-0" start_char="0" end_char="67">
+<ORIGINAL_TEXT>Mutane 3 sun rasu sakamakon faduwar wani jirgin sama a Sudan ta kudu</ORIGINAL_TEXT>
+<TOKEN id="token-0-0" pos="NOUN" morph="Mutane:mutane=NOUN" start_char="0" end_char="5">Mutane</TOKEN>
+<TOKEN id="token-0-1" pos="number" morph="none" start_char="7" end_char="7">3</TOKEN>
+<TOKEN id="token-0-2" pos="PRON" morph="sun:sun=PRON_WSP_3P" start_char="9" end_char="11">sun</TOKEN>
+<TOKEN id="token-0-3" pos="VERB" morph="rasu:rasu=VERB" start_char="13" end_char="16">rasu</TOKEN>
+<TOKEN id="token-0-4" pos="NOUN" morph="sakamako:sakamako=NOUN n:n=CONSTRUCT" start_char="18" end_char="26">sakamakon</TOKEN>
+<TOKEN id="token-0-5" pos="NOUN" morph="faduwa:faduwa=NOUN r:r=CONSTRUCT" start_char="28" end_char="34">faduwar</TOKEN>
+<TOKEN id="token-0-6" pos="NOUN" morph="wani:wani=NOUN" start_char="36" end_char="39">wani</TOKEN>
+<TOKEN id="token-0-7" pos="NOUN" morph="jirgi:jirgi=NOUN n:n=CONSTRUCT" start_char="41" end_char="46">jirgin</TOKEN>
+<TOKEN id="token-0-8" pos="NOUN" morph="sama:sama=NOUN" start_char="48" end_char="51">sama</TOKEN>
+<TOKEN id="token-0-9" pos="PREP" morph="a:a=PREP" start_char="53" end_char="53">a</TOKEN>
+<TOKEN id="token-0-10" pos="NOUN" morph="Sudan:sudan=NOUN" start_char="55" end_char="59">Sudan</TOKEN>
+<TOKEN id="token-0-11" pos="CONSTRUCT" morph="ta:ta=CONSTRUCT" start_char="61" end_char="62">ta</TOKEN>
+<TOKEN id="token-0-12" pos="NOUN" morph="kudu:kudu=NOUN" start_char="64" end_char="67">kudu</TOKEN>
+</SEG>
+<SEG id="segment-1" start_char="70" end_char="348">
+<ORIGINAL_TEXT>Kakakin babban magatakardan MDD Stephane Dujarric ya ce wani jirgin sama, dauke da mambobin tawagar musamman ta MDD a Sudan ta kudu ya fadi a birnin Bentiu dake jihar Unity a arewacin kasar, lamarin da ya yi sanadin mutuwar maʼaikatan jirgin 3 yayin da wani guda kuma ya jikkata.</ORIGINAL_TEXT>
+<TOKEN id="token-1-0" pos="NOUN" morph="Kakaki:kakaki=NOUN n:n=CONSTRUCT" start_char="70" end_char="76">Kakakin</TOKEN>
+<TOKEN id="token-1-1" pos="NOUN" morph="babba:babba=NOUN n:n=CONSTRUCT" start_char="78" end_char="83">babban</TOKEN>
+<TOKEN id="token-1-2" pos="NOUN" morph="magatakarda:magatakarda=NOUN n:n=CONSTRUCT" start_char="85" end_char="96">magatakardan</TOKEN>
+<TOKEN id="token-1-3" pos="NOUN" morph="MDD:mdd=NOUN" start_char="98" end_char="100">MDD</TOKEN>
+<TOKEN id="token-1-4" pos="NOUN" morph="Stephane:stephane=NOUN" start_char="102" end_char="109">Stephane</TOKEN>
+<TOKEN id="token-1-5" pos="NOUN" morph="Dujarric:dujarric=NOUN" start_char="111" end_char="118">Dujarric</TOKEN>
+<TOKEN id="token-1-6" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="120" end_char="121">ya</TOKEN>
+<TOKEN id="token-1-7" pos="VERB" morph="ce:ce=VERB" start_char="123" end_char="124">ce</TOKEN>
+<TOKEN id="token-1-8" pos="NOUN" morph="wani:wani=NOUN" start_char="126" end_char="129">wani</TOKEN>
+<TOKEN id="token-1-9" pos="NOUN" morph="jirgi:jirgi=NOUN n:n=CONSTRUCT" start_char="131" end_char="136">jirgin</TOKEN>
+<TOKEN id="token-1-10" pos="NOUN" morph="sama:sama=NOUN" start_char="138" end_char="141">sama</TOKEN>
+<TOKEN id="token-1-11" pos="punct" morph="none" start_char="142" end_char="142">,</TOKEN>
+<TOKEN id="token-1-12" pos="VERB" morph="dauke:dauke=VERB" start_char="144" end_char="148">dauke</TOKEN>
+<TOKEN id="token-1-13" pos="PREP" morph="da:da=PREP" start_char="150" end_char="151">da</TOKEN>
+<TOKEN id="token-1-14" pos="NOUN" morph="mambobi:mambobi=NOUN n:n=CONSTRUCT" start_char="153" end_char="160">mambobin</TOKEN>
+<TOKEN id="token-1-15" pos="NOUN" morph="tawaga:tawaga=NOUN r:r=CONSTRUCT" start_char="162" end_char="168">tawagar</TOKEN>
+<TOKEN id="token-1-16" pos="NOUN" morph="musamma:musamma=NOUN n:n=CONSTRUCT" start_char="170" end_char="177">musamman</TOKEN>
+<TOKEN id="token-1-17" pos="CONSTRUCT" morph="ta:ta=CONSTRUCT" start_char="179" end_char="180">ta</TOKEN>
+<TOKEN id="token-1-18" pos="NOUN" morph="MDD:mdd=NOUN" start_char="182" end_char="184">MDD</TOKEN>
+<TOKEN id="token-1-19" pos="PREP" morph="a:a=PREP" start_char="186" end_char="186">a</TOKEN>
+<TOKEN id="token-1-20" pos="NOUN" morph="Sudan:sudan=NOUN" start_char="188" end_char="192">Sudan</TOKEN>
+<TOKEN id="token-1-21" pos="CONSTRUCT" morph="ta:ta=CONSTRUCT" start_char="194" end_char="195">ta</TOKEN>
+<TOKEN id="token-1-22" pos="NOUN" morph="kudu:kudu=NOUN" start_char="197" end_char="200">kudu</TOKEN>
+<TOKEN id="token-1-23" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="202" end_char="203">ya</TOKEN>
+<TOKEN id="token-1-24" pos="VERB" morph="fadi:fadi=VERB" start_char="205" end_char="208">fadi</TOKEN>
+<TOKEN id="token-1-25" pos="PREP" morph="a:a=PREP" start_char="210" end_char="210">a</TOKEN>
+<TOKEN id="token-1-26" pos="NOUN" morph="birni:birni=NOUN n:n=CONSTRUCT" start_char="212" end_char="217">birnin</TOKEN>
+<TOKEN id="token-1-27" pos="NOUN" morph="Bentiu:bentiu=NOUN" start_char="219" end_char="224">Bentiu</TOKEN>
+<TOKEN id="token-1-28" pos="PRON" morph="da:da=RELPRON ke:ke=CONT" start_char="226" end_char="229">dake</TOKEN>
+<TOKEN id="token-1-29" pos="NOUN" morph="jiha:jiha=NOUN r:r=CONSTRUCT" start_char="231" end_char="235">jihar</TOKEN>
+<TOKEN id="token-1-30" pos="NOUN" morph="Unity:unity=NOUN" start_char="237" end_char="241">Unity</TOKEN>
+<TOKEN id="token-1-31" pos="PREP" morph="a:a=PREP" start_char="243" end_char="243">a</TOKEN>
+<TOKEN id="token-1-32" pos="PREP" morph="arewacin:arewacin=PREP" start_char="245" end_char="252">arewacin</TOKEN>
+<TOKEN id="token-1-33" pos="NOUN" morph="kasa:kasa=NOUN r:r=DEFINITE" start_char="254" end_char="258">kasar</TOKEN>
+<TOKEN id="token-1-34" pos="punct" morph="none" start_char="259" end_char="259">,</TOKEN>
+<TOKEN id="token-1-35" pos="NOUN" morph="lamari:lamari=NOUN n:n=CONSTRUCT" start_char="261" end_char="267">lamarin</TOKEN>
+<TOKEN id="token-1-36" pos="RELPRON" morph="da:da=RELPRON" start_char="269" end_char="270">da</TOKEN>
+<TOKEN id="token-1-37" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="272" end_char="273">ya</TOKEN>
+<TOKEN id="token-1-38" pos="VERB" morph="yi:yi=VERB" start_char="275" end_char="276">yi</TOKEN>
+<TOKEN id="token-1-39" pos="NOUN" morph="sanadi:sanadi=NOUN n:n=CONSTRUCT" start_char="278" end_char="284">sanadin</TOKEN>
+<TOKEN id="token-1-40" pos="NOUN" morph="mutuwa:mutuwa=NOUN r:r=CONSTRUCT" start_char="286" end_char="292">mutuwar</TOKEN>
+<TOKEN id="token-1-41" pos="NOUN" morph="maʼaikata:maʼaikata=NOUN n:n=CONSTRUCT" start_char="294" end_char="303">maʼaikatan</TOKEN>
+<TOKEN id="token-1-42" pos="NOUN" morph="jirgi:jirgi=NOUN n:n=DEFINITE" start_char="305" end_char="310">jirgin</TOKEN>
+<TOKEN id="token-1-43" pos="number" morph="none" start_char="312" end_char="312">3</TOKEN>
+<TOKEN id="token-1-44" pos="ADV" morph="yayin:yayin=ADV" start_char="314" end_char="318">yayin</TOKEN>
+<TOKEN id="token-1-45" pos="PREP" morph="da:da=PREP" start_char="320" end_char="321">da</TOKEN>
+<TOKEN id="token-1-46" pos="NOUN" morph="wani:wani=NOUN" start_char="323" end_char="326">wani</TOKEN>
+<TOKEN id="token-1-47" pos="NOUN" morph="guda:guda=NOUN" start_char="328" end_char="331">guda</TOKEN>
+<TOKEN id="token-1-48" pos="PARTICLE" morph="kuma:kuma=PARTICLE" start_char="333" end_char="336">kuma</TOKEN>
+<TOKEN id="token-1-49" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="338" end_char="339">ya</TOKEN>
+<TOKEN id="token-1-50" pos="NOUN" morph="jikkata:jikkata=NOUN" start_char="341" end_char="347">jikkata</TOKEN>
+<TOKEN id="token-1-51" pos="punct" morph="none" start_char="348" end_char="348">.</TOKEN>
+</SEG>
+<SEG id="segment-2" start_char="351" end_char="598">
+<ORIGINAL_TEXT>A wani taron manema labaru da aka yi a wannan rana, Stephane Dujarric ya ce jirgin saman mai saukar ungulu wanda aka yi hayar sa daga Rasha, ya yi hadari ne yayin da ya ke jigilar kayayyaki, kuma dukkanin wadanda suka rasu su 3 ʼyan kasar Rasha ne.</ORIGINAL_TEXT>
+<TOKEN id="token-2-0" pos="PREP" morph="A:a=PREP" start_char="351" end_char="351">A</TOKEN>
+<TOKEN id="token-2-1" pos="NOUN" morph="wani:wani=NOUN" start_char="353" end_char="356">wani</TOKEN>
+<TOKEN id="token-2-2" pos="NOUN" morph="taro:taro=NOUN n:n=CONSTRUCT" start_char="358" end_char="362">taron</TOKEN>
+<TOKEN id="token-2-3" pos="NOUN" morph="manema:manema=NOUN" start_char="364" end_char="369">manema</TOKEN>
+<TOKEN id="token-2-4" pos="NOUN" morph="labaru:labaru=NOUN" start_char="371" end_char="376">labaru</TOKEN>
+<TOKEN id="token-2-5" pos="PREP" morph="da:da=PREP" start_char="378" end_char="379">da</TOKEN>
+<TOKEN id="token-2-6" pos="PRON" morph="aka:aka=PRON_WSP_4P" start_char="381" end_char="383">aka</TOKEN>
+<TOKEN id="token-2-7" pos="VERB" morph="yi:yi=VERB" start_char="385" end_char="386">yi</TOKEN>
+<TOKEN id="token-2-8" pos="PREP" morph="a:a=PREP" start_char="388" end_char="388">a</TOKEN>
+<TOKEN id="token-2-9" pos="DEMPRON" morph="wannan:wannan=DEMPRON" start_char="390" end_char="395">wannan</TOKEN>
+<TOKEN id="token-2-10" pos="NOUN" morph="rana:rana=NOUN" start_char="397" end_char="400">rana</TOKEN>
+<TOKEN id="token-2-11" pos="punct" morph="none" start_char="401" end_char="401">,</TOKEN>
+<TOKEN id="token-2-12" pos="NOUN" morph="Stephane:stephane=NOUN" start_char="403" end_char="410">Stephane</TOKEN>
+<TOKEN id="token-2-13" pos="NOUN" morph="Dujarric:dujarric=NOUN" start_char="412" end_char="419">Dujarric</TOKEN>
+<TOKEN id="token-2-14" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="421" end_char="422">ya</TOKEN>
+<TOKEN id="token-2-15" pos="VERB" morph="ce:ce=VERB" start_char="424" end_char="425">ce</TOKEN>
+<TOKEN id="token-2-16" pos="NOUN" morph="jirgi:jirgi=NOUN n:n=CONSTRUCT" start_char="427" end_char="432">jirgin</TOKEN>
+<TOKEN id="token-2-17" pos="NOUN" morph="sama:sama=NOUN n:n=DEFINITE" start_char="434" end_char="438">saman</TOKEN>
+<TOKEN id="token-2-18" pos="PARTICLE" morph="mai:mai=PARTICLE" start_char="440" end_char="442">mai</TOKEN>
+<TOKEN id="token-2-19" pos="VERB" morph="saukar:saukar=VERB" start_char="444" end_char="449">saukar</TOKEN>
+<TOKEN id="token-2-20" pos="NOUN" morph="ungulu:ungulu=NOUN" start_char="451" end_char="456">ungulu</TOKEN>
+<TOKEN id="token-2-21" pos="RELPRON" morph="wanda:wanda=RELPRON" start_char="458" end_char="462">wanda</TOKEN>
+<TOKEN id="token-2-22" pos="PRON" morph="aka:aka=PRON_WSP_4P" start_char="464" end_char="466">aka</TOKEN>
+<TOKEN id="token-2-23" pos="VERB" morph="yi:yi=VERB" start_char="468" end_char="469">yi</TOKEN>
+<TOKEN id="token-2-24" pos="VERB" morph="hayar:hayar=VERB" start_char="471" end_char="475">hayar</TOKEN>
+<TOKEN id="token-2-25" pos="PRON" morph="sa:sa=PRON_WSP_3P" start_char="477" end_char="478">sa</TOKEN>
+<TOKEN id="token-2-26" pos="PREP" morph="daga:daga=PREP" start_char="480" end_char="483">daga</TOKEN>
+<TOKEN id="token-2-27" pos="NOUN" morph="Rasha:rasha=NOUN" start_char="485" end_char="489">Rasha</TOKEN>
+<TOKEN id="token-2-28" pos="punct" morph="none" start_char="490" end_char="490">,</TOKEN>
+<TOKEN id="token-2-29" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="492" end_char="493">ya</TOKEN>
+<TOKEN id="token-2-30" pos="VERB" morph="yi:yi=VERB" start_char="495" end_char="496">yi</TOKEN>
+<TOKEN id="token-2-31" pos="NOUN" morph="hadari:hadari=NOUN" start_char="498" end_char="503">hadari</TOKEN>
+<TOKEN id="token-2-32" pos="COPULA" morph="ne:ne=COPULA" start_char="505" end_char="506">ne</TOKEN>
+<TOKEN id="token-2-33" pos="ADV" morph="yayin:yayin=ADV" start_char="508" end_char="512">yayin</TOKEN>
+<TOKEN id="token-2-34" pos="PREP" morph="da:da=PREP" start_char="514" end_char="515">da</TOKEN>
+<TOKEN id="token-2-35" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="517" end_char="518">ya</TOKEN>
+<TOKEN id="token-2-36" pos="PRON" morph="ke:ke=CONT" start_char="520" end_char="521">ke</TOKEN>
+<TOKEN id="token-2-37" pos="NOUN" morph="jigila:jigila=NOUN r:r=CONSTRUCT" start_char="523" end_char="529">jigilar</TOKEN>
+<TOKEN id="token-2-38" pos="NOUN" morph="kayayyaki:kayayyaki=NOUN" start_char="531" end_char="539">kayayyaki</TOKEN>
+<TOKEN id="token-2-39" pos="punct" morph="none" start_char="540" end_char="540">,</TOKEN>
+<TOKEN id="token-2-40" pos="PARTICLE" morph="kuma:kuma=PARTICLE" start_char="542" end_char="545">kuma</TOKEN>
+<TOKEN id="token-2-41" pos="NOUN" morph="dukkani:dukkani=NOUN n:n=CONSTRUCT" start_char="547" end_char="554">dukkanin</TOKEN>
+<TOKEN id="token-2-42" pos="DEMPRON" morph="wadanda:wadanda=DEMPRON" start_char="556" end_char="562">wadanda</TOKEN>
+<TOKEN id="token-2-43" pos="PRON" morph="suka:suka=PRON_WSP_3P" start_char="564" end_char="567">suka</TOKEN>
+<TOKEN id="token-2-44" pos="VERB" morph="rasu:rasu=VERB" start_char="569" end_char="572">rasu</TOKEN>
+<TOKEN id="token-2-45" pos="PRON" morph="su:su=PRON_OBJ_3P" start_char="574" end_char="575">su</TOKEN>
+<TOKEN id="token-2-46" pos="number" morph="none" start_char="577" end_char="577">3</TOKEN>
+<TOKEN id="token-2-47" pos="NOUN" morph="ʼyan:ʼyan=NOUN" start_char="579" end_char="582">ʼyan</TOKEN>
+<TOKEN id="token-2-48" pos="NOUN" morph="kasa:kasa=NOUN r:r=CONSTRUCT" start_char="584" end_char="588">kasar</TOKEN>
+<TOKEN id="token-2-49" pos="NOUN" morph="Rasha:rasha=NOUN" start_char="590" end_char="594">Rasha</TOKEN>
+<TOKEN id="token-2-50" pos="COPULA" morph="ne:ne=COPULA" start_char="596" end_char="597">ne</TOKEN>
+<TOKEN id="token-2-51" pos="punct" morph="none" start_char="598" end_char="598">.</TOKEN>
+</SEG>
+<SEG id="segment-3" start_char="601" end_char="738">
+<ORIGINAL_TEXT>Stephane Dujarric ya kara da cewa tuni aka tura maʼaikatan rundunar zuwa wurin da hadarin ya auku, domin binciken dalilan aukuwar hadarin.</ORIGINAL_TEXT>
+<TOKEN id="token-3-0" pos="NOUN" morph="Stephane:stephane=NOUN" start_char="601" end_char="608">Stephane</TOKEN>
+<TOKEN id="token-3-1" pos="NOUN" morph="Dujarric:dujarric=NOUN" start_char="610" end_char="617">Dujarric</TOKEN>
+<TOKEN id="token-3-2" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="619" end_char="620">ya</TOKEN>
+<TOKEN id="token-3-3" pos="VERB" morph="kara:kara=VERB" start_char="622" end_char="625">kara</TOKEN>
+<TOKEN id="token-3-4" pos="PREP" morph="da:da=PREP" start_char="627" end_char="628">da</TOKEN>
+<TOKEN id="token-3-5" pos="NOUN" morph="cewa:cewa=NOUN" start_char="630" end_char="633">cewa</TOKEN>
+<TOKEN id="token-3-6" pos="ADV" morph="tuni:tuni=ADV" start_char="635" end_char="638">tuni</TOKEN>
+<TOKEN id="token-3-7" pos="PRON" morph="aka:aka=PRON_WSP_4P" start_char="640" end_char="642">aka</TOKEN>
+<TOKEN id="token-3-8" pos="VERB" morph="tura:tura=VERB" start_char="644" end_char="647">tura</TOKEN>
+<TOKEN id="token-3-9" pos="NOUN" morph="maʼaikata:maʼaikata=NOUN n:n=CONSTRUCT" start_char="649" end_char="658">maʼaikatan</TOKEN>
+<TOKEN id="token-3-10" pos="NOUN" morph="runduna:runduna=NOUN r:r=DEFINITE" start_char="660" end_char="667">rundunar</TOKEN>
+<TOKEN id="token-3-11" pos="PREP" morph="zuwa:zuwa=PREP" start_char="669" end_char="672">zuwa</TOKEN>
+<TOKEN id="token-3-12" pos="PREP" morph="wurin:wurin=PREP" start_char="674" end_char="678">wurin</TOKEN>
+<TOKEN id="token-3-13" pos="RELPRON" morph="da:da=RELPRON" start_char="680" end_char="681">da</TOKEN>
+<TOKEN id="token-3-14" pos="NOUN" morph="hadarin:hadarin=NOUN" start_char="683" end_char="689">hadarin</TOKEN>
+<TOKEN id="token-3-15" pos="PRON" morph="ya:ya=PRON_WSP_3SM" start_char="691" end_char="692">ya</TOKEN>
+<TOKEN id="token-3-16" pos="VERB" morph="auku:auku=VERB" start_char="694" end_char="697">auku</TOKEN>
+<TOKEN id="token-3-17" pos="punct" morph="none" start_char="698" end_char="698">,</TOKEN>
+<TOKEN id="token-3-18" pos="PREP" morph="domin:domin=PREP" start_char="700" end_char="704">domin</TOKEN>
+<TOKEN id="token-3-19" pos="NOUN" morph="bincike:bincike=NOUN n:n=CONSTRUCT" start_char="706" end_char="713">binciken</TOKEN>
+<TOKEN id="token-3-20" pos="NOUN" morph="dalila:dalila=NOUN n:n=CONSTRUCT" start_char="715" end_char="721">dalilan</TOKEN>
+<TOKEN id="token-3-21" pos="NOUN" morph="aukuwa:aukuwa=NOUN r:r=CONSTRUCT" start_char="723" end_char="729">aukuwar</TOKEN>
+<TOKEN id="token-3-22" pos="NOUN" morph="hadarin:hadarin=NOUN" start_char="731" end_char="737">hadarin</TOKEN>
+<TOKEN id="token-3-23" pos="punct" morph="none" start_char="738" end_char="738">.</TOKEN>
+</SEG>
+<SEG id="segment-4" start_char="740" end_char="746">
+<ORIGINAL_TEXT>(Amina)</ORIGINAL_TEXT>
+<TOKEN id="token-4-0" pos="punct" morph="none" start_char="740" end_char="740">(</TOKEN>
+<TOKEN id="token-4-1" pos="NOUN" morph="Amina:amina=NOUN" start_char="741" end_char="745">Amina</TOKEN>
+<TOKEN id="token-4-2" pos="punct" morph="none" start_char="746" end_char="746">)</TOKEN>
+</SEG>
+</TEXT>
+</DOC>
+</LCTL_TEXT>

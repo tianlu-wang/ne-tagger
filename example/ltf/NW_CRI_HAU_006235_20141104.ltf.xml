@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_TEXT SYSTEM "ltf.v1.5.dtd">
+<LCTL_TEXT>
+<DOC id="NW_CRI_HAU_006235_20141104" tokenization="tokenization_parameters.v2.0" grammar="none" raw_text_char_length="1283" raw_text_md5="64c15acced1beb11cf037b36982f647e">
+<TEXT>
+<SEG id="segment-0" start_char="0" end_char="208">
+<ORIGINAL_TEXT>Shugaban sashen taimakawa kasashen waje na maʼaikatar harkokin ciniki ta kasar Sin Wang Shengwen, ya ce gwamnatin kasar Sin na goyon bayan shirin hadin gwiwa tsakanin kasashen duniya wajen yaki da cutar Ebola.</ORIGINAL_TEXT>
+<TOKEN id="token-0-0" pos="word" morph="none" start_char="0" end_char="7">Shugaban</TOKEN>
+<TOKEN id="token-0-1" pos="word" morph="none" start_char="9" end_char="14">sashen</TOKEN>
+<TOKEN id="token-0-2" pos="word" morph="none" start_char="16" end_char="24">taimakawa</TOKEN>
+<TOKEN id="token-0-3" pos="word" morph="none" start_char="26" end_char="33">kasashen</TOKEN>
+<TOKEN id="token-0-4" pos="word" morph="none" start_char="35" end_char="38">waje</TOKEN>
+<TOKEN id="token-0-5" pos="word" morph="none" start_char="40" end_char="41">na</TOKEN>
+<TOKEN id="token-0-6" pos="word" morph="none" start_char="43" end_char="52">maʼaikatar</TOKEN>
+<TOKEN id="token-0-7" pos="word" morph="none" start_char="54" end_char="61">harkokin</TOKEN>
+<TOKEN id="token-0-8" pos="word" morph="none" start_char="63" end_char="68">ciniki</TOKEN>
+<TOKEN id="token-0-9" pos="word" morph="none" start_char="70" end_char="71">ta</TOKEN>
+<TOKEN id="token-0-10" pos="word" morph="none" start_char="73" end_char="77">kasar</TOKEN>
+<TOKEN id="token-0-11" pos="word" morph="none" start_char="79" end_char="81">Sin</TOKEN>
+<TOKEN id="token-0-12" pos="word" morph="none" start_char="83" end_char="86">Wang</TOKEN>
+<TOKEN id="token-0-13" pos="word" morph="none" start_char="88" end_char="95">Shengwen</TOKEN>
+<TOKEN id="token-0-14" pos="punct" morph="none" start_char="96" end_char="96">,</TOKEN>
+<TOKEN id="token-0-15" pos="word" morph="none" start_char="98" end_char="99">ya</TOKEN>
+<TOKEN id="token-0-16" pos="word" morph="none" start_char="101" end_char="102">ce</TOKEN>
+<TOKEN id="token-0-17" pos="word" morph="none" start_char="104" end_char="112">gwamnatin</TOKEN>
+<TOKEN id="token-0-18" pos="word" morph="none" start_char="114" end_char="118">kasar</TOKEN>
+<TOKEN id="token-0-19" pos="word" morph="none" start_char="120" end_char="122">Sin</TOKEN>
+<TOKEN id="token-0-20" pos="word" morph="none" start_char="124" end_char="125">na</TOKEN>
+<TOKEN id="token-0-21" pos="word" morph="none" start_char="127" end_char="131">goyon</TOKEN>
+<TOKEN id="token-0-22" pos="word" morph="none" start_char="133" end_char="137">bayan</TOKEN>
+<TOKEN id="token-0-23" pos="word" morph="none" start_char="139" end_char="144">shirin</TOKEN>
+<TOKEN id="token-0-24" pos="word" morph="none" start_char="146" end_char="150">hadin</TOKEN>
+<TOKEN id="token-0-25" pos="word" morph="none" start_char="152" end_char="156">gwiwa</TOKEN>
+<TOKEN id="token-0-26" pos="word" morph="none" start_char="158" end_char="165">tsakanin</TOKEN>
+<TOKEN id="token-0-27" pos="word" morph="none" start_char="167" end_char="174">kasashen</TOKEN>
+<TOKEN id="token-0-28" pos="word" morph="none" start_char="176" end_char="181">duniya</TOKEN>
+<TOKEN id="token-0-29" pos="word" morph="none" start_char="183" end_char="187">wajen</TOKEN>
+<TOKEN id="token-0-30" pos="word" morph="none" start_char="189" end_char="192">yaki</TOKEN>
+<TOKEN id="token-0-31" pos="word" morph="none" start_char="194" end_char="195">da</TOKEN>
+<TOKEN id="token-0-32" pos="word" morph="none" start_char="197" end_char="201">cutar</TOKEN>
+<TOKEN id="token-0-33" pos="word" morph="none" start_char="203" end_char="207">Ebola</TOKEN>
+<TOKEN id="token-0-34" pos="punct" morph="none" start_char="208" end_char="208">.</TOKEN>
+</SEG>
+<SEG id="segment-1" start_char="211" end_char="213">
+<ORIGINAL_TEXT>Mr.</ORIGINAL_TEXT>
+<TOKEN id="token-1-0" pos="word" morph="none" start_char="211" end_char="212">Mr</TOKEN>
+<TOKEN id="token-1-1" pos="punct" morph="none" start_char="213" end_char="213">.</TOKEN>
+</SEG>
+<SEG id="segment-2" start_char="215" end_char="350">
+<ORIGINAL_TEXT>Wang ya ce an yi amfani da fasahohin yaki da cutar SARS da Sin ta samu yayin da ake gina cibiyar bada jinyar cutar Ebola a kasar Liberia</ORIGINAL_TEXT>
+<TOKEN id="token-2-0" pos="word" morph="none" start_char="215" end_char="218">Wang</TOKEN>
+<TOKEN id="token-2-1" pos="word" morph="none" start_char="220" end_char="221">ya</TOKEN>
+<TOKEN id="token-2-2" pos="word" morph="none" start_char="223" end_char="224">ce</TOKEN>
+<TOKEN id="token-2-3" pos="word" morph="none" start_char="226" end_char="227">an</TOKEN>
+<TOKEN id="token-2-4" pos="word" morph="none" start_char="229" end_char="230">yi</TOKEN>
+<TOKEN id="token-2-5" pos="word" morph="none" start_char="232" end_char="237">amfani</TOKEN>
+<TOKEN id="token-2-6" pos="word" morph="none" start_char="239" end_char="240">da</TOKEN>
+<TOKEN id="token-2-7" pos="word" morph="none" start_char="242" end_char="250">fasahohin</TOKEN>
+<TOKEN id="token-2-8" pos="word" morph="none" start_char="252" end_char="255">yaki</TOKEN>
+<TOKEN id="token-2-9" pos="word" morph="none" start_char="257" end_char="258">da</TOKEN>
+<TOKEN id="token-2-10" pos="word" morph="none" start_char="260" end_char="264">cutar</TOKEN>
+<TOKEN id="token-2-11" pos="word" morph="none" start_char="266" end_char="269">SARS</TOKEN>
+<TOKEN id="token-2-12" pos="word" morph="none" start_char="271" end_char="272">da</TOKEN>
+<TOKEN id="token-2-13" pos="word" morph="none" start_char="274" end_char="276">Sin</TOKEN>
+<TOKEN id="token-2-14" pos="word" morph="none" start_char="278" end_char="279">ta</TOKEN>
+<TOKEN id="token-2-15" pos="word" morph="none" start_char="281" end_char="284">samu</TOKEN>
+<TOKEN id="token-2-16" pos="word" morph="none" start_char="286" end_char="290">yayin</TOKEN>
+<TOKEN id="token-2-17" pos="word" morph="none" start_char="292" end_char="293">da</TOKEN>
+<TOKEN id="token-2-18" pos="word" morph="none" start_char="295" end_char="297">ake</TOKEN>
+<TOKEN id="token-2-19" pos="word" morph="none" start_char="299" end_char="302">gina</TOKEN>
+<TOKEN id="token-2-20" pos="word" morph="none" start_char="304" end_char="310">cibiyar</TOKEN>
+<TOKEN id="token-2-21" pos="word" morph="none" start_char="312" end_char="315">bada</TOKEN>
+<TOKEN id="token-2-22" pos="word" morph="none" start_char="317" end_char="322">jinyar</TOKEN>
+<TOKEN id="token-2-23" pos="word" morph="none" start_char="324" end_char="328">cutar</TOKEN>
+<TOKEN id="token-2-24" pos="word" morph="none" start_char="330" end_char="334">Ebola</TOKEN>
+<TOKEN id="token-2-25" pos="word" morph="none" start_char="336" end_char="336">a</TOKEN>
+<TOKEN id="token-2-26" pos="word" morph="none" start_char="338" end_char="342">kasar</TOKEN>
+<TOKEN id="token-2-27" pos="word" morph="none" start_char="344" end_char="350">Liberia</TOKEN>
+</SEG>
+<SEG id="segment-3" start_char="353" end_char="738">
+<ORIGINAL_TEXT>Da yake karin haske game da wannan batu a taron manema labaru da aka gudanar game da taimakon Sin wajen yaki da cutar Ebola, da halin da ake ciki game da kandagarkin yaduwar cutar Wang Shengwen ya ce mataki da aka sanya gaba shi ne, kasar Sin za ta samar da kayayyaki kamar gadaje, da naʼurorin kona shara, da motocin jiyya da sauransu, bisa bukatun kasashen Afirka da lamarin ya shafa.</ORIGINAL_TEXT>
+<TOKEN id="token-3-0" pos="word" morph="none" start_char="353" end_char="354">Da</TOKEN>
+<TOKEN id="token-3-1" pos="word" morph="none" start_char="356" end_char="359">yake</TOKEN>
+<TOKEN id="token-3-2" pos="word" morph="none" start_char="361" end_char="365">karin</TOKEN>
+<TOKEN id="token-3-3" pos="word" morph="none" start_char="367" end_char="371">haske</TOKEN>
+<TOKEN id="token-3-4" pos="word" morph="none" start_char="373" end_char="376">game</TOKEN>
+<TOKEN id="token-3-5" pos="word" morph="none" start_char="378" end_char="379">da</TOKEN>
+<TOKEN id="token-3-6" pos="word" morph="none" start_char="381" end_char="386">wannan</TOKEN>
+<TOKEN id="token-3-7" pos="word" morph="none" start_char="388" end_char="391">batu</TOKEN>
+<TOKEN id="token-3-8" pos="word" morph="none" start_char="393" end_char="393">a</TOKEN>
+<TOKEN id="token-3-9" pos="word" morph="none" start_char="395" end_char="399">taron</TOKEN>
+<TOKEN id="token-3-10" pos="word" morph="none" start_char="401" end_char="406">manema</TOKEN>
+<TOKEN id="token-3-11" pos="word" morph="none" start_char="408" end_char="413">labaru</TOKEN>
+<TOKEN id="token-3-12" pos="word" morph="none" start_char="415" end_char="416">da</TOKEN>
+<TOKEN id="token-3-13" pos="word" morph="none" start_char="418" end_char="420">aka</TOKEN>
+<TOKEN id="token-3-14" pos="word" morph="none" start_char="422" end_char="428">gudanar</TOKEN>
+<TOKEN id="token-3-15" pos="word" morph="none" start_char="430" end_char="433">game</TOKEN>
+<TOKEN id="token-3-16" pos="word" morph="none" start_char="435" end_char="436">da</TOKEN>
+<TOKEN id="token-3-17" pos="word" morph="none" start_char="438" end_char="445">taimakon</TOKEN>
+<TOKEN id="token-3-18" pos="word" morph="none" start_char="447" end_char="449">Sin</TOKEN>
+<TOKEN id="token-3-19" pos="word" morph="none" start_char="451" end_char="455">wajen</TOKEN>
+<TOKEN id="token-3-20" pos="word" morph="none" start_char="457" end_char="460">yaki</TOKEN>
+<TOKEN id="token-3-21" pos="word" morph="none" start_char="462" end_char="463">da</TOKEN>
+<TOKEN id="token-3-22" pos="word" morph="none" start_char="465" end_char="469">cutar</TOKEN>
+<TOKEN id="token-3-23" pos="word" morph="none" start_char="471" end_char="475">Ebola</TOKEN>
+<TOKEN id="token-3-24" pos="punct" morph="none" start_char="476" end_char="476">,</TOKEN>
+<TOKEN id="token-3-25" pos="word" morph="none" start_char="478" end_char="479">da</TOKEN>
+<TOKEN id="token-3-26" pos="word" morph="none" start_char="481" end_char="485">halin</TOKEN>
+<TOKEN id="token-3-27" pos="word" morph="none" start_char="487" end_char="488">da</TOKEN>
+<TOKEN id="token-3-28" pos="word" morph="none" start_char="490" end_char="492">ake</TOKEN>
+<TOKEN id="token-3-29" pos="word" morph="none" start_char="494" end_char="497">ciki</TOKEN>
+<TOKEN id="token-3-30" pos="word" morph="none" start_char="499" end_char="502">game</TOKEN>
+<TOKEN id="token-3-31" pos="word" morph="none" start_char="504" end_char="505">da</TOKEN>
+<TOKEN id="token-3-32" pos="word" morph="none" start_char="507" end_char="517">kandagarkin</TOKEN>
+<TOKEN id="token-3-33" pos="word" morph="none" start_char="519" end_char="525">yaduwar</TOKEN>
+<TOKEN id="token-3-34" pos="word" morph="none" start_char="527" end_char="531">cutar</TOKEN>
+<TOKEN id="token-3-35" pos="word" morph="none" start_char="533" end_char="536">Wang</TOKEN>
+<TOKEN id="token-3-36" pos="word" morph="none" start_char="538" end_char="545">Shengwen</TOKEN>
+<TOKEN id="token-3-37" pos="word" morph="none" start_char="547" end_char="548">ya</TOKEN>
+<TOKEN id="token-3-38" pos="word" morph="none" start_char="550" end_char="551">ce</TOKEN>
+<TOKEN id="token-3-39" pos="word" morph="none" start_char="553" end_char="558">mataki</TOKEN>
+<TOKEN id="token-3-40" pos="word" morph="none" start_char="560" end_char="561">da</TOKEN>
+<TOKEN id="token-3-41" pos="word" morph="none" start_char="563" end_char="565">aka</TOKEN>
+<TOKEN id="token-3-42" pos="word" morph="none" start_char="567" end_char="571">sanya</TOKEN>
+<TOKEN id="token-3-43" pos="word" morph="none" start_char="573" end_char="576">gaba</TOKEN>
+<TOKEN id="token-3-44" pos="word" morph="none" start_char="578" end_char="580">shi</TOKEN>
+<TOKEN id="token-3-45" pos="word" morph="none" start_char="582" end_char="583">ne</TOKEN>
+<TOKEN id="token-3-46" pos="punct" morph="none" start_char="584" end_char="584">,</TOKEN>
+<TOKEN id="token-3-47" pos="word" morph="none" start_char="586" end_char="590">kasar</TOKEN>
+<TOKEN id="token-3-48" pos="word" morph="none" start_char="592" end_char="594">Sin</TOKEN>
+<TOKEN id="token-3-49" pos="word" morph="none" start_char="596" end_char="597">za</TOKEN>
+<TOKEN id="token-3-50" pos="word" morph="none" start_char="599" end_char="600">ta</TOKEN>
+<TOKEN id="token-3-51" pos="word" morph="none" start_char="602" end_char="606">samar</TOKEN>
+<TOKEN id="token-3-52" pos="word" morph="none" start_char="608" end_char="609">da</TOKEN>
+<TOKEN id="token-3-53" pos="word" morph="none" start_char="611" end_char="619">kayayyaki</TOKEN>
+<TOKEN id="token-3-54" pos="word" morph="none" start_char="621" end_char="625">kamar</TOKEN>
+<TOKEN id="token-3-55" pos="word" morph="none" start_char="627" end_char="632">gadaje</TOKEN>
+<TOKEN id="token-3-56" pos="punct" morph="none" start_char="633" end_char="633">,</TOKEN>
+<TOKEN id="token-3-57" pos="word" morph="none" start_char="635" end_char="636">da</TOKEN>
+<TOKEN id="token-3-58" pos="word" morph="none" start_char="638" end_char="646">naʼurorin</TOKEN>
+<TOKEN id="token-3-59" pos="word" morph="none" start_char="648" end_char="651">kona</TOKEN>
+<TOKEN id="token-3-60" pos="word" morph="none" start_char="653" end_char="657">shara</TOKEN>
+<TOKEN id="token-3-61" pos="punct" morph="none" start_char="658" end_char="658">,</TOKEN>
+<TOKEN id="token-3-62" pos="word" morph="none" start_char="660" end_char="661">da</TOKEN>
+<TOKEN id="token-3-63" pos="word" morph="none" start_char="663" end_char="669">motocin</TOKEN>
+<TOKEN id="token-3-64" pos="word" morph="none" start_char="671" end_char="675">jiyya</TOKEN>
+<TOKEN id="token-3-65" pos="word" morph="none" start_char="677" end_char="678">da</TOKEN>
+<TOKEN id="token-3-66" pos="word" morph="none" start_char="680" end_char="687">sauransu</TOKEN>
+<TOKEN id="token-3-67" pos="punct" morph="none" start_char="688" end_char="688">,</TOKEN>
+<TOKEN id="token-3-68" pos="word" morph="none" start_char="690" end_char="693">bisa</TOKEN>
+<TOKEN id="token-3-69" pos="word" morph="none" start_char="695" end_char="701">bukatun</TOKEN>
+<TOKEN id="token-3-70" pos="word" morph="none" start_char="703" end_char="710">kasashen</TOKEN>
+<TOKEN id="token-3-71" pos="word" morph="none" start_char="712" end_char="717">Afirka</TOKEN>
+<TOKEN id="token-3-72" pos="word" morph="none" start_char="719" end_char="720">da</TOKEN>
+<TOKEN id="token-3-73" pos="word" morph="none" start_char="722" end_char="728">lamarin</TOKEN>
+<TOKEN id="token-3-74" pos="word" morph="none" start_char="730" end_char="731">ya</TOKEN>
+<TOKEN id="token-3-75" pos="word" morph="none" start_char="733" end_char="737">shafa</TOKEN>
+<TOKEN id="token-3-76" pos="punct" morph="none" start_char="738" end_char="738">.</TOKEN>
+</SEG>
+<SEG id="segment-4" start_char="741" end_char="883">
+<ORIGINAL_TEXT>Ya ce game da tinkarar cutar Ebola, gwamnatin kasar Sin ta riga ta samar da gudummawar jin kai da yawan ta ya kai kudin kasar Yuan miliyan 750.</ORIGINAL_TEXT>
+<TOKEN id="token-4-0" pos="word" morph="none" start_char="741" end_char="742">Ya</TOKEN>
+<TOKEN id="token-4-1" pos="word" morph="none" start_char="744" end_char="745">ce</TOKEN>
+<TOKEN id="token-4-2" pos="word" morph="none" start_char="747" end_char="750">game</TOKEN>
+<TOKEN id="token-4-3" pos="word" morph="none" start_char="752" end_char="753">da</TOKEN>
+<TOKEN id="token-4-4" pos="word" morph="none" start_char="755" end_char="762">tinkarar</TOKEN>
+<TOKEN id="token-4-5" pos="word" morph="none" start_char="764" end_char="768">cutar</TOKEN>
+<TOKEN id="token-4-6" pos="word" morph="none" start_char="770" end_char="774">Ebola</TOKEN>
+<TOKEN id="token-4-7" pos="punct" morph="none" start_char="775" end_char="775">,</TOKEN>
+<TOKEN id="token-4-8" pos="word" morph="none" start_char="777" end_char="785">gwamnatin</TOKEN>
+<TOKEN id="token-4-9" pos="word" morph="none" start_char="787" end_char="791">kasar</TOKEN>
+<TOKEN id="token-4-10" pos="word" morph="none" start_char="793" end_char="795">Sin</TOKEN>
+<TOKEN id="token-4-11" pos="word" morph="none" start_char="797" end_char="798">ta</TOKEN>
+<TOKEN id="token-4-12" pos="word" morph="none" start_char="800" end_char="803">riga</TOKEN>
+<TOKEN id="token-4-13" pos="word" morph="none" start_char="805" end_char="806">ta</TOKEN>
+<TOKEN id="token-4-14" pos="word" morph="none" start_char="808" end_char="812">samar</TOKEN>
+<TOKEN id="token-4-15" pos="word" morph="none" start_char="814" end_char="815">da</TOKEN>
+<TOKEN id="token-4-16" pos="word" morph="none" start_char="817" end_char="826">gudummawar</TOKEN>
+<TOKEN id="token-4-17" pos="word" morph="none" start_char="828" end_char="830">jin</TOKEN>
+<TOKEN id="token-4-18" pos="word" morph="none" start_char="832" end_char="834">kai</TOKEN>
+<TOKEN id="token-4-19" pos="word" morph="none" start_char="836" end_char="837">da</TOKEN>
+<TOKEN id="token-4-20" pos="word" morph="none" start_char="839" end_char="843">yawan</TOKEN>
+<TOKEN id="token-4-21" pos="word" morph="none" start_char="845" end_char="846">ta</TOKEN>
+<TOKEN id="token-4-22" pos="word" morph="none" start_char="848" end_char="849">ya</TOKEN>
+<TOKEN id="token-4-23" pos="word" morph="none" start_char="851" end_char="853">kai</TOKEN>
+<TOKEN id="token-4-24" pos="word" morph="none" start_char="855" end_char="859">kudin</TOKEN>
+<TOKEN id="token-4-25" pos="word" morph="none" start_char="861" end_char="865">kasar</TOKEN>
+<TOKEN id="token-4-26" pos="word" morph="none" start_char="867" end_char="870">Yuan</TOKEN>
+<TOKEN id="token-4-27" pos="word" morph="none" start_char="872" end_char="878">miliyan</TOKEN>
+<TOKEN id="token-4-28" pos="word" morph="none" start_char="880" end_char="882">750</TOKEN>
+<TOKEN id="token-4-29" pos="punct" morph="none" start_char="883" end_char="883">.</TOKEN>
+</SEG>
+<SEG id="segment-5" start_char="886" end_char="1271">
+<ORIGINAL_TEXT>Bisa labarin da maʼaikatar kiwon lafiya ta kasar Saliyo ta bayar a ranar 2 ga wata, an ce, a ranar 31 ga watan Oktoba, ofishin gwaji na cibiyar yaki da cututtuka ta kasar Sin dake kasar Saliyo, ya yi bincike kan wasu abubuwa masu dauke da kwayoyin cutar Ebola guda 106, adadin da ya kai matsayin koli idan aka kwatanta shi da sauran ofisoshin gwaji na kasa da kasa dake kasar ta Saliyo.</ORIGINAL_TEXT>
+<TOKEN id="token-5-0" pos="word" morph="none" start_char="886" end_char="889">Bisa</TOKEN>
+<TOKEN id="token-5-1" pos="word" morph="none" start_char="891" end_char="897">labarin</TOKEN>
+<TOKEN id="token-5-2" pos="word" morph="none" start_char="899" end_char="900">da</TOKEN>
+<TOKEN id="token-5-3" pos="word" morph="none" start_char="902" end_char="911">maʼaikatar</TOKEN>
+<TOKEN id="token-5-4" pos="word" morph="none" start_char="913" end_char="917">kiwon</TOKEN>
+<TOKEN id="token-5-5" pos="word" morph="none" start_char="919" end_char="924">lafiya</TOKEN>
+<TOKEN id="token-5-6" pos="word" morph="none" start_char="926" end_char="927">ta</TOKEN>
+<TOKEN id="token-5-7" pos="word" morph="none" start_char="929" end_char="933">kasar</TOKEN>
+<TOKEN id="token-5-8" pos="word" morph="none" start_char="935" end_char="940">Saliyo</TOKEN>
+<TOKEN id="token-5-9" pos="word" morph="none" start_char="942" end_char="943">ta</TOKEN>
+<TOKEN id="token-5-10" pos="word" morph="none" start_char="945" end_char="949">bayar</TOKEN>
+<TOKEN id="token-5-11" pos="word" morph="none" start_char="951" end_char="951">a</TOKEN>
+<TOKEN id="token-5-12" pos="word" morph="none" start_char="953" end_char="957">ranar</TOKEN>
+<TOKEN id="token-5-13" pos="number" morph="none" start_char="959" end_char="959">2</TOKEN>
+<TOKEN id="token-5-14" pos="word" morph="none" start_char="961" end_char="962">ga</TOKEN>
+<TOKEN id="token-5-15" pos="word" morph="none" start_char="964" end_char="967">wata</TOKEN>
+<TOKEN id="token-5-16" pos="punct" morph="none" start_char="968" end_char="968">,</TOKEN>
+<TOKEN id="token-5-17" pos="word" morph="none" start_char="970" end_char="971">an</TOKEN>
+<TOKEN id="token-5-18" pos="word" morph="none" start_char="973" end_char="974">ce</TOKEN>
+<TOKEN id="token-5-19" pos="punct" morph="none" start_char="975" end_char="975">,</TOKEN>
+<TOKEN id="token-5-20" pos="word" morph="none" start_char="977" end_char="977">a</TOKEN>
+<TOKEN id="token-5-21" pos="word" morph="none" start_char="979" end_char="983">ranar</TOKEN>
+<TOKEN id="token-5-22" pos="number" morph="none" start_char="985" end_char="986">31</TOKEN>
+<TOKEN id="token-5-23" pos="word" morph="none" start_char="988" end_char="989">ga</TOKEN>
+<TOKEN id="token-5-24" pos="word" morph="none" start_char="991" end_char="995">watan</TOKEN>
+<TOKEN id="token-5-25" pos="word" morph="none" start_char="997" end_char="1002">Oktoba</TOKEN>
+<TOKEN id="token-5-26" pos="punct" morph="none" start_char="1003" end_char="1003">,</TOKEN>
+<TOKEN id="token-5-27" pos="word" morph="none" start_char="1005" end_char="1011">ofishin</TOKEN>
+<TOKEN id="token-5-28" pos="word" morph="none" start_char="1013" end_char="1017">gwaji</TOKEN>
+<TOKEN id="token-5-29" pos="word" morph="none" start_char="1019" end_char="1020">na</TOKEN>
+<TOKEN id="token-5-30" pos="word" morph="none" start_char="1022" end_char="1028">cibiyar</TOKEN>
+<TOKEN id="token-5-31" pos="word" morph="none" start_char="1030" end_char="1033">yaki</TOKEN>
+<TOKEN id="token-5-32" pos="word" morph="none" start_char="1035" end_char="1036">da</TOKEN>
+<TOKEN id="token-5-33" pos="word" morph="none" start_char="1038" end_char="1046">cututtuka</TOKEN>
+<TOKEN id="token-5-34" pos="word" morph="none" start_char="1048" end_char="1049">ta</TOKEN>
+<TOKEN id="token-5-35" pos="word" morph="none" start_char="1051" end_char="1055">kasar</TOKEN>
+<TOKEN id="token-5-36" pos="word" morph="none" start_char="1057" end_char="1059">Sin</TOKEN>
+<TOKEN id="token-5-37" pos="word" morph="none" start_char="1061" end_char="1064">dake</TOKEN>
+<TOKEN id="token-5-38" pos="word" morph="none" start_char="1066" end_char="1070">kasar</TOKEN>
+<TOKEN id="token-5-39" pos="word" morph="none" start_char="1072" end_char="1077">Saliyo</TOKEN>
+<TOKEN id="token-5-40" pos="punct" morph="none" start_char="1078" end_char="1078">,</TOKEN>
+<TOKEN id="token-5-41" pos="word" morph="none" start_char="1080" end_char="1081">ya</TOKEN>
+<TOKEN id="token-5-42" pos="word" morph="none" start_char="1083" end_char="1084">yi</TOKEN>
+<TOKEN id="token-5-43" pos="word" morph="none" start_char="1086" end_char="1092">bincike</TOKEN>
+<TOKEN id="token-5-44" pos="word" morph="none" start_char="1094" end_char="1096">kan</TOKEN>
+<TOKEN id="token-5-45" pos="word" morph="none" start_char="1098" end_char="1101">wasu</TOKEN>
+<TOKEN id="token-5-46" pos="word" morph="none" start_char="1103" end_char="1109">abubuwa</TOKEN>
+<TOKEN id="token-5-47" pos="word" morph="none" start_char="1111" end_char="1114">masu</TOKEN>
+<TOKEN id="token-5-48" pos="word" morph="none" start_char="1116" end_char="1120">dauke</TOKEN>
+<TOKEN id="token-5-49" pos="word" morph="none" start_char="1122" end_char="1123">da</TOKEN>
+<TOKEN id="token-5-50" pos="word" morph="none" start_char="1125" end_char="1132">kwayoyin</TOKEN>
+<TOKEN id="token-5-51" pos="word" morph="none" start_char="1134" end_char="1138">cutar</TOKEN>
+<TOKEN id="token-5-52" pos="word" morph="none" start_char="1140" end_char="1144">Ebola</TOKEN>
+<TOKEN id="token-5-53" pos="word" morph="none" start_char="1146" end_char="1149">guda</TOKEN>
+<TOKEN id="token-5-54" pos="word" morph="none" start_char="1151" end_char="1153">106</TOKEN>
+<TOKEN id="token-5-55" pos="punct" morph="none" start_char="1154" end_char="1154">,</TOKEN>
+<TOKEN id="token-5-56" pos="word" morph="none" start_char="1156" end_char="1161">adadin</TOKEN>
+<TOKEN id="token-5-57" pos="word" morph="none" start_char="1163" end_char="1164">da</TOKEN>
+<TOKEN id="token-5-58" pos="word" morph="none" start_char="1166" end_char="1167">ya</TOKEN>
+<TOKEN id="token-5-59" pos="word" morph="none" start_char="1169" end_char="1171">kai</TOKEN>
+<TOKEN id="token-5-60" pos="word" morph="none" start_char="1173" end_char="1180">matsayin</TOKEN>
+<TOKEN id="token-5-61" pos="word" morph="none" start_char="1182" end_char="1185">koli</TOKEN>
+<TOKEN id="token-5-62" pos="word" morph="none" start_char="1187" end_char="1190">idan</TOKEN>
+<TOKEN id="token-5-63" pos="word" morph="none" start_char="1192" end_char="1194">aka</TOKEN>
+<TOKEN id="token-5-64" pos="word" morph="none" start_char="1196" end_char="1203">kwatanta</TOKEN>
+<TOKEN id="token-5-65" pos="word" morph="none" start_char="1205" end_char="1207">shi</TOKEN>
+<TOKEN id="token-5-66" pos="word" morph="none" start_char="1209" end_char="1210">da</TOKEN>
+<TOKEN id="token-5-67" pos="word" morph="none" start_char="1212" end_char="1217">sauran</TOKEN>
+<TOKEN id="token-5-68" pos="word" morph="none" start_char="1219" end_char="1227">ofisoshin</TOKEN>
+<TOKEN id="token-5-69" pos="word" morph="none" start_char="1229" end_char="1233">gwaji</TOKEN>
+<TOKEN id="token-5-70" pos="word" morph="none" start_char="1235" end_char="1236">na</TOKEN>
+<TOKEN id="token-5-71" pos="word" morph="none" start_char="1238" end_char="1241">kasa</TOKEN>
+<TOKEN id="token-5-72" pos="word" morph="none" start_char="1243" end_char="1244">da</TOKEN>
+<TOKEN id="token-5-73" pos="word" morph="none" start_char="1246" end_char="1249">kasa</TOKEN>
+<TOKEN id="token-5-74" pos="word" morph="none" start_char="1251" end_char="1254">dake</TOKEN>
+<TOKEN id="token-5-75" pos="word" morph="none" start_char="1256" end_char="1260">kasar</TOKEN>
+<TOKEN id="token-5-76" pos="word" morph="none" start_char="1262" end_char="1263">ta</TOKEN>
+<TOKEN id="token-5-77" pos="word" morph="none" start_char="1265" end_char="1270">Saliyo</TOKEN>
+<TOKEN id="token-5-78" pos="punct" morph="none" start_char="1271" end_char="1271">.</TOKEN>
+</SEG>
+<SEG id="segment-6" start_char="1273" end_char="1280">
+<ORIGINAL_TEXT>(Zainab)</ORIGINAL_TEXT>
+<TOKEN id="token-6-0" pos="punct" morph="none" start_char="1273" end_char="1273">(</TOKEN>
+<TOKEN id="token-6-1" pos="word" morph="none" start_char="1274" end_char="1279">Zainab</TOKEN>
+<TOKEN id="token-6-2" pos="punct" morph="none" start_char="1280" end_char="1280">)</TOKEN>
+</SEG>
+</TEXT>
+</DOC>
+</LCTL_TEXT>

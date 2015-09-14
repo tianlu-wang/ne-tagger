@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006331_20141119" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-1" task="NE" type="ORG">
+      <EXTENT start_char="0" end_char="29">Hukumar kiwon lafiya ta duniya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-2" task="NE" type="ORG">
+      <EXTENT start_char="31" end_char="33">WHO</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-3" task="NE" type="LOC">
+      <EXTENT start_char="85" end_char="94">kasar Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-4" task="NE" type="ORG">
+      <EXTENT start_char="161" end_char="164">MDDr</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-5" task="NE" type="PER">
+      <EXTENT start_char="166" end_char="182">Stephane Dujarric</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-6" task="NE" type="LOC">
+      <EXTENT start_char="210" end_char="213">Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="324" end_char="337"> kasar ta Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-8" task="NE" type="LOC">
+      <EXTENT start_char="492" end_char="504">birnin Bamako</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-9" task="NE" type="ORG">
+      <EXTENT start_char="545" end_char="550">UNICEF</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-10" task="NE" type="ORG">
+      <EXTENT start_char="730" end_char="733">MDDr</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-11" task="NE" type="LOC">
+      <EXTENT start_char="823" end_char="827">Malin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006331_20141119-ann-12" task="NE" type="PER">
+      <EXTENT start_char="832" end_char="843">kasar Guinea</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

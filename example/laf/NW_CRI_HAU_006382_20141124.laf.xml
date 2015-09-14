@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006382_20141124" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-1" task="NE" type="TTL">
+      <EXTENT start_char="0" end_char="11">Firaministan</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-2" task="NE" type="LOC">
+      <EXTENT start_char="12" end_char="26"> kasar Algeria </EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-3" task="NE" type="PER">
+      <EXTENT start_char="27" end_char="42">Abdelmalek Sella</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-4" task="NE" type="ORG">
+      <EXTENT start_char="113" end_char="125"> Red Crescent</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-5" task="NE" type="LOC">
+      <EXTENT start_char="207" end_char="236">kudu maso yammacin kasar Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-6" task="NE" type="LOC">
+      <EXTENT start_char="555" end_char="561">Algeria</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="635" end_char="639">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-8" task="NE" type="ORG">
+      <EXTENT start_char="681" end_char="692">Red Crescent</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-9" task="NE" type="LOC">
+      <EXTENT start_char="697" end_char="701">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-10" task="NE" type="LOC">
+      <EXTENT start_char="814" end_char="820">Ghdames</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-11" task="NE" type="LOC">
+      <EXTENT start_char="825" end_char="828">Ghat</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-12" task="NE" type="LOC">
+      <EXTENT start_char="928" end_char="936">Tinalicom</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-13" task="NE" type="LOC">
+      <EXTENT start_char="947" end_char="953">Algeria</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-14" task="NE" type="ORG">
+      <EXTENT start_char="958" end_char="962">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-15" task="NE" type="LOC">
+      <EXTENT start_char="1020" end_char="1024">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-16" task="NE" type="LOC">
+      <EXTENT start_char="1053" end_char="1059">Algeria</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-17" task="NE" type="LOC">
+      <EXTENT start_char="1132" end_char="1136">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-18" task="NE" type="LOC">
+      <EXTENT start_char="1150" end_char="1156">Algeria</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-19" task="NE" type="LOC">
+      <EXTENT start_char="1196" end_char="1200">Libya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006382_20141124-ann-20" task="NE" type="ORG">
+      <EXTENT start_char="1219" end_char="1226">al-Qaida</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006304_20141115" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-1" task="NE" type="TTL">
+      <EXTENT start_char="0" end_char="18">Babban magatakardar</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-2" task="NE" type="ORG">
+      <EXTENT start_char="20" end_char="22">MDD</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-3" task="NE" type="PER">
+      <EXTENT start_char="24" end_char="34">Ban Ki-moon</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-4" task="NE" type="ORG">
+      <EXTENT start_char="68" end_char="126">kungiyar kasashe ashirin masu karfin tattalin arziki ta G20</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-5" task="NE" type="TTL">
+      <EXTENT start_char="189" end_char="191">Mr.</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-6" task="NE" type="PER">
+      <EXTENT start_char="193" end_char="195">Ban</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="268" end_char="282">birnin Brisbane</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-8" task="NE" type="ORG">
+      <EXTENT start_char="485" end_char="488">G20n</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-9" task="NE" type="TTL">
+      <EXTENT start_char="569" end_char="571">Mr.</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-10" task="NE" type="PER">
+      <EXTENT start_char="573" end_char="575">Ban</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-11" task="NE" type="ORG">
+      <EXTENT start_char="805" end_char="807">MDD</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-12" task="NE" type="ORG">
+      <EXTENT start_char="1084" end_char="1107">hukumar lafiya ta duniya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006304_20141115-ann-13" task="NE" type="ORG">
+      <EXTENT start_char="1109" end_char="1111">WHO</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

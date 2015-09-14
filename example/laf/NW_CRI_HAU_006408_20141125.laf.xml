@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006408_20141125" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-1" task="NE" type="ORG">
+      <EXTENT start_char="23" end_char="34">kasar Amurka</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-2" task="NE" type="ORG">
+      <EXTENT start_char="65" end_char="74">kasar Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-3" task="NE" type="ORG">
+      <EXTENT start_char="186" end_char="189">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-4" task="NE" type="TTL">
+      <EXTENT start_char="247" end_char="253">Kakakin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-5" task="NE" type="ORG">
+      <EXTENT start_char="255" end_char="274">fadar ta White House</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-6" task="NE" type="PER">
+      <EXTENT start_char="276" end_char="287">Josh Earnest</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-7" task="NE" type="ORG">
+      <EXTENT start_char="349" end_char="372">majalisar dokokin Amurka</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-8" task="NE" type="ORG">
+      <EXTENT start_char="400" end_char="403">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-9" task="NE" type="LOC">
+      <EXTENT start_char="469" end_char="474">Vienna</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-10" task="NE" type="LOC">
+      <EXTENT start_char="479" end_char="485">Austria</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-11" task="NE" type="ORG">
+      <EXTENT start_char="517" end_char="520">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-12" task="NE" type="TTL">
+      <EXTENT start_char="623" end_char="631">sakataren</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-13" task="NE" type="ORG">
+      <EXTENT start_char="633" end_char="654">harokokin wajen Amurka</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-14" task="NE" type="PER">
+      <EXTENT start_char="656" end_char="665">John Kerry</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-15" task="NE" type="ORG">
+      <EXTENT start_char="721" end_char="724">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-16" task="NE" type="ORG">
+      <EXTENT start_char="888" end_char="891">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-17" task="NE" type="ORG">
+      <EXTENT start_char="1019" end_char="1031">kasar ta Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-18" task="NE" type="ORG">
+      <EXTENT start_char="1076" end_char="1081">Amurka</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-19" task="NE" type="ORG">
+      <EXTENT start_char="1059" end_char="1062">Iran</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-20" task="NE" type="ORG">
+      <EXTENT start_char="1084" end_char="1088">Rasha</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-21" task="NE" type="ORG">
+      <EXTENT start_char="1091" end_char="1098">Britania</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-22" task="NE" type="ORG">
+      <EXTENT start_char="1101" end_char="1103">Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-23" task="NE" type="ORG">
+      <EXTENT start_char="1106" end_char="1112">Faransa</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-24" task="NE" type="ORG">
+      <EXTENT start_char="1117" end_char="1121">Jamus</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006408_20141125-ann-25" task="NE" type="PER">
+      <EXTENT start_char="1228" end_char="1234">Suwaiba</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

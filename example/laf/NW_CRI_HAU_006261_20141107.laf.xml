@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006261_20141107" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-1" task="NE" type="PER">
+      <EXTENT start_char="25" end_char="33">Bob Hawke</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-2" task="NE" type="TTL">
+      <EXTENT start_char="43" end_char="60">firaministan kasar</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-3" task="NE" type="LOC">
+      <EXTENT start_char="62" end_char="70">Australia</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-4" task="NE" type="ORG">
+      <EXTENT start_char="101" end_char="174">kungiyar hadin kan tattalin arziki a yankin nahiyar Asiya da tekun Pacific</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-5" task="NE" type="ORG">
+      <EXTENT start_char="181" end_char="184">APEC</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-6" task="NE" type="LOC">
+      <EXTENT start_char="233" end_char="254">Asiya da tekun Pacific</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-7" task="NE" type="ORG">
+      <EXTENT start_char="314" end_char="317">APEC</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-8" task="NE" type="ORG">
+      <EXTENT start_char="409" end_char="417">kasar Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-9" task="NE" type="ORG">
+      <EXTENT start_char="486" end_char="497">kasashen Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-10" task="NE" type="ORG">
+      <EXTENT start_char="502" end_char="507">Amurka</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-11" task="NE" type="LOC">
+      <EXTENT start_char="615" end_char="623">kasar Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-12" task="NE" type="LOC">
+      <EXTENT start_char="637" end_char="658">Asiya da tekun Pacific</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-13" task="NE" type="TTL">
+      <EXTENT start_char="662" end_char="666">Mista</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-14" task="NE" type="PER">
+      <EXTENT start_char="668" end_char="672">Hawke</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-15" task="NE" type="ORG">
+      <EXTENT start_char="744" end_char="756">kungiyar APEC</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-16" task="NE" type="LOC">
+      <EXTENT start_char="772" end_char="780">kasar Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-17" task="NE" type="LOC">
+      <EXTENT start_char="804" end_char="810">Beijing</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-18" task="NE" type="PER">
+      <EXTENT start_char="825" end_char="835">Zhang Lijun</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-19" task="NE" type="TTL">
+      <EXTENT start_char="838" end_char="845">shugaban</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-20" task="NE" type="ORG">
+      <EXTENT start_char="867" end_char="879">kungiyar APEC</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-21" task="NE" type="PER">
+      <EXTENT start_char="882" end_char="895">Martin Cauchon</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-22" task="NE" type="TTL">
+      <EXTENT start_char="905" end_char="912">ministan</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-23" task="NE" type="PER">
+      <EXTENT start_char="958" end_char="967">Li Yizhong</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-24" task="NE" type="TTL">
+      <EXTENT start_char="970" end_char="977">shugaban</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-25" task="NE" type="ORG">
+      <EXTENT start_char="914" end_char="955">harkokin haraji da shari'a na kasar Canada</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-26" task="NE" type="ORG">
+      <EXTENT start_char="990" end_char="1041">kungiyar masana'antu da tattalin arziki ta kasar Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-27" task="NE" type="ORG">
+      <EXTENT start_char="1118" end_char="1130">kungiyar APEC</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006261_20141107-ann-28" task="NE" type="ORG">
+      <EXTENT start_char="1208" end_char="1229">Asiya da tekun Pacific</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

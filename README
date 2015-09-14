@@ -1,0 +1,109 @@
+I. Overview
+-----------
+The named entity tagger uses a conditional random field (CRF) and small set of
+orthographic and lexical features to transform the gold standard tokenization
+of a document into a sequence of entity mentions. The software suite is
+intended to be usable by anyone with command-line experience to train models
+and perform tagging for an arbitrary language, to which effect three 
+tools are provided:
+
+i)   tagger.py
+
+ii)  train.py
+  
+iii) score.py
+
+When trained on 90% of the annotated data available in this release, the
+tagger achieves the following performance:
+
+Precision: 74.29%
+Recall:    65.47%
+F1:        69.60%
+
+A sample model trained on ALL files annotated is provided (see hausa_ne_model).
+
+
+II. Dependencies
+----------------
+The following are required to run this software:
+
+-Python >= 2.7.1*
+-lxml >= 3.0      (http://lxml.de/index.html#download)
+-joblib >= 0.6.5  (https://pythonhosted.org/joblib/)
+-CRFSuite >= 0.12 (http://www.chokkan.org/software/crfsuite/)
+-libLBFGS >= 1.10 (http://www.chokkan.org/software/liblbfgs/)
+
+*Python 3 not supported
+
+In most cases versions older than those indicated should also work.
+
+
+III. Tagging
+------------
+To perform named entity tagging for a set of documents in LCTL Text Format
+(LTF), run the following from the command line:
+
+./tagger.py -L /path/to/output_dir /path/to/model_dir ltf1 ltf2 ltf3 ...
+
+which will perform named entity recognition using the model stored in model_dir
+for the files ltf1, ltf2, ltf3, ... and output a corresponding LCTL Annotation
+Format (LAF) file for each in output_dir. The files may be specified
+individually via the commandline, as above, or from a script file (containing
+one path per line) using the -S argument. After processing a bath of files, the
+utility will output the names of any files it has problems with.
+
+For a listing of all options, run tagger.py without any arguments.
+
+
+IV. Training a new model
+------------------------
+To train a new model, from the command line run:
+
+./train.py /path/to/model_dir /path/to/ltf_dir laf1 laf2 laf3 ...
+
+which will train a new model using the annotations specified in laf1, laf2, 
+laf3, ..., their corresponding LTF files in ltf_dir, and store the resulting
+model to model_dir. The LAF files may be specified individually via the
+commandline, as above, or from a script file (containing one path per line)
+using the -S argument.	    
+
+Additional command-line arguments allow limited customization of the feature
+extraction process and training process, including:
+
+i)  the number of words to the left and right to consider when generating 
+    features
+    (--n_left and --n_right)
+
+ii) how many word prefix/suffix features to generate
+    (--max_prefix_len and --max_suffix_len)
+
+iii) how long to continue training
+     (--max_iter)
+
+For a full listing, run train.py without any arguments.
+
+
+V. Scoring
+----------
+To evaluate tagger output against gold standard annotation files, run:
+
+./score.py /path/to/ref_laf_dir /path/to/sys_laf_dir /path/to/ltf_dir
+
+where ref_laf_dir contains the gold standard LAF files, sys_laf_dir the tagger
+output LAF files, and ltf_dir the corresponding LTF files. This will calculate
+and report Precision, Recall, and F1 (where tagged mentions are scored as hits
+iff the gold standard annotation contains a mention with the same token
+onset/offset and tag).
+
+
+VI. Relation to annotated extents
+---------------------------------
+While the basis for the NER tool is the gold standard tokenization contained
+in the LTF files, the human annotations report character extents, which are
+not guaranteed to (read, probably do not) correspond to a sequence of tokens.
+To deal with this mismatch, the tagger REMAPS the gold standard extents to
+correspond to the minimal enclosing token sequence. This is done both during
+training to get tags and at test time to obtain performance metrics.
+Consequently, there may be systematic and severe differences between the
+character extents the tool produces and what human annotators produce.
+ 

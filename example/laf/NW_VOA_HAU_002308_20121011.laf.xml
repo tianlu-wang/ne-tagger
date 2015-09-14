@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_VOA_HAU_002308_20121011" lang="HAU">
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-1" task="NE" type="ORG">
+      <EXTENT start_char="8" end_char="71">kungiyar masu fama da cutar kanjamau (HIV AIDS) a kasar Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-2" task="NE" type="LOC">
+      <EXTENT start_char="92" end_char="99">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-3" task="NE" type="LOC">
+      <EXTENT start_char="269" end_char="276">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-4" task="NE" type="LOC">
+      <EXTENT start_char="374" end_char="386">birnin Harare</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-5" task="NE" type="LOC">
+      <EXTENT start_char="435" end_char="442">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-6" task="NE" type="PER">
+      <EXTENT start_char="446" end_char="464">Douglas Muzanenhamo</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="563" end_char="570">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-8" task="NE" type="LOC">
+      <EXTENT start_char="905" end_char="918">Kasar Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-9" task="NE" type="LOC">
+      <EXTENT start_char="1066" end_char="1073">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-10" task="NE" type="LOC">
+      <EXTENT start_char="1235" end_char="1242">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-11" task="NE" type="PER">
+      <EXTENT start_char="1299" end_char="1306">Chabikwa</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-12" task="NE" type="LOC">
+      <EXTENT start_char="1336" end_char="1343">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-13" task="NE" type="LOC">
+      <EXTENT start_char="1428" end_char="1435">Zimbabwe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-ann-14" task="NE" type="LOC">
+      <EXTENT start_char="1518" end_char="1525">Zimbabwe</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

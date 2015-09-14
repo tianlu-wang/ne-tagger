@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006360_20141121" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-1" task="NE" type="TTL">
+      <EXTENT start_char="9" end_char="16">shugaban</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-2" task="NE" type="LOC">
+      <EXTENT start_char="18" end_char="26">kasar Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-3" task="NE" type="PER">
+      <EXTENT start_char="28" end_char="37">Xi Jinping</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-4" task="NE" type="LOC">
+      <EXTENT start_char="46" end_char="55">kasar Fiji</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-5" task="NE" type="LOC">
+      <EXTENT start_char="104" end_char="126"> kudancin tekun Fasific</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-6" task="NE" type="TTL">
+      <EXTENT start_char="130" end_char="141">Firaministan</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="143" end_char="146">Fiji</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-8" task="NE" type="PER">
+      <EXTENT start_char="148" end_char="160">Josaia Voreqe</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-9" task="NE" type="TTL">
+      <EXTENT start_char="191" end_char="197">shugaba</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-10" task="NE" type="PER">
+      <EXTENT start_char="199" end_char="200">Xi</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-11" task="NE" type="LOC">
+      <EXTENT start_char="219" end_char="251">filin saukar jiragen sama na Nadi</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-12" task="NE" type="TTL">
+      <EXTENT start_char="267" end_char="273">shugaba</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-13" task="NE" type="PER">
+      <EXTENT start_char="275" end_char="276">Xi</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-14" task="NE" type="LOC">
+      <EXTENT start_char="349" end_char="358">kasar Fiji</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-15" task="NE" type="LOC">
+      <EXTENT start_char="453" end_char="456">Fiji</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-16" task="NE" type="TTL">
+      <EXTENT start_char="459" end_char="465">shugaba</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-17" task="NE" type="PER">
+      <EXTENT start_char="467" end_char="468">Xi</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-18" task="NE" type="LOC">
+      <EXTENT start_char="549" end_char="551">Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-19" task="NE" type="TTL">
+      <EXTENT start_char="618" end_char="624">Shugaba</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-20" task="NE" type="PER">
+      <EXTENT start_char="626" end_char="627">Xi</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-21" task="NE" type="LOC">
+      <EXTENT start_char="636" end_char="638">Sin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006360_20141121-ann-22" task="NE" type="LOC">
+      <EXTENT start_char="791" end_char="799">kasar Sin</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="HAU">
+  <DOC id="NW_CRI_HAU_006418_20141126" lang="HAU">
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-1" task="NE" type="LOC">
+      <EXTENT start_char="47" end_char="56">kasar Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-2" task="NE" type="ORG">
+      <EXTENT start_char="210" end_char="212">MDD</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-3" task="NE" type="TTL">
+      <EXTENT start_char="239" end_char="245">kakakin</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-4" task="NE" type="ORG">
+      <EXTENT start_char="247" end_char="250">MDDr</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-5" task="NE" type="PER">
+      <EXTENT start_char="252" end_char="268">Stephane Dujarric</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-6" task="NE" type="PER">
+      <EXTENT start_char="386" end_char="393">Dujarric</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-7" task="NE" type="LOC">
+      <EXTENT start_char="527" end_char="533">Senegal</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-8" task="NE" type="LOC">
+      <EXTENT start_char="538" end_char="545">Najeriya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-9" task="NE" type="LOC">
+      <EXTENT start_char="628" end_char="631">Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-10" task="NE" type="LOC">
+      <EXTENT start_char="665" end_char="677">kasar ta Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-11" task="NE" type="ORG">
+      <EXTENT start_char="688" end_char="708">gwiwar hukumar lafiya</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-12" task="NE" type="ORG">
+      <EXTENT start_char="713" end_char="715">WHO</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-13" task="NE" type="LOC">
+      <EXTENT start_char="783" end_char="794">kasar Guinea</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-14" task="NE" type="ORG">
+      <EXTENT start_char="895" end_char="897">MDD</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-15" task="NE" type="LOC">
+      <EXTENT start_char="944" end_char="957">birnin Bamakon</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-16" task="NE" type="LOC">
+      <EXTENT start_char="959" end_char="971">kasar ta Mali</EXTENT>
+    </ANNOTATION>
+    <ANNOTATION id="NW_CRI_HAU_006418_20141126-ann-17" task="NE" type="PER">
+      <EXTENT start_char="1061" end_char="1066">Saminu</EXTENT>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>

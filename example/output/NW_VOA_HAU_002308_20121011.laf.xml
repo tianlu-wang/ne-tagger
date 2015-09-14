@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
+<LCTL_ANNOTATIONS lang="">
+  <DOC id="NW_VOA_HAU_002308_20121011" lang="">
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE1" task="NE">
+      <EXTENT start_char="58" end_char="71">kasar Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE2" task="NE">
+      <EXTENT start_char="82" end_char="99">Gwamnatin Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE3" task="NE">
+      <EXTENT start_char="435" end_char="442">Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE4" task="NE">
+      <EXTENT start_char="446" end_char="464">Douglas Muzanenhamo</EXTENT>
+      <TAG>PER</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE5" task="NE">
+      <EXTENT start_char="553" end_char="570">Gwamnatin Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE6" task="NE">
+      <EXTENT start_char="905" end_char="918">Kasar Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE7" task="NE">
+      <EXTENT start_char="1225" end_char="1242">Gwamnatin Zimbabwe</EXTENT>
+      <TAG>LOC</TAG>
+    </ANNOTATION>
+  </DOC>
+</LCTL_ANNOTATIONS>
