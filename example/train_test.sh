@@ -7,10 +7,11 @@ TRAIN_SCP=/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/e
 TEST_SCP=/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/example/test.scp     # script file containing paths to LTF files (one per line)
 REF_LAF_DIR=/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/example/laf  # directory containing gold standard LAF files
 
-rm -r $MODEL_DIR
+ rm -r $MODEL_DIR
+# rm -r $SYS_LAF_DIR
 
-/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/train.py -S $TRAIN_SCP $MODEL_DIR $LTF_DIR
-/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/tagger.py -S $TEST_SCP -L $SYS_LAF_DIR $MODEL_DIR
-/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/tagger.py -S $TEST_SCP -L $SYS_LAF_DIR ../hausa_ne_model
+  /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/train.py -S $TRAIN_SCP $MODEL_DIR $LTF_DIR
+  /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/tagger.py -S $TEST_SCP -L $SYS_LAF_DIR $MODEL_DIR
+# /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/tagger.py -S $TEST_SCP -L $SYS_LAF_DIR /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/hausa_ne_model
 
-/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/score.py $REF_LAF_DIR $SYS_LAF_DIR $LTF_DIR
+  /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/score.py $REF_LAF_DIR $SYS_LAF_DIR $LTF_DIR

@@ -215,7 +215,7 @@ class LAFDocument(Tree):
         Returns a list of mention tuples, each of the form:
 
         (entity_id, tag, extent, start_char, end_char)
-
+e
         where entity_id is the entity id, tag the annotation tag,
         extent the text extent (a string) of the mention in the underlying
         RSD file, start_char the character onset (0-indexed) of the mention,
@@ -225,7 +225,7 @@ class LAFDocument(Tree):
         for mention_ in self.tree.xpath('//ANNOTATION'):
             entity_id = mention_.get('id');
             # tag = mention_.xpath('TAG')[0].text;
-            tag = mention_.get('type');
+            tag = mention_.get('TAG');
             extent = mention_.xpath('EXTENT')[0];
             start_char = int(extent.get('start_char'));
             end_char = int(extent.get('end_char'));
