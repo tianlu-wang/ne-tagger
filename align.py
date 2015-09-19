@@ -1,13 +1,13 @@
 """Classes supporting alignment between a tokenization and text.
 """
 try:
-    import regex as re;
-    RE_FLAGS = re.VERSION0 | re.UNICODE;
+    import regex as re 
+    RE_FLAGS = re.VERSION0 | re.UNICODE 
 except ImportError:
-    import re;
-    RE_FLAGS = re.UNICODE;
+    import re 
+    RE_FLAGS = re.UNICODE 
 
-__all__ = ['AlignmentFailed', 'Aligner'];
+__all__ = ['AlignmentFailed', 'Aligner'] 
 
 
 class AlignmentFailed(Exception): pass
@@ -33,19 +33,19 @@ class Aligner(object):
             tuple, where begin_index is the 0-indexed character onset of the
             token and end_index the 0-indexed character offset of the token.
         """
-        spans = [];
-        bi = 0;
+        spans = [] 
+        bi = 0 
         for token in tokens:
             try:
                 # Find token span.
-                token_len = len(token);
-                token_bi = bi + txt[bi:].index(token);
-                token_ei = token_bi + token_len - 1;
-                spans.append([token_bi, token_ei]);
+                token_len = len(token) 
+                token_bi = bi + txt[bi:].index(token) 
+                token_ei = token_bi + token_len - 1 
+                spans.append([token_bi, token_ei]) 
 
                 # Advance in text.
-                bi = token_ei + 1;
+                bi = token_ei + 1 
             except ValueError:
-                raise AlignmentFailed(token);
+                raise AlignmentFailed(token) 
 
-        return spans;
+        return spans 

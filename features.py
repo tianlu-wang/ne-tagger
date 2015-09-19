@@ -1,12 +1,12 @@
 """Feature extraction classes.
 """
-from functools import wraps;
-import re;
+from functools import wraps 
+import re 
 
-from chunk import BILOUChunkEncoder;
-from io_ import LTFDocument, LAFDocument;
+from chunk import BILOUChunkEncoder 
+from io_ import LTFDocument, LAFDocument 
 
-__all__ = ['OrthographicEncoder'];
+__all__ = ['OrthographicEncoder'] 
 
 
 class Encoder(object):
@@ -28,9 +28,9 @@ class Encoder(object):
         ChunkEncoder instance used to generate tags.
     """
     def __init__(self, n_left=2, n_right=2):
-        self.chunker = BILOUChunkEncoder();
-        self.n_left = n_left;
-        self.n_right = n_right;
+        self.chunker = BILOUChunkEncoder() 
+        self.n_left = n_left 
+        self.n_right = n_right 
 
     def get_feats_for_token(self, token):
         """Return features for token.
@@ -45,7 +45,7 @@ class Encoder(object):
         feats : tuple of str
             Features vector.
         """
-        raise NotImplementedError;
+        raise NotImplementedError 
 
     def get_feats(self, tokens):
         """Return features corresponding to token sequence.
@@ -60,21 +60,21 @@ class Encoder(object):
         feats : lsit of tuples
             Feature vector sequence.
         """
-        feats = [self.get_feats_for_token(token) for token in tokens];
-        feats = zip(*feats);
-        new_feats = [];
+        feats = [self.get_feats_for_token(token) for token in tokens] 
+        feats = zip(*feats) 
+        new_feats = [] 
         for ii, feats_ in enumerate(feats):
             for pos in xrange(-self.n_left, self.n_right+1):
-                feat_id = 'F%d[%d]' % (ii, pos);
-                k = -pos;
-                new_feats.append(['%s=%s' % (feat_id, val) if val is not None else val for val in roll(feats_, k)]);
-        new_feats = zip(*new_feats);
+                feat_id = 'F%d[%d]' % (ii, pos) 
+                k = -pos 
+                new_feats.append(['%s=%s' % (feat_id, val) if val is not None else val for val in roll(feats_, k)]) 
+        new_feats = zip(*new_feats) 
 
         # Filter out None vals in rows where they occur.
         for ii, row in enumerate(new_feats):
-            new_row = [v for v in row if not v is None];
-            new_feats[ii] = new_row;
-        return new_feats;
+            new_row = [v for v in row if not v is None] 
+            new_feats[ii] = new_row 
+        return new_feats 
 
     def get_targets(self, tokens, mentions):
         """Return tag sequence to train against.
@@ -93,11 +93,11 @@ class Encoder(object):
         targets : list of str
             Target label sequence.
         """
-        tags = ['O' for token in tokens];
+        tags = ['O' for token in tokens] 
         for tag, bi, ei in mentions:
-            chunk = tokens[bi:ei+1];
-            tags[bi:ei+1] = self.chunker.chunk_to_tags(chunk, tag);
-        return tags;
+            chunk = tokens[bi:ei+1] 
+            tags[bi:ei+1] = self.chunker.chunk_to_tags(chunk, tag) 
+        return tags 
 
     def get_feats_targets(self, tokens, mentions):
         """Return features/tag sequence to train against.
@@ -119,9 +119,9 @@ class Encoder(object):
         targets : list of str
             Target label sequence.
         """
-        feats = self.get_feats(tokens);
-        targets = self.get_targets(tokens, mentions);
-        return feats, targets;
+        feats = self.get_feats(tokens) 
+        targets = self.get_targets(tokens, mentions) 
+        return feats, targets 
 
 
 class OrthographicEncoder(Encoder):
@@ -158,37 +158,37 @@ class OrthographicEncoder(Encoder):
         List of lengths of suffixes to be considered.
     """
     def __init__(self, n_left=2, n_right=2, max_prefix_len=4, max_suffix_len=4):
-        super(OrthographicEncoder, self).__init__(n_left, n_right);
-        self.prefix_lengths = range(1, max_prefix_len+1);
-        self.suffix_lengths = range(1, max_suffix_len+1);
+        super(OrthographicEncoder, self).__init__(n_left, n_right) 
+        self.prefix_lengths = range(1, max_prefix_len+1) 
+        self.suffix_lengths = range(1, max_suffix_len+1) 
 
     @wraps(Encoder.get_feats_for_token)
     def get_feats_for_token(self, token):
-        feats = [token];
-        feats.append(token.lower()); # Lowercase feature
+        feats = [token] 
+        feats.append(token.lower())  # Lowercase feature
 
         # Prefix features n=1,...,4 .
-        n_char = len(token);
+        n_char = len(token) 
         for prefix_len in self.prefix_lengths:
             if prefix_len <= n_char:
-                feats.append(token[:prefix_len]);
+                feats.append(token[:prefix_len]) 
             else:
-                feats.append(None);
+                feats.append(None) 
 
         # Suffix features n=1,...,4 .
         for suffix_len in self.suffix_lengths:
             if suffix_len <= n_char:
-                feats.append(token[-suffix_len:]);
+                feats.append(token[-suffix_len:]) 
             else:
-                feats.append(None);
+                feats.append(None) 
 
-        feats.extend(word_type(token));
+        feats.extend(word_type(token)) 
 
-        return feats;
+        return feats 
 
 
-ALL_DIGITS_REO = re.compile(r'\d+$');
-ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$');
+ALL_DIGITS_REO = re.compile(r'\d+$') 
+ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$') 
 
 def word_type(word):
     """Determine word type of token.
@@ -215,13 +215,13 @@ def word_type(word):
     contains_period : bool
         Boolean indicating whether word contains period.
     """
-    begins_cap = word[0].isupper();
-    all_capitalized = word.isupper();
-    all_digits = word.isdigit();
-    all_nonletters = ALL_NONLETTERS_REO.match(word) is not None;
-    contains_period = '.' in word;
+    begins_cap = word[0].isupper() 
+    all_capitalized = word.isupper() 
+    all_digits = word.isdigit() 
+    all_nonletters = ALL_NONLETTERS_REO.match(word) is not None 
+    contains_period = '.' in word 
 
-    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period;
+    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period 
 
 
 def roll(feats, k=0):
@@ -240,11 +240,11 @@ def roll(feats, k=0):
         (Default: 0)
     """
     if k == 0:
-        new_feats = list(feats);
+        new_feats = list(feats) 
     elif k>0:
-        new_feats = [None]*k;
-        new_feats.extend(feats[:-k]);
+        new_feats = [None]*k 
+        new_feats.extend(feats[:-k]) 
     else:
-        new_feats = list(feats[-k:]);
-        new_feats.extend([None]*-k);
-    return new_feats;
+        new_feats = list(feats[-k:]) 
+        new_feats.extend([None]*-k) 
+    return new_feats 

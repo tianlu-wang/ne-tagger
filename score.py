@@ -31,7 +31,6 @@ def calc_stats(sys_laf, ref_dir, ltf_dir):
     # Check that LTF and system and reference LAF are valid.
     sys_doc = load_doc(sys_laf, LAFDocument, logger)
     bn = os.path.basename(sys_laf)
-    print bn
     ref_laf = os.path.join(ref_dir, bn)
     ref_doc = load_doc(ref_laf, LAFDocument, logger)
     ltf = os.path.join(ltf_dir, bn.replace('.laf.xml', '.ltf.xml'))

@@ -1,8 +1,8 @@
 """Utility functions.
 """
-__all__ = ['convert_extents', 'sort_mentions'];
+__all__ = ['convert_extents', 'sort_mentions'] 
 
-from bisect import bisect, bisect_left;
+from bisect import bisect, bisect_left 
 
 
 def convert_extents(char_onsets, char_offsets, token_onsets, token_offsets):
@@ -25,9 +25,9 @@ def convert_extents(char_onsets, char_offsets, token_onsets, token_offsets):
     token_offsets : list
         Character offsets of tokens in supplied tokenization.
     """
-    mention_token_onsets = [bisect(token_onsets, char_onset) - 1 for char_onset in char_onsets];
-    mention_token_offsets = [bisect_left(token_offsets, char_offset) for char_offset in char_offsets];
-    return mention_token_onsets, mention_token_offsets;
+    mention_token_onsets = [bisect(token_onsets, char_onset) - 1 for char_onset in char_onsets] 
+    mention_token_offsets = [bisect_left(token_offsets, char_offset) for char_offset in char_offsets] 
+    return mention_token_onsets, mention_token_offsets 
 
 
 def sort_mentions(mentions):
@@ -39,4 +39,4 @@ def sort_mentions(mentions):
     mentions : list of tuples
         List of mentions, each represented as a tuple of form (tag, token_onset, token_offset).
     """
-    mentions.sort(key=lambda x: (x[1], x[2]));
+    mentions.sort(key=lambda x: (x[1], x[2])) 

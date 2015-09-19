@@ -1,11 +1,12 @@
 """Chunk encoders.
 """
-from functools import wraps;
+from functools import wraps 
 
-__all__ = ['DummyChunkEncoder', 'BILOUChunkEncoder'];
+__all__ = ['DummyChunkEncoder', 'BILOUChunkEncoder'] 
 
 
-class ChunkingFailedException(Exception): pass
+class ChunkingFailedException(Exception):
+    pass
 
 
 class ChunkEncoder(object):
@@ -20,7 +21,7 @@ class ChunkEncoder(object):
         Inputs
         ------
         chunk : list
-            List of tokens correponding to THIS chunk.
+            List of tokens corresponding to THIS chunk.
 
         label : str
             Label attached to chunk.
@@ -28,7 +29,7 @@ class ChunkEncoder(object):
         outside: bool, optional
             Indicates whether chunk should be represented as Outside.
         """
-        raise NotImplementedError;
+        raise NotImplementedError 
 
     def tags_to_chunks(self, tags):
         """Convert sequence of tags to sequence of chunks according to
@@ -39,7 +40,7 @@ class ChunkEncoder(object):
         tags : list
             List of tags.
         """
-        raise NotImplementedError;
+        raise NotImplementedError 
 
 
 class DummyChunkEncoder(ChunkEncoder):
@@ -47,14 +48,14 @@ class DummyChunkEncoder(ChunkEncoder):
     """
     @wraps(ChunkEncoder.chunk_to_tags)
     def chunk_to_tags(self, chunk, label, outside=False):
-        return [label for token in chunk];
+        return [label for token in chunk] 
 
     @wraps(ChunkEncoder.tags_to_chunks)
     def tags_to_chunks(self, tags):
-        chunks = [];
+        chunks = [] 
         for ii, tag in enumerate(tags):
-            chunks.append([ii, ii, tag]);
-        return chunks;
+            chunks.append([ii, ii, tag]) 
+        return chunks 
 
 
 class BILOUChunkEncoder(ChunkEncoder):
@@ -65,37 +66,50 @@ class BILOUChunkEncoder(ChunkEncoder):
     """
     @wraps(ChunkEncoder.chunk_to_tags)
     def chunk_to_tags(self, chunk, label, outside=False):
-        n_tokens = len(chunk);
-        tags = [];
+        n_tokens = len(chunk) 
+        tags = [] 
         if outside:
-            tags = ['O' for ii in xrange(n_tokens)];
+            tags = ['O' for ii in xrange(n_tokens)] 
         elif n_tokens == 1:
-            tags.append('U');
+            tags.append('U') 
         else:
-            tags = ['B'];
+            tags = ['B'] 
             for ii in xrange(n_tokens-2):
-                tags.append('I');
-            tags.append('L');
-        tags = ['%s_%s' % (tag, label) for tag in tags];
-        return tags;
+                tags.append('I') 
+            tags.append('L') 
+        tags = ['%s_%s' % (tag, label) for tag in tags] 
+        return tags 
 
     @wraps(ChunkEncoder.tags_to_chunks)
     def tags_to_chunks(self, tags):
-        positions = [self.get_position(tag) for tag in tags];
-        positions = self.fix_positions(positions);
-        labels = [self.get_label(tag) for tag in tags];
-        begin_pos = set(['B', 'U', 'O']);
-        end_pos = set(['L', 'U', 'O']);
-        begin_ind = [ii for ii, pos in enumerate(positions) if pos in begin_pos];
-        end_ind = [ii for ii, pos in enumerate(positions) if pos in end_pos];
+        print "this is tags:======================================="
+        print tags
+        positions = [self.get_position(tag) for tag in tags]
+        print "==============================================="
+        print positions #todo
+        print "=============================================="
+        positions = self.fix_positions(positions)
+        print positions  # todo
+        print "=============================================="
+        labels = [self.get_label(tag) for tag in tags]
+        print labels  # todo
+        print "above is labels================================================"
+        begin_pos = set(['B', 'U', 'O']) 
+        end_pos = set(['L', 'U', 'O']) 
+        begin_ind = [ii for ii, pos in enumerate(positions) if pos in begin_pos]
+        print begin_ind  # todo
+        print "================================================="
+        end_ind = [ii for ii, pos in enumerate(positions) if pos in end_pos]
+        print end_ind  # todo
+        print "================================================="
         if len(begin_ind) != len(end_ind):
-            raise ChunkingFailedException;
-        chunks = [];
+            raise ChunkingFailedException 
+        chunks = [] 
         for bi, ei in zip(begin_ind, end_ind):
             if ei < bi:
-                raise ChunkingFailedException;
-            chunks.append([bi, ei, labels[bi]]);
-        return chunks;
+                raise ChunkingFailedException 
+            chunks.append([bi, ei, labels[bi]]) 
+        return chunks 
 
     def get_position(self, extended_tag):
         """Return position encoded in extended tag.
@@ -105,7 +119,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         extended_tag : str
            Extended tag for token in form {Position}_{Label}.
         """
-        return extended_tag.split('_')[0];
+        return extended_tag.split('_')[0] 
 
     def get_label(self, extended_tag):
         """Return label encoded in extended tag.
@@ -116,11 +130,11 @@ class BILOUChunkEncoder(ChunkEncoder):
            Extended tag for token in form {Position}_{Label}.
         """
         if extended_tag == 'O':
-            label = 'O';
+            label = 'O' 
         else:
-            fields = extended_tag.split('_');
-            label = '_'.join(fields[1:]);
-        return label;
+            fields = extended_tag.split('_') 
+            label = '_'.join(fields[0])  # do not know who write this code but it is stupid!
+        return label 
 
     def fix_positions(self, positions):
         """Fix some pathologies present in tag sequences output by CRFSuite.
@@ -133,29 +147,29 @@ class BILOUChunkEncoder(ChunkEncoder):
         positions : list
             List of positions.
         """
-        outside_edges = set(['O', 'U', None]);
-        n_tags = len(positions);
-        new_positions = [];
+        outside_edges = set(['O', 'U', None]) 
+        n_tags = len(positions) 
+        new_positions = [] 
         for ii, position in enumerate(positions):
-            position = position;
+            position = position 
             if position == 'I':
-                prev_position = positions[ii-1] if ii > 0 else None;
-                is_begin = prev_position in outside_edges;
-                next_position = positions[ii+1] if ii < n_tags else None;
-                is_end = next_position in outside_edges;
+                prev_position = positions[ii-1] if ii > 0 else None 
+                is_begin = prev_position in outside_edges 
+                next_position = positions[ii+1] if ii < n_tags else None 
+                is_end = next_position in outside_edges 
                 if is_begin and is_end:
-                    position = 'U';
+                    position = 'U' 
                 elif is_begin:
-                    position = 'B';
+                    position = 'B' 
                 elif is_end:
-                    position = 'L';
+                    position = 'L' 
             # added by Boliang, if tagged fix illegal 'B' such as [B,O], [B,U], [B,B]
             if position == 'B':
-                next_position = positions[ii+1] if ii < n_tags else None;
+                next_position = positions[ii+1] if ii < n_tags else None 
                 is_u = next_position in ['O', 'U', 'B']
                 if is_u:
                     position = 'U'
             ###################
 
-            new_positions.append(position);
-        return new_positions;
+            new_positions.append(position) 
+        return new_positions 
