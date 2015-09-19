@@ -37,8 +37,8 @@
       <file leaf-file-name="tagger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tagger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.148148">
-              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+            <state vertical-scroll-proportion="-10.148149">
+              <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
               <folding>
                 <element signature="e#22#37#0" expanded="true" />
               </folding>
@@ -46,14 +46,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chunk.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chunk.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chunk.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48943663">
-              <caret line="135" column="92" selection-start-line="135" selection-start-column="92" selection-end-line="135" selection-end-column="92" />
+            <state vertical-scroll-proportion="-21.25926">
+              <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
               <folding>
                 <element signature="e#155#159#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NW_VOA_HAU_002242_20120904.ltf.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/ltf/NW_VOA_HAU_002242_20120904.ltf.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NW_VOA_HAU_002308_20121011.ltf.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/ltf/NW_VOA_HAU_002308_20121011.ltf.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train.scp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/train.scp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5659164">
+              <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/example/test.scp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="72" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+              <caret line="1" column="98" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
               <folding />
             </state>
           </provider>
@@ -97,7 +127,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README" />
-        <option value="$PROJECT_DIR$/example/train.scp" />
         <option value="$PROJECT_DIR$/logger.py" />
         <option value="$PROJECT_DIR$/example/test.scp" />
         <option value="$PROJECT_DIR$/align.py" />
@@ -109,6 +138,7 @@
         <option value="$PROJECT_DIR$/example/train_test.sh" />
         <option value="$PROJECT_DIR$/tagger.py" />
         <option value="$PROJECT_DIR$/chunk.py" />
+        <option value="$PROJECT_DIR$/example/train.scp" />
       </list>
     </option>
   </component>
@@ -213,6 +243,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ltf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ne-tagger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ne-tagger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="example" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -751,13 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/ltf/NW_VOA_HAU_002308_20121011.ltf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37578288">
-          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2125986627/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -838,22 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/train.scp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/test.scp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="72" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/score.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -886,23 +911,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example/test.scp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="98" selection-start-line="1" selection-start-column="98" selection-end-line="1" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/ltf/NW_VOA_HAU_002242_20120904.ltf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chunk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.25926">
+          <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+          <folding>
+            <element signature="e#155#159#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tagger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.148148">
-          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+        <state vertical-scroll-proportion="-10.148149">
+          <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
           <folding>
             <element signature="e#22#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chunk.py">
+    <entry file="file://$PROJECT_DIR$/example/ltf/NW_VOA_HAU_002308_20121011.ltf.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48943663">
-          <caret line="135" column="92" selection-start-line="135" selection-start-column="92" selection-end-line="135" selection-end-column="92" />
-          <folding>
-            <element signature="e#155#159#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/train.scp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5659164">
+          <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
+          <folding />
         </state>
       </provider>
     </entry>

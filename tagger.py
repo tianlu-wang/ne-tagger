@@ -51,6 +51,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
     # Create working directory.                                              
     temp_dir = tempfile.mkdtemp()
     # Load LTF.
+    print ltf  # todo
     ltf_doc = load_doc(ltf, LTFDocument, logger) 
     if ltf_doc is None:
         shutil.rmtree(temp_dir) 
@@ -75,7 +76,9 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         # Load tagged output.
         with open(tagsf, 'r') as f:
             tags = [line.strip() for line in f]
+            print len(tags)  # todo
             tags = tags[:len(tokens)]
+            print len(tags)  # todo
         # Chunk tags.
         chunks = chunker.tags_to_chunks(tags)  # todo:bughere
         # Construct mentions.
