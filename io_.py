@@ -193,19 +193,20 @@ class LAFDocument(Tree):
             doc.set('lang', lang) 
 
             # And for all the mentions.
-            for entity_id, tag, extent, start_char, end_char in mentions:
+            for entity_id, type, extent, start_char, end_char in mentions:
                 # <ANNOTATION>...</ANNOTATION
                 annotation = etree.SubElement(doc, 'ANNOTATION') 
                 annotation.set('id', entity_id) 
                 annotation.set('task', 'NE')  # move to constant or arg?
+                annotation.set('type', type)
                 # <EXTENT>...</EXTENT>
                 extent_elem = etree.SubElement(annotation, 'EXTENT') 
                 extent_elem.text = extent 
                 extent_elem.set('start_char', str(start_char)) 
                 extent_elem.set('end_char', str(end_char)) 
                 # <TAG>...</TAG>
-                tag_elem = etree.SubElement(annotation, 'TAG') 
-                tag_elem.text = tag 
+                #tag_elem = etree.SubElement(annotation, 'TAG')  # todo  wang
+                #tag_elem.text = tag
 
         super(LAFDocument, self).__init__(tree) 
 
@@ -222,15 +223,17 @@ class LAFDocument(Tree):
         """
         mentions = [] 
         for mention_ in self.tree.xpath('//ANNOTATION'):
-            entity_id = mention_.get('id') 
-            # tag = mention_.xpath('TAG')[0].text 
-            tag = mention_.get('TAG') 
+            entity_id = mention_.get('id')
+            type = mention_.get('type')
+            #tag = mention_.xpath('TAG')[0].text   # todo wang
+            #tag = mention_.get('TAG')
+
             extent = mention_.xpath('EXTENT')[0] 
             start_char = int(extent.get('start_char')) 
             end_char = int(extent.get('end_char')) 
 
             mention = [entity_id,
-                       tag,
+                       type,
                        extent,
                        start_char,
                        end_char] 

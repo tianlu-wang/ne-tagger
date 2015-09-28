@@ -1,38 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE LCTL_ANNOTATIONS SYSTEM "laf.v1.2.dtd">
 <LCTL_ANNOTATIONS lang="">
-  <DOC id="NW_VOA_HAU_002242_20120904" lang="">
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE1" task="NE">
-      <EXTENT start_char="15" end_char="37">Majalisar Dinkin Duniya</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE2" task="NE">
-      <EXTENT start_char="228" end_char="242">Shugaban babban</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE3" task="NE">
-      <EXTENT start_char="244" end_char="259">zauren majalisar</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE4" task="NE">
-      <EXTENT start_char="261" end_char="287">Nassir Abdulʼaziz Al-Nassir</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE5" task="NE">
-      <EXTENT start_char="420" end_char="429">doron kasa</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE6" task="NE">
-      <EXTENT start_char="433" end_char="434">Mr</EXTENT>
-      <TAG>U</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE7" task="NE">
-      <EXTENT start_char="437" end_char="444">Al-Nssir</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002242_20120904-NE8" task="NE">
-      <EXTENT start_char="890" end_char="912">Majalisar Dinkin Duniya</EXTENT>
-      <TAG>B</TAG>
-    </ANNOTATION>
-  </DOC>
+  <DOC id="NW_VOA_HAU_002242_20120904" lang=""/>
 </LCTL_ANNOTATIONS>

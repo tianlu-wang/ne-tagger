@@ -138,7 +138,7 @@ class BILOUChunkEncoder(ChunkEncoder):
             label = 'O' 
         else:
             fields = extended_tag.split('_') 
-            label = '_'.join(fields[0])  # do not know who write this code but it is stupid!
+            label = '_'.join(fields[1:])  # do not know who write this code but it is stupid!
         return label 
 
     def fix_positions(self, positions):

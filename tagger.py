@@ -67,6 +67,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         feats = enc.get_feats(tokens) 
         write_crfsuite_file(featsf, feats)
         # Tag.
+        print "tmep_dir"+temp_dir
         tagsf = os.path.join(temp_dir, 'tags.txt') 
         cmd = ['crfsuite', 'tag',
                '-m', modelf,
@@ -83,7 +84,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         chunks = chunker.tags_to_chunks(tags)  # todo:bughere
         # Construct mentions.
         doc_id = ltf_doc.doc_id 
-        mentions = [] 
+        mentions = []
         n = 1 
         for token_bi, token_ei, tag in chunks:
             if tag == 'O':
