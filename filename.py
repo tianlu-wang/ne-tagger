@@ -48,4 +48,12 @@ def check_two_files(dir_laf,dir_ltf):
     for ltf in ltf_name:
         print(ltf)
 
-check_two_files('./example/laf', './example/ltf')
+
+def select(dir_laf):
+    list_laf = os.walk(dir_laf)
+    train_file = open("./new_data/train.scp", "w")
+    for root, dirs, files in list_laf:
+        for f in files:
+            train_file.write('./new_data/laf/'+f+"\n")
+
+select('./new_data/laf')

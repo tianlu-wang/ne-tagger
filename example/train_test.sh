@@ -7,9 +7,9 @@ TRAIN_SCP=./example/train.scp  # script file containing paths to LAF files (one 
 TEST_SCP=./example/test.scp    # script file containing paths to LTF files (one per line)
 REF_LAF_DIR=./example/laf      # directory containing gold standard LAF files
 
-rm -r $MODEL_DIR
+#rm -r $MODEL_DIR
 
-./train.py -S $TRAIN_SCP $MODEL_DIR $LTF_DIR
+#./train.py -S $TRAIN_SCP $MODEL_DIR $LTF_DIR
 ./tagger.py -S $TEST_SCP -L $SYS_LAF_DIR $MODEL_DIR
 #./tagger.py -S $TEST_SCP -L $SYS_LAF_DIR ./hausa_ne_model
 

@@ -6,43 +6,22 @@
       <EXTENT start_char="58" end_char="71">kasar Zimbabwe</EXTENT>
     </ANNOTATION>
     <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE2" task="NE" type="LOC">
-      <EXTENT start_char="92" end_char="99">Zimbabwe</EXTENT>
+      <EXTENT start_char="82" end_char="99">Gwamnatin Zimbabwe</EXTENT>
     </ANNOTATION>
     <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE3" task="NE" type="LOC">
-      <EXTENT start_char="269" end_char="276">Zimbabwe</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE4" task="NE" type="LOC">
-      <EXTENT start_char="374" end_char="386">birnin Harare</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE5" task="NE" type="LOC">
       <EXTENT start_char="435" end_char="442">Zimbabwe</EXTENT>
     </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE6" task="NE" type="PER">
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE4" task="NE" type="PER">
       <EXTENT start_char="446" end_char="464">Douglas Muzanenhamo</EXTENT>
     </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE7" task="NE" type="LOC">
-      <EXTENT start_char="563" end_char="570">Zimbabwe</EXTENT>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE5" task="NE" type="LOC">
+      <EXTENT start_char="553" end_char="570">Gwamnatin Zimbabwe</EXTENT>
     </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE8" task="NE" type="LOC">
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE6" task="NE" type="LOC">
       <EXTENT start_char="905" end_char="918">Kasar Zimbabwe</EXTENT>
     </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE9" task="NE" type="LOC">
-      <EXTENT start_char="1066" end_char="1073">Zimbabwe</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE10" task="NE" type="LOC">
-      <EXTENT start_char="1235" end_char="1242">Zimbabwe</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE11" task="NE" type="PER">
-      <EXTENT start_char="1299" end_char="1306">Chabikwa</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE12" task="NE" type="LOC">
-      <EXTENT start_char="1336" end_char="1343">Zimbabwe</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE13" task="NE" type="LOC">
-      <EXTENT start_char="1428" end_char="1435">Zimbabwe</EXTENT>
-    </ANNOTATION>
-    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE14" task="NE" type="LOC">
-      <EXTENT start_char="1518" end_char="1525">Zimbabwe</EXTENT>
+    <ANNOTATION id="NW_VOA_HAU_002308_20121011-NE7" task="NE" type="LOC">
+      <EXTENT start_char="1225" end_char="1242">Gwamnatin Zimbabwe</EXTENT>
     </ANNOTATION>
   </DOC>
 </LCTL_ANNOTATIONS>
