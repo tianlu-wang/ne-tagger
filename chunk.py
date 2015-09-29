@@ -163,7 +163,7 @@ class BILOUChunkEncoder(ChunkEncoder):
                 next_position = positions[ii+1] if ii < n_tags else None 
                 is_end = next_position in outside_edges 
                 if is_begin and is_end:
-                    position = 'U' 
+                    position = 'U'
                 elif is_begin:
                     position = 'B' 
                 elif is_end:
@@ -175,6 +175,15 @@ class BILOUChunkEncoder(ChunkEncoder):
                 if is_u:
                     position = 'U'
             ###################
-
+            # added by tianlu
+            if position == 'L':
+                prev_position = positions[ii-1] if ii > 0 else None
+                is_u = prev_position in ['O', 'U']
+                if is_u:
+                    position = 'U'
+                next_position = positions[ii+1] if ii < n_tags else None
+                is_b = next_position in ['L']
+                if is_b:
+                    position = 'B'
             new_positions.append(position) 
         return new_positions 
