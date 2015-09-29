@@ -12,7 +12,7 @@ from joblib.parallel import Parallel, delayed
 
 from align import Aligner 
 from chunk import BILOUChunkEncoder 
-from features import OrthographicEncoder 
+# from features import OrthographicEncoder
 from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file 
 from logger import configure_logger 
 
@@ -80,6 +80,8 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             print len(tags)  # todo
             tags = tags[:len(tokens)]
             print len(tags)  # todo
+            print 'this is tags'
+            print tags # todo
         # Chunk tags.
         chunks = chunker.tags_to_chunks(tags)  # todo:bughere
         # Construct mentions.

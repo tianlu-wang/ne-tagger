@@ -10,7 +10,9 @@ except ImportError:
 __all__ = ['AlignmentFailed', 'Aligner'] 
 
 
-class AlignmentFailed(Exception): pass
+class AlignmentFailed(Exception):
+    pass
+
 
 class Aligner(object):
     """Aligns raw XML with tokenized version of its text content.
