@@ -56,22 +56,28 @@ def write_train_data(lafs, ltf_dir, enc, trainf):
             try:
                 # Extract tokens.
                 tokens, token_ids, token_onsets, token_offsets = ltf_doc.tokenized() 
-                
+                #print len(tokens)
                 # Convert mentions to format expected by the encoder  that is,
                 # (tag, token_onset, token_offset).
-                mentions = laf_doc.mentions() 
+                mentions = laf_doc.mentions()
+                #print mentions
                 if len(mentions) == 0:
                     mentions_ = [] 
                 else:
                     # Map to the minimal enclosing span of tokens in the
                     # supplied LTF.
-                    entity_ids, tags, extents, char_onsets, char_offsets = zip(*mentions) 
+                    entity_ids, tags, extents, char_onsets, char_offsets = zip(*mentions)
+                    # print token_onsets
+                    # print char_onsets
+                    # print char_onsets
                     mention_onsets, mention_offsets = convert_extents(char_onsets, char_offsets,
-                                                                      token_onsets, token_offsets) 
+                                                                      token_onsets, token_offsets)
+                    #print mention_onsets
                     mentions_ = list(zip(tags, mention_onsets, mention_offsets)) 
 
                 # Eliminate overlapping mentions, retaining whichever
                 # is first when sorted in ascending order by (onset, offset).
+                #print mentions_
                 sort_mentions(mentions_) 
                 prev_mention_offset = -1 
                 temp_mentions_ = [] 
@@ -79,11 +85,18 @@ def write_train_data(lafs, ltf_dir, enc, trainf):
                     if mention_onset > prev_mention_offset:
                         temp_mentions_.append([tag, mention_onset, mention_offset]) 
                     prev_mention_offset = mention_offset 
-                mentions_ = temp_mentions_ 
+                mentions_ = temp_mentions_
+                # print 'mentions:'
+                #print mentions_
+                #print tokens
 
                 # Extract features/targets and write to file in CRFSuite
                 # format.
-                feats, targets = enc.get_feats_targets(tokens, mentions_) 
+                feats, targets = enc.get_feats_targets(tokens, mentions_)
+                #print 'feats: \n'
+                #print feats
+                #print 'targets:'
+                #print targets
             except KeyError:
                 logger.warn('Feature extraction failed for %s. Skipping.' % laf) 
                 continue 
@@ -169,7 +182,8 @@ if __name__ == '__main__':
 
     # Train.
     trainf = os.path.join(temp_dir, 'train.txt')
-    write_train_data(args.lafs, args.ltf_dir, enc, trainf) 
+    print temp_dir
+    write_train_data(args.lafs, args.ltf_dir, enc, trainf)
     def is_empty(fn):
         return os.stat(fn).st_size == 0 
     if not is_empty(trainf):
@@ -194,5 +208,5 @@ if __name__ == '__main__':
         logger.error('Training file contains no features/targets. Exiting.') 
 
     # Clean up.
-    shutil.rmtree(temp_dir) 
-    
+    # os.system('mv' + ' ' + trainf + ' ' + '~/Desktop')
+    shutil.rmtree(temp_dir)

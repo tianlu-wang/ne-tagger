@@ -82,31 +82,31 @@ class BILOUChunkEncoder(ChunkEncoder):
 
     @wraps(ChunkEncoder.tags_to_chunks)
     def tags_to_chunks(self, tags):
-        print "this is tags:======================================="
-        print tags
+        # print "this is tags:======================================="
+        # print tags
         positions = [self.get_position(tag) for tag in tags]
-        print "this is pos 1==============================================="
-        print positions #todo
-        print len(positions)
-        print "this is pos 2=============================================="
+        # print "this is pos 1==============================================="
+        # print positions #todo
+        # print len(positions)
+        # print "this is pos 2=============================================="
         positions = self.fix_positions(positions)
-        print positions  # todo
-        print len(positions)
-        print "this is labels=============================================="
+        # print positions  # todo
+        # print len(positions)
+        # print "this is labels=============================================="
         labels = [self.get_label(tag) for tag in tags]
-        print labels  # todo
-        print len(labels)
-        print "above is labels================================================"
+        # print labels  # todo
+        # print len(labels)
+        # print "above is labels================================================"
         begin_pos = set(['B', 'U', 'O']) 
         end_pos = set(['L', 'U', 'O']) 
         begin_ind = [ii for ii, pos in enumerate(positions) if pos in begin_pos]
-        print begin_ind  # todo
-        print "================================================="
+        # print begin_ind  # todo
+        # print "================================================="
         end_ind = [ii for ii, pos in enumerate(positions) if pos in end_pos]
-        print end_ind  # todo
-        print "================================================="
-        print len(begin_ind)
-        print len(end_ind)
+        # print end_ind  # todo
+        # print "================================================="
+        # print len(begin_ind)
+        # print len(end_ind)
         if len(begin_ind) != len(end_ind):
             raise ChunkingFailedException 
         chunks = [] 
@@ -152,7 +152,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         positions : list
             List of positions.
         """
-        outside_edges = set(['O', 'U', None]) 
+        outside_edges = set(['O', 'U', None])
         n_tags = len(positions) 
         new_positions = [] 
         for ii, position in enumerate(positions):
@@ -170,6 +170,10 @@ class BILOUChunkEncoder(ChunkEncoder):
                     position = 'L' 
             # added by Boliang, if tagged fix illegal 'B' such as [B,O], [B,U], [B,B]
             if position == 'B':
+                prev_position = positions[ii-1] if ii > 0 else None
+                is_i = prev_position in ['I']
+                if is_i:
+                    position = 'I'
                 next_position = positions[ii+1] if ii < n_tags else None 
                 is_u = next_position in ['O', 'U', 'B']
                 if is_u:
@@ -181,9 +185,9 @@ class BILOUChunkEncoder(ChunkEncoder):
                 is_u = prev_position in ['O', 'U']
                 if is_u:
                     position = 'U'
-                next_position = positions[ii+1] if ii < n_tags else None
+                next_position = positions[ii+1] if ii < n_tags-1 else None
                 is_b = next_position in ['L']
                 if is_b:
                     position = 'B'
             new_positions.append(position) 
-        return new_positions 
+        return new_positions

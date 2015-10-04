@@ -25,7 +25,7 @@ def convert_extents(char_onsets, char_offsets, token_onsets, token_offsets):
     token_offsets : list
         Character offsets of tokens in supplied tokenization.
     """
-    mention_token_onsets = [bisect(token_onsets, char_onset) - 1 for char_onset in char_onsets] 
+    mention_token_onsets = [bisect(token_onsets, char_onset) - 1 for char_onset in char_onsets]
     mention_token_offsets = [bisect_left(token_offsets, char_offset) for char_offset in char_offsets] 
     return mention_token_onsets, mention_token_offsets 
 

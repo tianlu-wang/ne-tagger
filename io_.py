@@ -259,7 +259,6 @@ def load_doc(xmlf, cls, logger):
         Logger instance.
     """
     try:
-        print xmlf
         assert(os.path.exists(xmlf))
         doc = cls(xmlf) 
     except KeyError:
@@ -292,7 +291,7 @@ def write_crfsuite_file(fo, feats, targets=None):
     fn = None 
     if isinstance(fo, str):
         fn = fo 
-        fo = open(fn, 'w') 
+        fo = open(fn, 'w')
 
     # Write feats/targets in CRFsuite format.
     for ii, feats_ in enumerate(feats):

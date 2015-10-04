@@ -6,7 +6,8 @@ import os
 import shutil 
 import subprocess 
 import sys 
-import tempfile 
+import tempfile
+from os.path import basename
 
 from joblib.parallel import Parallel, delayed 
 
@@ -68,20 +69,30 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         write_crfsuite_file(featsf, feats)
         # Tag.
         print "tmep_dir"+temp_dir
-        tagsf = os.path.join(temp_dir, 'tags.txt') 
+        tagsf = os.path.join(temp_dir, 'tags.txt')
+        #probf = os.path.join(temp_dir, 'prob.txt')
         cmd = ['crfsuite', 'tag',
                '-m', modelf,
-               featsf] 
+               featsf]
         with open(tagsf, 'w') as f:
             subprocess.call(cmd, stdout=f)
         # Load tagged output.
+
+        probf = os.getcwd() + ltf.replace('ltf', 'probs')[1:-9] + '_' + 'prob.txt'
+        print probf
+        cmd_ = ['crfsuite', 'tag',
+               '-m', modelf, '-i',
+               featsf]
+        with open(probf, 'w') as f:
+            subprocess.call(cmd_, stdout=f)
+
         with open(tagsf, 'r') as f:
             tags = [line.strip() for line in f]
-            print len(tags)  # todo
+            # print len(tags)  # todo
             tags = tags[:len(tokens)]
-            print len(tags)  # todo
-            print 'this is tags'
-            print tags # todo
+            # print len(tags)  # todo
+            # print 'this is tags'
+            # print tags # todo
         # Chunk tags.
         chunks = chunker.tags_to_chunks(tags)  # todo:bughere
         # Construct mentions.
@@ -121,7 +132,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         logger.warn('Problem with %s. Skipping.' % ltf) 
 
     # Clean up.
-    shutil.rmtree(temp_dir) 
+    shutil.rmtree(temp_dir)
 
 
 ##########################

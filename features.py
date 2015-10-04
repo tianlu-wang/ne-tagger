@@ -67,14 +67,23 @@ class Encoder(object):
             for pos in xrange(-self.n_left, self.n_right+1):
                 feat_id = 'F%d[%d]' % (ii, pos) 
                 k = -pos 
-                new_feats.append(['%s=%s' % (feat_id, val) if val is not None else val for val in roll(feats_, k)]) 
-        new_feats = zip(*new_feats) 
+                new_feats.append(['%s=%s' % (feat_id, val) if val is not None else val for val in roll(feats_, k)])
 
+        new_feats = zip(*new_feats)
+        #print new_feats[0]
+        print '============================================================================================'
+
+        for ii,row in enumerate(new_feats):
+            new_row = [v if not v is None else 'none' for v in row]
+            new_feats[ii] = new_row
         # Filter out None vals in rows where they occur.
         for ii, row in enumerate(new_feats):
-            new_row = [v for v in row if not v is None] 
-            new_feats[ii] = new_row 
-        return new_feats 
+            new_row = [v for v in row if not v is None]
+            new_feats[ii] = new_row
+        # print new_feats[0]
+        # print '**********************************************************************************************'
+        return new_feats
+
 
     def get_targets(self, tokens, mentions):
         """Return tag sequence to train against.
@@ -164,9 +173,8 @@ class OrthographicEncoder(Encoder):
 
     @wraps(Encoder.get_feats_for_token)
     def get_feats_for_token(self, token):
-        feats = [token] 
+        feats = [token]
         feats.append(token.lower())  # Lowercase feature
-
         # Prefix features n=1,...,4 .
         n_char = len(token) 
         for prefix_len in self.prefix_lengths:
@@ -182,8 +190,8 @@ class OrthographicEncoder(Encoder):
             else:
                 feats.append(None) 
 
-        feats.extend(word_type(token)) 
-
+        feats.extend(word_type(token))
+        #print feats
         return feats 
 
 
@@ -241,10 +249,10 @@ def roll(feats, k=0):
     """
     if k == 0:
         new_feats = list(feats) 
-    elif k>0:
-        new_feats = [None]*k 
+    elif k > 0:
+        new_feats = [None]*k
         new_feats.extend(feats[:-k]) 
     else:
         new_feats = list(feats[-k:]) 
         new_feats.extend([None]*-k) 
-    return new_feats 
+    return new_feats

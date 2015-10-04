@@ -13,7 +13,7 @@ def check_single_file(rootDir):
             print os.path.join(root, f)
 
 
-def check_two_files(dir_laf,dir_ltf):
+def check_two_files(dir_laf, dir_ltf):
     list_ltf = os.walk(dir_ltf)
     list_laf = os.walk(dir_laf)
     laf_name = []
@@ -51,9 +51,9 @@ def check_two_files(dir_laf,dir_ltf):
 
 def select(dir_laf):
     list_laf = os.walk(dir_laf)
-    train_file = open("./new_data/train.scp", "w")
+    train_file = open("./test_split/train.scp", "w")
     for root, dirs, files in list_laf:
         for f in files:
-            train_file.write('./new_data/laf/'+f+"\n")
+            train_file.write('./test_split/laf/'+f+"\n")
 
-select('./new_data/laf')
+select('./test_split/laf')
