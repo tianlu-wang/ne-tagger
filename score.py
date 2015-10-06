@@ -151,7 +151,8 @@ if __name__ == '__main__':
         precision = 0
         f1 = 0
     result_path = './result.txt'
-    f = open(result_path, 'w+')
-    f.write('Hits: %d, Miss: %d, FA: %d' % (n_hit, n_miss, n_fa) + '========' + 'Precision: %f, Recall: %f, F1: %f' % (precision, recall, f1))
+    f = open(result_path, 'a')
+    f.write(str(precision)+' '+str(recall)+' '+str(f1)+'\n')
+    f.close()
     logger.info('Hits: %d, Miss: %d, FA: %d' % (n_hit, n_miss, n_fa))
     logger.info('Precision: %f, Recall: %f, F1: %f' % (precision, recall, f1))

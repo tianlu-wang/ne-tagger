@@ -70,7 +70,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         # Tag.
         print "tmep_dir"+temp_dir
         tagsf = os.path.join(temp_dir, 'tags.txt')
-        #probf = os.path.join(temp_dir, 'prob.txt')
+        #probf = os.path.join(temp_dir, 'probs.txt')
         cmd = ['crfsuite', 'tag',
                '-m', modelf,
                featsf]
@@ -78,7 +78,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             subprocess.call(cmd, stdout=f)
         # Load tagged output.
 
-        probf = os.getcwd() + ltf.replace('ltf', 'probs')[1:-9] + '_' + 'prob.txt'
+        probf = os.getcwd() + ltf.replace('ltf', 'probs')[1:-9] + '_' + 'probs.txt'
         print probf
         cmd_ = ['crfsuite', 'tag',
                '-m', modelf, '-i',

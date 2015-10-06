@@ -85,13 +85,13 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print "this is tags:======================================="
         # print tags
         positions = [self.get_position(tag) for tag in tags]
-        # print "this is pos 1==============================================="
-        # print positions #todo
-        # print len(positions)
-        # print "this is pos 2=============================================="
+        print "this is pos 1==============================================="
+        print positions #todo
+        print len(positions)
+        print "this is pos 2=============================================="
         positions = self.fix_positions(positions)
-        # print positions  # todo
-        # print len(positions)
+        print positions  # todo
+        print len(positions)
         # print "this is labels=============================================="
         labels = [self.get_label(tag) for tag in tags]
         # print labels  # todo
@@ -112,6 +112,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         chunks = [] 
         for bi, ei in zip(begin_ind, end_ind):
             if ei < bi:
+                print ei
                 raise ChunkingFailedException 
             chunks.append([bi, ei, labels[bi]]) 
         return chunks 
@@ -156,38 +157,58 @@ class BILOUChunkEncoder(ChunkEncoder):
         n_tags = len(positions) 
         new_positions = [] 
         for ii, position in enumerate(positions):
-            position = position 
+            position = position
+            prev_position = positions[ii-1] if ii > 0 else None
+            next_position = positions[ii+1] if ii < n_tags-1 else None
             if position == 'I':
-                prev_position = positions[ii-1] if ii > 0 else None 
-                is_begin = prev_position in outside_edges 
-                next_position = positions[ii+1] if ii < n_tags else None 
-                is_end = next_position in outside_edges 
-                if is_begin and is_end:
+                if prev_position in ['B', 'I'] and next_position in ['B', 'O', 'U']:
+                    position = 'L'
+                elif prev_position in ['O', 'U', 'L'] and next_position in ['B', 'O', 'U']:
                     position = 'U'
-                elif is_begin:
-                    position = 'B' 
-                elif is_end:
-                    position = 'L' 
-            # added by Boliang, if tagged fix illegal 'B' such as [B,O], [B,U], [B,B]
+                elif prev_position in ['O', 'U', 'L'] and next_position in ['I', 'L']:
+                    position = 'B'
+                if prev_position is None:
+                    if next_position in ['I', 'L']:
+                        position = 'B'
+                    else:
+                        position = 'O'
+                if next_position is None:
+                    if prev_position in ['I', 'B']:
+                        position = 'L'
+                    else:
+                        position = 'O'
+            if position == 'O':
+                if prev_position in ['B'] and next_position in ['B', 'O', 'I', 'U', 'L']:
+                    position = 'L'
+                elif prev_position is None:
+                    if next_position in ['I', 'L']:
+                        position = 'O'  # keep unchanged
+                elif next_position is None:
+                    if prev_position in ['B']:
+                        position = 'L'
             if position == 'B':
-                prev_position = positions[ii-1] if ii > 0 else None
-                is_i = prev_position in ['I']
-                if is_i:
+                if prev_position in ['B'] and next_position in ['B', 'O', 'I', 'U', 'L']:
                     position = 'I'
-                next_position = positions[ii+1] if ii < n_tags else None 
-                is_u = next_position in ['O', 'U', 'B']
-                if is_u:
-                    position = 'U'
-            ###################
+                if next_position is None:
+                    if prev_position in ['B']:
+                        position = 'L'
+                    else:
+                        position = 'O'
             # added by tianlu
             if position == 'L':
-                prev_position = positions[ii-1] if ii > 0 else None
-                is_u = prev_position in ['O', 'U']
-                if is_u:
-                    position = 'U'
-                next_position = positions[ii+1] if ii < n_tags-1 else None
-                is_b = next_position in ['L']
-                if is_b:
-                    position = 'B'
+                if prev_position in ['O', 'U', 'L'] and next_position in ['B', 'O', 'I', 'U', 'L']:
+                    position = 'O'
+                if prev_position is None:
+                    if next_position in ['O', 'L', 'B', 'U', 'I']:
+                        position = 'U'
+                elif next_position is None:
+                    if prev_position in ['O', 'U', 'L']:
+                        position = 'O'
+            if position == 'U':
+                if prev_position in ['B'] and next_position in ['B', 'O', 'I', 'U', 'L']:
+                    position = 'L'
+                elif next_position is None:
+                    if prev_position in ['B']:
+                        position = 'L'
             new_positions.append(position) 
         return new_positions
