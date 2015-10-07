@@ -68,7 +68,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         feats = enc.get_feats(tokens) 
         write_crfsuite_file(featsf, feats)
         # Tag.
-        print "tmep_dir"+temp_dir
+        # print "tmep_dir"+temp_dir
         tagsf = os.path.join(temp_dir, 'tags.txt')
         #probf = os.path.join(temp_dir, 'probs.txt')
         cmd = ['crfsuite', 'tag',
@@ -79,7 +79,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         # Load tagged output.
 
         probf = os.getcwd() + ltf.replace('ltf', 'probs')[1:-9] + '_' + 'probs.txt'
-        print probf
+        # print probf
         cmd_ = ['crfsuite', 'tag',
                '-m', modelf, '-i',
                featsf]

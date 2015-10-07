@@ -85,13 +85,13 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print "this is tags:======================================="
         # print tags
         positions = [self.get_position(tag) for tag in tags]
-        print "this is pos 1==============================================="
-        print positions #todo
-        print len(positions)
-        print "this is pos 2=============================================="
+        # print "this is pos 1==============================================="
+        # print positions #todo
+        # print len(positions)
+        # print "this is pos 2=============================================="
         positions = self.fix_positions(positions)
-        print positions  # todo
-        print len(positions)
+        # print positions  # todo
+        # print len(positions)
         # print "this is labels=============================================="
         labels = [self.get_label(tag) for tag in tags]
         # print labels  # todo

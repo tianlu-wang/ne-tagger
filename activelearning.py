@@ -29,11 +29,11 @@ class ActiveLearning(object):
 
         self.data_path = data_path
         ###### prepare two list
-        raw_path = os.path.join('./', 'data_path_ltf')
+        raw_path = os.path.join('./new_data', 'data_path_ltf')
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]
-        gold_path = os.path.join('./', 'data_path_laf')
+        gold_path = os.path.join('./new_data', 'data_path_laf')
         assert(os.path.exists(gold_path))
         f_gold = open(gold_path, 'r')
         self.gold_set = [line for line in f_gold.readlines()]
@@ -97,9 +97,10 @@ class ActiveLearning(object):
 
             # =========================single iteration=====================
             train_list = ''
+            print self.current_training_set
             for item in self.current_training_set:
-                print "item in current_training_set:"
-                print item
+                # print "item in current_training_set:"
+                # print item
                 train_list += self.gold_set[item][:-1]+' '  # get the name list of training set
             train_command = './train.py'+' '+MODEL_DIR+' '+LTF_DIR+' '+train_list  # todo: remember to delete the front path
             os.system('rm -r '+MODEL_DIR)  # remove the old model
@@ -194,7 +195,11 @@ class ActiveLearning(object):
         while len(training_set_to_add) < sample_size:
             temp = random.randint(0, len(rest) - 1)
             sent_doc_xml = rest[temp].replace('_probs.txt', 'ltf.xml')
-            training_set_to_add.append(self.raw_set.index('./new_data/ltf/' + sent_doc_xml + '\n') if temp not in self.init_training_set else None)
+            tmp = self.raw_set.index('./new_data/ltf/' + sent_doc_xml + '\n')
+            if tmp not in training_set_to_add:
+                training_set_to_add.append(tmp)
+            print 'tmp training_set_to_add:'
+            print training_set_to_add
         return training_set_to_add  # return a list of number...
 
 
@@ -250,10 +255,11 @@ def figure_plot(save_dir, learning_result):
     plt.clf()
 
 if __name__ == "__main__":
-    act = ActiveLearning(increment=5, data_path='/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger', init_training_num=1)
+    data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
+    act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5)
     # todo: must be absolute path '~'not work
 
-    act.do_training('random sampling')
+    act.do_training('uncertainty sampling')
     #figure_plot()
 
 

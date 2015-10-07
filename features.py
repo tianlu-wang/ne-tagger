@@ -71,7 +71,7 @@ class Encoder(object):
 
         new_feats = zip(*new_feats)
         #print new_feats[0]
-        print '============================================================================================'
+        #print '============================================================================================'
 
         for ii,row in enumerate(new_feats):
             new_row = [v if not v is None else 'none' for v in row]
@@ -251,8 +251,12 @@ def roll(feats, k=0):
         new_feats = list(feats) 
     elif k > 0:
         new_feats = [None]*k
-        new_feats.extend(feats[:-k]) 
+        new_feats.extend(feats[:-k])
+        # for i in range(k):
+        #     new_feats[i] = feats[len(feats)-k+i]
     else:
         new_feats = list(feats[-k:]) 
-        new_feats.extend([None]*-k) 
+        new_feats.extend([None]*-k)
+        # for i in range(k):
+        #     new_feats[len(feats)-k+i] = feats[i]
     return new_feats
