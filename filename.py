@@ -51,9 +51,9 @@ def check_two_files(dir_laf, dir_ltf):
 
 def select(dir_laf):
     list_laf = os.walk(dir_laf)
-    train_file = open("./test_split/data_path_ltf", "w")
+    train_file = open("./test_split/data_path_laf", "w")
     for root, dirs, files in list_laf:
         for f in files:
-            train_file.write('./test_split/'+f+"\n")
+            train_file.write('./test_split/'+'laf/'+f+"\n")
 
-select('./test_split/ltf')
+select('./test_split/laf')

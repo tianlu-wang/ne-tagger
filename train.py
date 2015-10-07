@@ -182,7 +182,7 @@ if __name__ == '__main__':
 
     # Train.
     trainf = os.path.join(temp_dir, 'train.txt')
-    print temp_dir
+    # print temp_dir
     write_train_data(args.lafs, args.ltf_dir, enc, trainf)
     def is_empty(fn):
         return os.stat(fn).st_size == 0 

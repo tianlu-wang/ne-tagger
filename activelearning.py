@@ -29,11 +29,11 @@ class ActiveLearning(object):
 
         self.data_path = data_path
         ###### prepare two list
-        raw_path = os.path.join('./new_data', 'data_path_ltf')
+        raw_path = os.path.join('./test_split', 'data_path_ltf')
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]
-        gold_path = os.path.join('./new_data', 'data_path_laf')
+        gold_path = os.path.join('./test_split', 'data_path_laf')
         assert(os.path.exists(gold_path))
         f_gold = open(gold_path, 'r')
         self.gold_set = [line for line in f_gold.readlines()]
@@ -61,9 +61,10 @@ class ActiveLearning(object):
         print('===========================generating initial training set===============================')
         while len(self.init_training_set) < self.init_training_num:
             temp = random.randint(0, len(self.gold_set) - 1)
-            self.init_training_set.append(temp if temp not in self.init_training_set else None)
+            if temp not in self.init_training_set:
+                self.init_training_set.append(temp)
         assert(index > 0 for index in self.init_training_set)
-        print self.init_training_set  # this line is for debug
+        # print self.init_training_set  # this line is for debug
         return self.init_training_set
 
     def do_training(self, sampling_method):
@@ -83,13 +84,13 @@ class ActiveLearning(object):
         self.current_training_set = copy.deepcopy(init_training_index)
         # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why?
         ##############################################################
-        MODEL_DIR='./new_data/model'      # directory for trained model
-        LTF_DIR='./new_data/ltf'         # directory containing LTF files
-        SYS_LAF_DIR='./new_data/output'   # directory for tagger output (LAF files)
-        #TRAIN_SCP='./new_data/train.scp'  # script file containing paths to LAF files (one per line)
-        #TEST_SCP='./new_data/test.scp'    # script file containing paths to LTF files (one per line)
-        REF_LAF_DIR='./new_data/laf'      # directory containing gold standard LAF files
-        PROBS_DIR = './new_data/probs'
+        MODEL_DIR='./test_split/model'      # directory for trained model
+        LTF_DIR='./test_split/ltf'         # directory containing LTF files
+        SYS_LAF_DIR='./test_split/output'   # directory for tagger output (LAF files)
+        #TRAIN_SCP='./test_split/train.scp'  # script file containing paths to LAF files (one per line)
+        #TEST_SCP='./test_split/test.scp'    # script file containing paths to LTF files (one per line)
+        REF_LAF_DIR='./test_split/laf'      # directory containing gold standard LAF files
+        PROBS_DIR = './test_split/probs'
         ################################################################
         for i in range(int((len(self.raw_set)-10)/self.increment)):  # todo not iteration times
             print('========================running iteration ' + str(i) + '========================')
@@ -97,7 +98,7 @@ class ActiveLearning(object):
 
             # =========================single iteration=====================
             train_list = ''
-            print self.current_training_set
+           # print self.current_training_set
             for item in self.current_training_set:
                 # print "item in current_training_set:"
                 # print item
@@ -132,10 +133,10 @@ class ActiveLearning(object):
 
             # choose sampling method
             if sampling_method == 'uncertainty sampling':
-                self.incremental_training_set = self.uncertainty_sampling('./new_data/probs')
+                self.incremental_training_set = self.uncertainty_sampling('./test_split/probs')
 
             elif sampling_method == 'random sampling':
-                self.incremental_training_set = self.random_sampling('./new_data/probs')
+                self.incremental_training_set = self.random_sampling('./test_split/probs')
             #
             # elif sampling_method == 'uncertainty k-means':
             #     self.incremental_training_set = self.uncertainty_k_means()
@@ -176,7 +177,7 @@ class ActiveLearning(object):
             sent_doc = item[0]
             sent_doc_xml = sent_doc.replace('_probs.txt', 'ltf.xml')
             print sent_doc_xml
-            training_set_to_add.append(self.raw_set.index('./new_data/ltf/' + sent_doc_xml + '\n'))
+            training_set_to_add.append(self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n'))
 
         return training_set_to_add
 
@@ -195,7 +196,7 @@ class ActiveLearning(object):
         while len(training_set_to_add) < sample_size:
             temp = random.randint(0, len(rest) - 1)
             sent_doc_xml = rest[temp].replace('_probs.txt', 'ltf.xml')
-            tmp = self.raw_set.index('./new_data/ltf/' + sent_doc_xml + '\n')
+            tmp = self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n')
             if tmp not in training_set_to_add:
                 training_set_to_add.append(tmp)
             print 'tmp training_set_to_add:'
@@ -256,10 +257,10 @@ def figure_plot(save_dir, learning_result):
 
 if __name__ == "__main__":
     data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
-    act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5)
+    act = ActiveLearning(increment=10, data_path=data_path, init_training_num=10)
     # todo: must be absolute path '~'not work
 
-    act.do_training('uncertainty sampling')
+    act.do_training('random sampling')
     #figure_plot()
 
 

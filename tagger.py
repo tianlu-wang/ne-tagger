@@ -52,7 +52,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
     # Create working directory.                                              
     temp_dir = tempfile.mkdtemp()
     # Load LTF.
-    print ltf  # todo
+    #print ltf  # todo
     ltf_doc = load_doc(ltf, LTFDocument, logger) 
     if ltf_doc is None:
         shutil.rmtree(temp_dir) 
