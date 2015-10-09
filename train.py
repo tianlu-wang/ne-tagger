@@ -203,7 +203,7 @@ if __name__ == '__main__':
             if args.display_progress:
                 subprocess.call(cmd, stderr=f)
             else:
-                subprocess.call(cmd, stderr=f, stdout=f, shell=True)
+                subprocess.call(cmd, stderr=f, stdout=f)
     else:
         logger.error('Training file contains no features/targets. Exiting.') 
 
