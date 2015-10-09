@@ -200,6 +200,7 @@ if __name__ == '__main__':
                '-p', 'feature.possible_transitions=0',
                trainf] 
         with open(os.devnull, 'w') as f:
+
             if args.display_progress:
                 subprocess.call(cmd, stderr=f) 
             else:

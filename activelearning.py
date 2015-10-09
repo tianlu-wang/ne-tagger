@@ -12,8 +12,6 @@ import operator
 
 class ActiveLearning(object):
 
-    # named_entity_path = "./lib/wtextproc-2/named-entity"  # todo remember to pack the lib
-
     def __init__(self, iteration_times=1, init_training_num=50, increment=1, data_path=None, ):
         """
         initialize the activelearning class, classifier includes llama, svm and crf
@@ -29,11 +27,15 @@ class ActiveLearning(object):
 
         self.data_path = data_path
         ###### prepare two list
-        raw_path = os.path.join('./test_split', 'data_path_ltf')
+        raw_path = os.path.join('./test_split', 'data_path_ltf_600')
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]
-        gold_path = os.path.join('./test_split', 'data_path_laf')
+
+        self.test_set = self.raw_set[-50:]  # select test samples
+        self.raw_set = self.raw_set[:-50]  # leave some samples as test data
+
+        gold_path = os.path.join('./test_split', 'data_path_laf_600')
         assert(os.path.exists(gold_path))
         f_gold = open(gold_path, 'r')
         self.gold_set = [line for line in f_gold.readlines()]
@@ -52,7 +54,16 @@ class ActiveLearning(object):
         self.incremental_training_set = []
         self.current_training_set = []
         self.rest_training_set = []
-
+        
+        ##############################################################
+        self.MODEL_DIR='./test_split/model'      # directory for trained model
+        self.LTF_DIR='./test_split/ltf'         # directory containing LTF files
+        self.SYS_LAF_DIR='./test_split/output'   # directory for tagger output (LAF files)
+        #TRAIN_SCP='./test_split/train.scp'  # script file containing paths to LAF files (one per line)
+        #TEST_SCP='./test_split/test.scp'    # script file containing paths to LTF files (one per line)
+        self.REF_LAF_DIR='./test_split/laf'      # directory containing gold standard LAF files
+        self.PROBS_DIR = './test_split/probs'
+        ################################################################
     def training_set_initialization(self):
         """
         randomly select several documents as the start point
@@ -82,17 +93,26 @@ class ActiveLearning(object):
         index = []
         init_training_index = self.training_set_initialization()
         self.current_training_set = copy.deepcopy(init_training_index)
-        # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why?
-        ##############################################################
-        MODEL_DIR='./test_split/model'      # directory for trained model
-        LTF_DIR='./test_split/ltf'         # directory containing LTF files
-        SYS_LAF_DIR='./test_split/output'   # directory for tagger output (LAF files)
-        #TRAIN_SCP='./test_split/train.scp'  # script file containing paths to LAF files (one per line)
-        #TEST_SCP='./test_split/test.scp'    # script file containing paths to LTF files (one per line)
-        REF_LAF_DIR='./test_split/laf'      # directory containing gold standard LAF files
-        PROBS_DIR = './test_split/probs'
-        ################################################################
-        for i in range(int((len(self.raw_set)-10)/self.increment)):  # todo not iteration times
+        # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why
+
+        tag_list = ''
+        # temp = list(self.raw_set)  # bug here
+        # for item in self.current_training_set:
+        #     print item
+        #     print self.raw_set[item]
+        #     temp.remove(self.raw_set[item])  # rest of training set is test
+        # print '**************************************************************'
+        # print len(temp)
+        # print len(self.raw_set)
+        #################
+        # fix the test data
+        for item in self.test_set:
+            tag_list += item[:-1]+' '
+        # os.system('rm '+self.SYS_LAF_DIR+'/*')
+        # os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
+        tag_command = './tagger.py'+' '+'-L'+' '+self.SYS_LAF_DIR+' '+' '+self.MODEL_DIR+' '+tag_list
+
+        for i in range(int((len(self.raw_set)-50)/self.increment)):  # todo not iteration times
             print('========================running iteration ' + str(i) + '========================')
             print('\tcurrent iteration training set size: '+str(len(self.current_training_set)))
 
@@ -103,27 +123,15 @@ class ActiveLearning(object):
                 # print "item in current_training_set:"
                 # print item
                 train_list += self.gold_set[item][:-1]+' '  # get the name list of training set
-            train_command = './train.py'+' '+MODEL_DIR+' '+LTF_DIR+' '+train_list  # todo: remember to delete the front path
-            os.system('rm -r '+MODEL_DIR)  # remove the old model
+            train_command = './train.py'+' '+self.MODEL_DIR+' '+self.LTF_DIR+' '+train_list  # todo: remember to delete the front path
+            os.system('rm -r '+self.MODEL_DIR)  # remove the old model
             os.system(train_command)
 
-            tag_list = ''
-            temp = list(self.raw_set)  # bug here
-            for item in self.current_training_set:
-                print item
-                print self.raw_set[item]
-                temp.remove(self.raw_set[item])  # rest of training set is test
-            print '**************************************************************'
-            print len(temp)
-            print len(self.raw_set)
-            for item in temp:
-                tag_list += item[:-1]+' '
-            os.system('rm '+SYS_LAF_DIR+'/*')
-            os.system('rm '+PROBS_DIR+'/*')       # clear directories before input the new result
-            tag_command = './tagger.py'+' '+'-L'+' '+SYS_LAF_DIR+' '+' '+MODEL_DIR+' '+tag_list
+            os.system('rm '+self.SYS_LAF_DIR+'/*')
+            os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
             os.system(tag_command)
 
-            score_command = './score.py'+' '+REF_LAF_DIR+' '+SYS_LAF_DIR+' '+LTF_DIR
+            score_command = './score.py'+' '+self.REF_LAF_DIR+' '+self.SYS_LAF_DIR+' '+self.LTF_DIR
             os.system(score_command)
             x.append(len(self.current_training_set))
             index.append(self.current_training_set)
@@ -136,7 +144,7 @@ class ActiveLearning(object):
                 self.incremental_training_set = self.uncertainty_sampling('./test_split/probs')
 
             elif sampling_method == 'random sampling':
-                self.incremental_training_set = self.random_sampling('./test_split/probs')
+                self.incremental_training_set = self.random_sampling()
             #
             # elif sampling_method == 'uncertainty k-means':
             #     self.incremental_training_set = self.uncertainty_k_means()
@@ -149,15 +157,31 @@ class ActiveLearning(object):
 
         return x, index
 
-    def uncertainty_sampling(self, probs_dir):
+    def uncertainty_sampling(self):
         print('\tgetting new training data...')
 
+        tag_list = ''
+        temp = list(self.raw_set)  # bug here
+        for item in self.current_training_set:
+            # print item
+            # print self.raw_set[item]
+            temp.remove(self.raw_set[item])  # rest of training set is test
+        # print '**************************************************************'
+        # print len(temp)
+        # print len(self.raw_set)
+        #################
+        for item in self.test_set:
+            tag_list += item[:-1]+' '
+        os.system('rm '+self.SYS_LAF_DIR+'/*')
+        os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
+        tag_command = './tagger.py'+' '+'-L'+' '+self.self.SYS_LAF_DIR+' '+' '+self.MODEL_DIR+' '+tag_list
+        os.system(tag_command)
         entropy = dict()
         pattern = re.compile(r'(.*):(.*)')
-        for root, dirs, files in os.walk(probs_dir):
+        for root, dirs, files in os.walk(self.PROBS_DIR):
             for file in files:
                 sum_prob = 0
-                f = open(probs_dir+'/'+file, 'r')
+                f = open(self.PROBS_DIR+'/'+file, 'r')
                 i = 0
                 for line in f.readlines():
                     m = re.match(pattern, line, flags=0)
@@ -181,11 +205,11 @@ class ActiveLearning(object):
 
         return training_set_to_add
 
-    def random_sampling(self, probs_dir):
+    def random_sampling(self):
         print('\tgetting new training data...')
 
         rest = []
-        for root, dirs, files in os.walk(probs_dir):
+        for root, dirs, files in os.walk(self.PROBS_DIR):
             for file in files:
                 rest.append(file)
 
@@ -257,7 +281,7 @@ def figure_plot(save_dir, learning_result):
 
 if __name__ == "__main__":
     data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
-    act = ActiveLearning(increment=10, data_path=data_path, init_training_num=10)
+    act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5)  # set the initial num and increment
     # todo: must be absolute path '~'not work
 
     act.do_training('random sampling')
