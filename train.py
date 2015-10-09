@@ -200,11 +200,10 @@ if __name__ == '__main__':
                '-p', 'feature.possible_transitions=0',
                trainf] 
         with open(os.devnull, 'w') as f:
-
             if args.display_progress:
-                subprocess.call(cmd, stderr=f) 
+                subprocess.call(cmd, stderr=f)
             else:
-                subprocess.call(cmd, stderr=f, stdout=f) 
+                subprocess.call(cmd, stderr=f, stdout=f, shell=True)
     else:
         logger.error('Training file contains no features/targets. Exiting.') 
 

@@ -32,7 +32,7 @@ class ActiveLearning(object):
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]
 
-        self.test_set = self.raw_set[-50:]  # select test samples
+        self.test_set = list(self.raw_set[-50:])  # select test samples
         self.raw_set = self.raw_set[:-50]  # leave some samples as test data
 
         gold_path = os.path.join('./test_split', 'data_path_laf_600')
@@ -49,7 +49,7 @@ class ActiveLearning(object):
         self.increment = increment
 
         self.training_set = []
-        self.test_set = []
+        # self.test_set = []
         self.init_training_set = []
         self.incremental_training_set = []
         self.current_training_set = []
@@ -112,7 +112,7 @@ class ActiveLearning(object):
         # os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
         tag_command = './tagger.py'+' '+'-L'+' '+self.SYS_LAF_DIR+' '+' '+self.MODEL_DIR+' '+tag_list
 
-        for i in range(int((len(self.raw_set)-50)/self.increment)):  # todo not iteration times
+        for i in range(int((len(self.raw_set))/self.increment)):  # todo not iteration times
             print('========================running iteration ' + str(i) + '========================')
             print('\tcurrent iteration training set size: '+str(len(self.current_training_set)))
 
@@ -125,6 +125,7 @@ class ActiveLearning(object):
                 train_list += self.gold_set[item][:-1]+' '  # get the name list of training set
             train_command = './train.py'+' '+self.MODEL_DIR+' '+self.LTF_DIR+' '+train_list  # todo: remember to delete the front path
             os.system('rm -r '+self.MODEL_DIR)  # remove the old model
+            print os.getcwd()
             os.system(train_command)
 
             os.system('rm '+self.SYS_LAF_DIR+'/*')
@@ -141,7 +142,7 @@ class ActiveLearning(object):
 
             # choose sampling method
             if sampling_method == 'uncertainty sampling':
-                self.incremental_training_set = self.uncertainty_sampling('./test_split/probs')
+                self.incremental_training_set = self.uncertainty_sampling()
 
             elif sampling_method == 'random sampling':
                 self.incremental_training_set = self.random_sampling()
