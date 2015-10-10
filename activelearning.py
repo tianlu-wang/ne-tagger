@@ -9,13 +9,12 @@ import numpy as np
 from sklearn import metrics
 import re
 import operator
-from subprocess import Popen, PIPE
 import subprocess
 
 
 class ActiveLearning(object):
 
-    def __init__(self, iteration_times=1, init_training_num=50, increment=1, data_path=None, ):
+    def __init__(self, iteration_times=1, init_training_num=50, increment=1, data_path=None, test_begin=0, test_end=50):
         """
         initialize the activelearning class, classifier includes llama, svm and crf
         actually it's going to combine with other team and just add llama and svm;
@@ -33,11 +32,32 @@ class ActiveLearning(object):
         raw_path = os.path.join('./test_split', 'data_path_ltf_600')
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
-        self.raw_set = [line for line in f_raw.readlines()]
+        self.raw_set = [line for line in f_raw.readlines()]  # get the list of ltf file
 
-        self.test_set = list(self.raw_set[-50:])  # select test samples
-        self.raw_set = self.raw_set[:-50]  # leave some samples as test data
-
+        self.test_set = list(self.raw_set[test_begin:test_end])  # sub the test part
+        # print 'test set:'
+        # print self.test_set
+        # print 'test:'
+        # print test_begin
+        # print test_end
+        # print len(self.test_set)
+        if test_begin == 0:
+            self.raw_set = self.raw_set[test_end:]  # leave some samples as test data
+            # print 'test_begin == 0'
+            # print test_end
+        elif test_end == len(self.raw_set):
+            self.raw_set = self.raw_set[:test_begin]
+            # print 'test_end == len raw'
+            # print test_begin
+        else:
+            # print 'middle'
+            self.raw_set = self.raw_set[:test_begin] + self.raw_set[test_end:]
+        # print 'raw set:'
+        # print self.raw_set
+        # print len(self.raw_set)
+        for item in self.test_set:
+            if item in self.raw_set:
+                print "++++++++++++++duplicate+++++++++++++++"
         gold_path = os.path.join('./test_split', 'data_path_laf_600')
         assert(os.path.exists(gold_path))
         f_gold = open(gold_path, 'r')
@@ -59,12 +79,12 @@ class ActiveLearning(object):
         self.rest_training_set = []
         
         ##############################################################
-        self.MODEL_DIR='./test_split/model'      # directory for trained model
-        self.LTF_DIR='./test_split/ltf'         # directory containing LTF files
-        self.SYS_LAF_DIR='./test_split/output'   # directory for tagger output (LAF files)
+        self.MODEL_DIR ='./test_split/model'      # directory for trained model
+        self.LTF_DIR ='./test_split/ltf'         # directory containing LTF files
+        self.SYS_LAF_DIR ='./test_split/output'   # directory for tagger output (LAF files)
         #TRAIN_SCP='./test_split/train.scp'  # script file containing paths to LAF files (one per line)
         #TEST_SCP='./test_split/test.scp'    # script file containing paths to LTF files (one per line)
-        self.REF_LAF_DIR='./test_split/laf'      # directory containing gold standard LAF files
+        self.REF_LAF_DIR ='./test_split/laf'      # directory containing gold standard LAF files
         self.PROBS_DIR = './test_split/probs'
         ################################################################
     def training_set_initialization(self):
@@ -74,7 +94,7 @@ class ActiveLearning(object):
         """
         print('===========================generating initial training set===============================')
         while len(self.init_training_set) < self.init_training_num:
-            temp = random.randint(0, len(self.gold_set) - 1)
+            temp = random.randint(0, len(self.raw_set) - 1)
             if temp not in self.init_training_set:
                 self.init_training_set.append(temp)
         assert(index > 0 for index in self.init_training_set)
@@ -92,114 +112,131 @@ class ActiveLearning(object):
         y_f[]: f1 score in every loop(write in file)
         """
         # select initial training set
-        x = []
-        index = []
-        init_training_index = self.training_set_initialization()
-        self.current_training_set = copy.deepcopy(init_training_index)
-        # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why
-
+        cmd_del_model = ['rm', '-r', self.MODEL_DIR]
+        cmd_del_syslaf = ['rm', '-r', self.SYS_LAF_DIR]
+        cmd_mk_syslaf = ['mkdir', self.SYS_LAF_DIR]
+        cmd_del_probs = ['rm', '-r', self.PROBS_DIR]
+        cmd_mk_probs = ['mkdir', self.PROBS_DIR]
+        score_command = ['./score.py', self.REF_LAF_DIR, self.SYS_LAF_DIR, self.LTF_DIR]
         tag_list = []
-        # temp = list(self.raw_set)  # bug here
-        # for item in self.current_training_set:
-        #     print item
-        #     print self.raw_set[item]
-        #     temp.remove(self.raw_set[item])  # rest of training set is test
-        # print '**************************************************************'
-        # print len(temp)
-        # print len(self.raw_set)
-        #################
-        # fix the test data
         for item in self.test_set:
             tag_list.append(item[:-1])
-        # os.system('rm '+self.SYS_LAF_DIR+'/*')
-        # os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
         tag_command = ['./tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
-
-        for i in range(int((len(self.raw_set))/self.increment)):  # todo not iteration times
+        # print tag_command
+        for i in range(self.iteration_times):
             print('========================running iteration ' + str(i) + '========================')
-            print('\tcurrent iteration training set size: '+str(len(self.current_training_set)))
+            f = open('./result.txt', 'a')
+            f.write('**********i = ' + str(i) + '\n')
+            f.close()
+            # x = []
+            # index = []
+            init_training_index = self.training_set_initialization()
+            self.current_training_set = copy.deepcopy(init_training_index)
+            # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why
 
-            # =========================single iteration=====================
-            train_list = []
-           # print self.current_training_set
-            for item in self.current_training_set:
-                # print "item in current_training_set:"
-                # print item
-                train_list.append(self.gold_set[item][:-1])  # get the name list of training set
-            train_command = ['./train.py', self.MODEL_DIR, self.LTF_DIR] + train_list  # todo: remember to delete the front path
-            cmd = ['rm', '-r', self.MODEL_DIR]
-            # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-            # stdout, stderr = p.communicate()
-            # if stderr:
-            #     print('remove model dir is wrong ' + stderr)
-            print 'execute rm model'
-            subprocess.call(cmd)
-            # p = Popen(train_command, stdout=PIPE, stderr=PIPE)
-            # stdout, stderr = p.communicate()
-            # if stderr:
-            #     print('train model is wrong ' + stderr)
-            print 'execute train'
-            subprocess.call(train_command)
+            # temp = list(self.raw_set)  # bug here
+            # for item in self.current_training_set:
+            #     print item
+            #     print self.raw_set[item]
+            #     temp.remove(self.raw_set[item])  # rest of training set is test
+            # print '**************************************************************'
+            # print len(temp)
+            # print len(self.raw_set)
+            #################
+            # fix the test data
+            # os.system('rm '+self.SYS_LAF_DIR+'/*')
+            # os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
 
-            cmd = ['rm', '-r', self.SYS_LAF_DIR]
-            # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-            # stdout, stderr = p.communicate()
-            # if stderr:
-            #     print('remove syslaf model dir is wrong ' + stderr)
-            subprocess.call(cmd)
 
-            cmd = ['mkdir', self.SYS_LAF_DIR]
-            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print('create syslaf model dir is wrong ' + stderr)
+            for j in range(int((len(self.raw_set))/self.increment)):  # todo not iteration times
+                print('\tcurrent iteration training set size: '+str(len(self.current_training_set)))
 
-            cmd = ['rm','-r', self.PROBS_DIR]
-            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print('remove probs_dir model dir is wrong ' + stderr)
+                # =========================single iteration=====================
+                train_list = []
+               # print self.current_training_set
+                for item in self.current_training_set:
+                    # print "item in current_training_set:"
+                    # print item
+                    train_list.append(self.raw_set[item].replace('ltf', 'laf')[:-1])  # get the name list of training set
+                train_command = ['./train.py', self.MODEL_DIR, self.LTF_DIR] + train_list  # todo: remember to delete the front path
 
-            cmd = ['mkdir', self.PROBS_DIR]
-            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print('create probs model dir is wrong ' + stderr)
+                # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('remove model dir is wrong ' + stderr)
+                # print 'execute rm model'
+                subprocess.call(cmd_del_model)
+                # p = Popen(train_command, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('train model is wrong ' + stderr)
+                # print 'execute train'
+                subprocess.call(train_command)
 
-            p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print('tag test data is wrong ' + stderr)
+                # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('remove syslaf model dir is wrong ' + stderr)
+                subprocess.call(cmd_del_syslaf)
 
-            score_command = ['./score.py', self.REF_LAF_DIR, self.SYS_LAF_DIR, self.LTF_DIR]
-            p = Popen(score_command, stdout=PIPE, stderr=PIPE)
-            stdout, stderr = p.communicate()
-            if stderr:
-                print('score test data is wrong ' + stderr)
 
-            x.append(len(self.current_training_set))
-            index.append(self.current_training_set)
+                # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('create syslaf model dir is wrong ' + stderr)
+                subprocess.call(cmd_mk_syslaf)
 
-            # =========================add new training samples========================
-            self.rest_training_set = [d for d in self.training_set if self.training_set.index(d) not in self.current_training_set]
 
-            # choose sampling method
-            if sampling_method == 'uncertainty sampling':
-                self.incremental_training_set = self.uncertainty_sampling()
+                # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('remove probs_dir model dir is wrong ' + stderr)
+                subprocess.call(cmd_del_probs)
 
-            elif sampling_method == 'random sampling':
-                self.incremental_training_set = self.random_sampling()
-            #
-            # elif sampling_method == 'uncertainty k-means':
-            #     self.incremental_training_set = self.uncertainty_k_means()
-            # elif sampling_method == 'ne density':
-            #     self.incremental_training_set = self.named_entity_density(i)
-            # elif sampling_method == 'features based density':
-            #     self.incremental_training_set = self.feature_based_density(i)
 
-            self.current_training_set += self.incremental_training_set
+                # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('create probs model dir is wrong ' + stderr)
+                subprocess.call(cmd_mk_probs)
 
-        return x, index
+                # p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('tag test data is wrong ' + stderr)
+                subprocess.call(tag_command)
+
+
+                # p = Popen(score_command, stdout=PIPE, stderr=PIPE)
+                # stdout, stderr = p.communicate()
+                # if stderr:
+                #     print('score test data is wrong ' + stderr)
+                subprocess.call(score_command)
+
+                # x.append(len(self.current_training_set))
+                # index.append(self.current_training_set)
+
+                # =========================add new training samples========================
+                # self.rest_training_set = [d for d in self.training_set if self.training_set.index(d) not in self.current_training_set]
+
+                # choose sampling method
+                if sampling_method == 'uncertainty sampling':
+                    self.incremental_training_set = self.uncertainty_sampling()
+
+                elif sampling_method == 'random sampling':
+                    self.incremental_training_set = self.random_sampling()
+                #
+                # elif sampling_method == 'uncertainty k-means':
+                #     self.incremental_training_set = self.uncertainty_k_means()
+                # elif sampling_method == 'ne density':
+                #     self.incremental_training_set = self.named_entity_density(i)
+                # elif sampling_method == 'features based density':
+                #     self.incremental_training_set = self.feature_based_density(i)
+
+                self.current_training_set += self.incremental_training_set
+
+
+        # return x, index
 
     def uncertainty_sampling(self):
         print('\tgetting new training data...')
@@ -214,38 +251,42 @@ class ActiveLearning(object):
         # print len(temp)
         # print len(self.raw_set)
         #################
-        for item in self.test_set:
+        for item in temp:
             tag_list.append(item[:-1])
 
-        cmd = ['rm', '-r', self.SYS_LAF_DIR, '*']
-        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print('remove syslaf model dir is wrong ' + stderr)
-
+        cmd = ['rm', '-r', self.SYS_LAF_DIR]
+        # print cmd
+        # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        # stdout, stderr = p.communicate()
+        # if stderr:
+        #     print('remove syslaf model dir is wrong ' + stderr)
+        subprocess.call(cmd)
         cmd = ['mkdir', self.SYS_LAF_DIR]
-        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print('create syslaf model dir is wrong ' + stderr)
-
-        cmd = ['rm', '-r', self.PROBS_DIR, '*']
-        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print('remove probs_dir model dir is wrong ' + stderr)
+        # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        # stdout, stderr = p.communicate()
+        # if stderr:
+        #     print('create syslaf model dir is wrong ' + stderr)
+        subprocess.call(cmd)
+        cmd = ['rm', '-r', self.PROBS_DIR]
+        # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        # stdout, stderr = p.communicate()
+        # if stderr:
+        #     print('remove probs_dir model dir is wrong ' + stderr)
+        subprocess.call(cmd)
 
         cmd = ['mkdir', self.PROBS_DIR]
-        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print('create probs model dir is wrong ' + stderr)
+        # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        # stdout, stderr = p.communicate()
+        # if stderr:
+        #     print('create probs model dir is wrong ' + stderr)
+        subprocess.call(cmd)
 
-        tag_command = ['./tagger.py', '-L', self.self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
-        p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
-        stdout, stderr = p.communicate()
-        if stderr:
-            print('tag rest data is wrong ' + stderr)
+        tag_command = ['./tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
+        # p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
+        # stdout, stderr = p.communicate()
+        # if stderr:
+        #     print('tag rest data is wrong ' + stderr)
+        subprocess.call(tag_command)
         entropy = dict()
         pattern = re.compile(r'(.*):(.*)')
         for root, dirs, files in os.walk(self.PROBS_DIR):
@@ -257,10 +298,12 @@ class ActiveLearning(object):
                     m = re.match(pattern, line, flags=0)
                     if not m is None:
                         sum_prob += float(m.group(2))
+                    # else:
+                    #     print "regular expression wrong"
                     i += 1
                 mean_prob = sum_prob / float(i)  # take the mean of all tokens' probability as the entropy of a document
                 entropy[file] = mean_prob
-
+                f.close()
         sorted_entropy = sorted(entropy.items(), key=operator.itemgetter(1))
 
         training_set_to_add = []
@@ -270,9 +313,13 @@ class ActiveLearning(object):
         for item in sorted_entropy[:sample_size]:
             sent_doc = item[0]
             sent_doc_xml = sent_doc.replace('_probs.txt', 'ltf.xml')
-            print sent_doc_xml
-            training_set_to_add.append(self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n'))
-
+            # print sent_doc_xml
+            add_one = self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n')
+            if add_one not in self.current_training_set:
+                training_set_to_add.append(add_one)
+            else:
+                print 'add_one is in current_training_set'
+        print training_set_to_add
         return training_set_to_add
 
     def random_sampling(self):
@@ -282,30 +329,36 @@ class ActiveLearning(object):
         # for root, dirs, files in os.walk(self.PROBS_DIR):
         #     for file in files:
         #         rest.append(file)
-        rest_list = []
-        temp = list(self.raw_set)  # bug here
-        for item in self.current_training_set:
-            # print item
-            # print self.raw_set[item]
-            temp.remove(self.raw_set[item])  # rest of training set is test
+        # print 'current_set'
+        # print self.current_training_set
+        # rest = list(self.raw_set)  # bug here
+        # for item in self.current_training_set:
+        #     print item
+        #     # print self.raw_set[item]
+        #     rest.remove(self.raw_set[item])  # rest of training set is test
         # print '**************************************************************'
         # print len(temp)
         # print len(self.raw_set)
         #################
-        for item in rest_list:
-            rest_list.append(item[:-1])
+        # print 'rest_list:'
+        # print rest_list
+        # rest_list = []
+        # for item in temp:
+        #     rest_list.append(item)
         training_set_to_add = []
         sample_size = self.increment
-        if len(rest_list) < self.increment:
-            sample_size = len(rest_list)
+        sub = len(self.raw_set) - len(self.current_training_set)
+        if sub < self.increment:
+            sample_size = sub
         while len(training_set_to_add) < sample_size:
-            temp = random.randint(0, len(rest_list) - 1)
-            sent_doc_xml = rest_list[temp].replace('_probs.txt', 'ltf.xml')
-            tmp = self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n')
-            if tmp not in training_set_to_add:
-                training_set_to_add.append(tmp)
-            print 'tmp training_set_to_add:'
-            print training_set_to_add
+            temp = random.randint(0, len(self.raw_set) - 1)  # actually it is not a good method
+            # sent_doc_xml = rest[temp]
+            #tmp = self.raw_set.index(rest[temp])
+            if temp not in self.current_training_set:
+                training_set_to_add.append(temp)
+            # print 'training_set_to_add:'
+            # print training_set_to_add
+        print training_set_to_add
         return training_set_to_add  # return a list of number...
 
 
@@ -363,19 +416,26 @@ def figure_plot(save_dir, learning_result):
 if __name__ == "__main__":
     data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
     # ##################
-    print os.getcwd()
-    os.chdir(data_path)
-    cmd = ['crfsuite', '-h']
-    subprocess.call(cmd)
+    # print os.getcwd()
+    # os.chdir(data_path)
+    # cmd = ['crfsuite', '-h']
+    # subprocess.call(cmd)
     # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
     # stdout, stderr = p.communicate()
     # if stderr:
     #     print('test is wrong ' + stderr)
     # #######################
-    act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5)  # set the initial num and increment
-    # todo: must be absolute path '~'not work
+    for i in range(12):
+        f = open('./result.txt', 'a')
+        f.write('**********cross validation = ' + str(i) + '\n')
+        f.close()
+        print 'i=:'
+        print i * 50
+        act = ActiveLearning(increment=10, data_path=data_path, init_training_num=10, iteration_times=1,
+                             test_begin=i*50, test_end= i*50 + 50)  # set the initial num and increment
+        # todo: must be absolute path '~'not work
 
-    act.do_training('random sampling')
+        act.do_training('uncertainty sampling')  # uncertainty sampling
     #figure_plot()
 
 
