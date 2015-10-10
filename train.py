@@ -110,6 +110,9 @@ def write_train_data(lafs, ltf_dir, enc, trainf):
 ##########################
 if __name__ == '__main__':
     # Parse command line arguments.
+    # print 123
+    # cmd = ['crfsuite', '-h']
+    # subprocess.call(cmd)
     parser = argparse.ArgumentParser(description='Train CRF-based named entity tagger using Passive Aggresive algorithm.',
                                      add_help=False,
                                      usage='%(prog)s [options] model_dir laf_dir lafs') 
@@ -209,4 +212,5 @@ if __name__ == '__main__':
 
     # Clean up.
     # os.system('mv' + ' ' + trainf + ' ' + '~/Desktop')
+
     shutil.rmtree(temp_dir)

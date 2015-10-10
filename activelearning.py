@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 __author__ = 'koala'
 
 import os
@@ -8,6 +9,8 @@ import numpy as np
 from sklearn import metrics
 import re
 import operator
+from subprocess import Popen, PIPE
+import subprocess
 
 
 class ActiveLearning(object):
@@ -42,7 +45,7 @@ class ActiveLearning(object):
         #########
         # print self.raw_set
         # print self.gold_set
-        os.chdir(self.data_path)  # change the directory into the name tagger directory
+        # os.chdir(self.data_path)  # change the directory into the name tagger directory
         # os.system('pwd')
         self.init_training_num = init_training_num
         self.iteration_times = iteration_times
@@ -95,7 +98,7 @@ class ActiveLearning(object):
         self.current_training_set = copy.deepcopy(init_training_index)
         # self.incremental_training_set = copy.deepcopy(init_training_index)  # todo why
 
-        tag_list = ''
+        tag_list = []
         # temp = list(self.raw_set)  # bug here
         # for item in self.current_training_set:
         #     print item
@@ -107,33 +110,73 @@ class ActiveLearning(object):
         #################
         # fix the test data
         for item in self.test_set:
-            tag_list += item[:-1]+' '
+            tag_list.append(item[:-1])
         # os.system('rm '+self.SYS_LAF_DIR+'/*')
         # os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
-        tag_command = './tagger.py'+' '+'-L'+' '+self.SYS_LAF_DIR+' '+' '+self.MODEL_DIR+' '+tag_list
+        tag_command = ['./tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
 
         for i in range(int((len(self.raw_set))/self.increment)):  # todo not iteration times
             print('========================running iteration ' + str(i) + '========================')
             print('\tcurrent iteration training set size: '+str(len(self.current_training_set)))
 
             # =========================single iteration=====================
-            train_list = ''
+            train_list = []
            # print self.current_training_set
             for item in self.current_training_set:
                 # print "item in current_training_set:"
                 # print item
-                train_list += self.gold_set[item][:-1]+' '  # get the name list of training set
-            train_command = './train.py'+' '+self.MODEL_DIR+' '+self.LTF_DIR+' '+train_list  # todo: remember to delete the front path
-            os.system('rm -r '+self.MODEL_DIR)  # remove the old model
-            print os.getcwd()
-            os.system(train_command)
+                train_list.append(self.gold_set[item][:-1])  # get the name list of training set
+            train_command = ['./train.py', self.MODEL_DIR, self.LTF_DIR] + train_list  # todo: remember to delete the front path
+            cmd = ['rm', '-r', self.MODEL_DIR]
+            # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+            # stdout, stderr = p.communicate()
+            # if stderr:
+            #     print('remove model dir is wrong ' + stderr)
+            print 'execute rm model'
+            subprocess.call(cmd)
+            # p = Popen(train_command, stdout=PIPE, stderr=PIPE)
+            # stdout, stderr = p.communicate()
+            # if stderr:
+            #     print('train model is wrong ' + stderr)
+            print 'execute train'
+            subprocess.call(train_command)
 
-            os.system('rm '+self.SYS_LAF_DIR+'/*')
-            os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
-            os.system(tag_command)
+            cmd = ['rm', '-r', self.SYS_LAF_DIR]
+            # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+            # stdout, stderr = p.communicate()
+            # if stderr:
+            #     print('remove syslaf model dir is wrong ' + stderr)
+            subprocess.call(cmd)
 
-            score_command = './score.py'+' '+self.REF_LAF_DIR+' '+self.SYS_LAF_DIR+' '+self.LTF_DIR
-            os.system(score_command)
+            cmd = ['mkdir', self.SYS_LAF_DIR]
+            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print('create syslaf model dir is wrong ' + stderr)
+
+            cmd = ['rm','-r', self.PROBS_DIR]
+            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print('remove probs_dir model dir is wrong ' + stderr)
+
+            cmd = ['mkdir', self.PROBS_DIR]
+            p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print('create probs model dir is wrong ' + stderr)
+
+            p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print('tag test data is wrong ' + stderr)
+
+            score_command = ['./score.py', self.REF_LAF_DIR, self.SYS_LAF_DIR, self.LTF_DIR]
+            p = Popen(score_command, stdout=PIPE, stderr=PIPE)
+            stdout, stderr = p.communicate()
+            if stderr:
+                print('score test data is wrong ' + stderr)
+
             x.append(len(self.current_training_set))
             index.append(self.current_training_set)
 
@@ -161,7 +204,7 @@ class ActiveLearning(object):
     def uncertainty_sampling(self):
         print('\tgetting new training data...')
 
-        tag_list = ''
+        tag_list = []
         temp = list(self.raw_set)  # bug here
         for item in self.current_training_set:
             # print item
@@ -172,11 +215,37 @@ class ActiveLearning(object):
         # print len(self.raw_set)
         #################
         for item in self.test_set:
-            tag_list += item[:-1]+' '
-        os.system('rm '+self.SYS_LAF_DIR+'/*')
-        os.system('rm '+self.PROBS_DIR+'/*')       # clear directories before input the new result
-        tag_command = './tagger.py'+' '+'-L'+' '+self.self.SYS_LAF_DIR+' '+' '+self.MODEL_DIR+' '+tag_list
-        os.system(tag_command)
+            tag_list.append(item[:-1])
+
+        cmd = ['rm', '-r', self.SYS_LAF_DIR, '*']
+        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print('remove syslaf model dir is wrong ' + stderr)
+
+        cmd = ['mkdir', self.SYS_LAF_DIR]
+        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print('create syslaf model dir is wrong ' + stderr)
+
+        cmd = ['rm', '-r', self.PROBS_DIR, '*']
+        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print('remove probs_dir model dir is wrong ' + stderr)
+
+        cmd = ['mkdir', self.PROBS_DIR]
+        p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print('create probs model dir is wrong ' + stderr)
+
+        tag_command = ['./tagger.py', '-L', self.self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
+        p = Popen(tag_command, stdout=PIPE, stderr=PIPE)
+        stdout, stderr = p.communicate()
+        if stderr:
+            print('tag rest data is wrong ' + stderr)
         entropy = dict()
         pattern = re.compile(r'(.*):(.*)')
         for root, dirs, files in os.walk(self.PROBS_DIR):
@@ -209,18 +278,29 @@ class ActiveLearning(object):
     def random_sampling(self):
         print('\tgetting new training data...')
 
-        rest = []
-        for root, dirs, files in os.walk(self.PROBS_DIR):
-            for file in files:
-                rest.append(file)
-
+        # rest = []
+        # for root, dirs, files in os.walk(self.PROBS_DIR):
+        #     for file in files:
+        #         rest.append(file)
+        rest_list = []
+        temp = list(self.raw_set)  # bug here
+        for item in self.current_training_set:
+            # print item
+            # print self.raw_set[item]
+            temp.remove(self.raw_set[item])  # rest of training set is test
+        # print '**************************************************************'
+        # print len(temp)
+        # print len(self.raw_set)
+        #################
+        for item in rest_list:
+            rest_list.append(item[:-1])
         training_set_to_add = []
         sample_size = self.increment
-        if len(rest) < self.increment:
-            sample_size = len(rest)
+        if len(rest_list) < self.increment:
+            sample_size = len(rest_list)
         while len(training_set_to_add) < sample_size:
-            temp = random.randint(0, len(rest) - 1)
-            sent_doc_xml = rest[temp].replace('_probs.txt', 'ltf.xml')
+            temp = random.randint(0, len(rest_list) - 1)
+            sent_doc_xml = rest_list[temp].replace('_probs.txt', 'ltf.xml')
             tmp = self.raw_set.index('./test_split/ltf/' + sent_doc_xml + '\n')
             if tmp not in training_set_to_add:
                 training_set_to_add.append(tmp)
@@ -282,6 +362,16 @@ def figure_plot(save_dir, learning_result):
 
 if __name__ == "__main__":
     data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
+    # ##################
+    print os.getcwd()
+    os.chdir(data_path)
+    cmd = ['crfsuite', '-h']
+    subprocess.call(cmd)
+    # p = Popen(cmd, stdout=PIPE, stderr=PIPE)
+    # stdout, stderr = p.communicate()
+    # if stderr:
+    #     print('test is wrong ' + stderr)
+    # #######################
     act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5)  # set the initial num and increment
     # todo: must be absolute path '~'not work
 
