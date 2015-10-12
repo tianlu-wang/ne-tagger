@@ -90,7 +90,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print len(positions)
         # print "this is pos 2=============================================="
         positions = self.fix_positions(positions)
-        # print positions  # todo
+        print positions  # todo
         # print len(positions)
         # print "this is labels=============================================="
         labels = [self.get_label(tag) for tag in tags]
@@ -103,10 +103,10 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print begin_ind  # todo
         # print "================================================="
         end_ind = [ii for ii, pos in enumerate(positions) if pos in end_pos]
-        # print end_ind  # todo
-        # print "================================================="
-        # print len(begin_ind)
-        # print len(end_ind)
+        print end_ind  # todo
+        print "================================================="
+        print len(begin_ind)
+        print len(end_ind)
         if len(begin_ind) != len(end_ind):
             raise ChunkingFailedException 
         chunks = [] 
@@ -139,7 +139,7 @@ class BILOUChunkEncoder(ChunkEncoder):
             label = 'O' 
         else:
             fields = extended_tag.split('_') 
-            label = '_'.join(fields[1:])  # do not know who write this code but it is stupid!
+            label = '_'.join(fields[1:])
         return label 
 
     def fix_positions(self, positions):
@@ -154,8 +154,8 @@ class BILOUChunkEncoder(ChunkEncoder):
             List of positions.
         """
         outside_edges = set(['O', 'U', None])
-        n_tags = len(positions) 
-        new_positions = [] 
+        n_tags = len(positions)
+        new_positions = []
         for ii, position in enumerate(positions):
             position = position
             prev_position = positions[ii-1] if ii > 0 else None
@@ -164,17 +164,21 @@ class BILOUChunkEncoder(ChunkEncoder):
                 if prev_position in ['B', 'I'] and next_position in ['B', 'O', 'U']:
                     position = 'L'
                 elif prev_position in ['O', 'U', 'L'] and next_position in ['B', 'O', 'U']:
-                    position = 'U'
+                    position = 'O'
                 elif prev_position in ['O', 'U', 'L'] and next_position in ['I', 'L']:
                     position = 'B'
                 if prev_position is None:
                     if next_position in ['I', 'L']:
                         position = 'B'
+                    elif next_position in ['O']:
+                        position = 'U'
                     else:
                         position = 'O'
                 if next_position is None:
                     if prev_position in ['I', 'B']:
                         position = 'L'
+                    elif prev_position in ['O']:
+                        position = 'U'
                     else:
                         position = 'O'
             if position == 'O':
@@ -192,6 +196,8 @@ class BILOUChunkEncoder(ChunkEncoder):
                 if next_position is None:
                     if prev_position in ['B']:
                         position = 'L'
+                    elif prev_position in ['O']:
+                        position = 'U'
                     else:
                         position = 'O'
             # added by tianlu
@@ -202,7 +208,9 @@ class BILOUChunkEncoder(ChunkEncoder):
                     if next_position in ['O', 'L', 'B', 'U', 'I']:
                         position = 'U'
                 elif next_position is None:
-                    if prev_position in ['O', 'U', 'L']:
+                    if prev_position in ['O']:
+                        position = 'U'
+                    elif prev_position in ['U', 'L']:
                         position = 'O'
             if position == 'U':
                 if prev_position in ['B'] and next_position in ['B', 'O', 'I', 'U', 'L']:
@@ -210,5 +218,44 @@ class BILOUChunkEncoder(ChunkEncoder):
                 elif next_position is None:
                     if prev_position in ['B']:
                         position = 'L'
-            new_positions.append(position) 
+            new_positions.append(position)
+        # outside_edges = set(['O', 'U', None])
+        # n_tags = len(positions)
+        # new_positions = []
+        # for ii, position in enumerate(positions):
+        #     # position = position
+        #     if position == 'I':
+        #         prev_position = positions[ii-1] if ii > 0 else None
+        #         is_begin = prev_position in outside_edges
+        #         next_position = positions[ii+1] if ii < n_tags else None
+        #         is_end = next_position in outside_edges
+        #         if is_begin and is_end:
+        #             position = 'U'
+        #         elif is_begin:
+        #             position = 'B'
+        #         elif is_end:
+        #             position = 'L'
+        #         if next_position in ['B']:
+        #             position = 'L'
+        #     # added by Boliang, if tagged fix illegal 'B' such as [B,O], [B,U], [B,B]
+        #     if position == 'B':
+        #         next_position = positions[ii+1] if ii < n_tags else None
+        #         # if next_position in ['B']:
+        #         #     position = 'U'
+        #         is_u = next_position in ['O', 'U', 'B']
+        #         if is_u:
+        #             position = 'U'
+        #     ###################
+        #     # added by tianlu
+        #     if position == 'L':
+        #         prev_position = positions[ii-1] if ii > 0 else None
+        #         is_u = prev_position in ['O', 'U']
+        #         if is_u:
+        #             position = 'U'
+        #         next_position = positions[ii+1] if ii < n_tags else None
+        #         is_b = next_position in ['L']
+        #         if is_b:
+        #             position = 'B'
+        #     new_positions.append(position)
+
         return new_positions

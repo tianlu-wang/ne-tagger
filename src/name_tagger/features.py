@@ -72,9 +72,9 @@ class Encoder(object):
         #print new_feats[0]
         #print '============================================================================================'
 
-        for ii,row in enumerate(new_feats):
-            new_row = [v if not v is None else 'none' for v in row]
-            new_feats[ii] = new_row
+        # for ii,row in enumerate(new_feats):
+        #     new_row = [v if not v is None else 'none' for v in row]
+        #     new_feats[ii] = new_row
         # Filter out None vals in rows where they occur.
         for ii, row in enumerate(new_feats):
             new_row = [v for v in row if not v is None]
