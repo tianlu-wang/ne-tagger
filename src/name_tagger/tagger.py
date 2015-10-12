@@ -1,21 +1,23 @@
 #!/usr/bin/env python
-import argparse 
-import cPickle 
-import logging 
-import os 
-import shutil 
-import subprocess 
-import sys 
+import argparse
+import cPickle
+import logging
+import os
+import shutil
+import subprocess
+import sys
 import tempfile
-from os.path import basename
+from chunk import BILOUChunkEncoder
 
-from joblib.parallel import Parallel, delayed 
+from joblib.parallel import Parallel, delayed
 
-from align import Aligner 
-from chunk import BILOUChunkEncoder 
+from align import Aligner
+
+
+
 # from features import OrthographicEncoder
-from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file 
-from logger import configure_logger 
+from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file
+from logger import configure_logger
 
 logger = logging.getLogger() 
 configure_logger(logger) 

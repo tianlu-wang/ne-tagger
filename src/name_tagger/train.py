@@ -1,22 +1,19 @@
 #!/usr/bin/env python
-import argparse 
-import cPickle 
-import glob 
-import logging 
-import os 
-import shutil 
-import subprocess 
-import sys 
-import tempfile 
+import argparse
+import cPickle
+import logging
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
 
-from joblib.parallel import Parallel, delayed 
+from features import OrthographicEncoder
+from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file
+from logger import configure_logger
+from util import convert_extents, sort_mentions
 
-from features import OrthographicEncoder 
-from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file 
-from logger import configure_logger 
-from util import convert_extents, sort_mentions 
-
-logger = logging.getLogger() 
+logger = logging.getLogger()
 configure_logger(logger) 
 
 

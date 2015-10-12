@@ -1,10 +1,9 @@
 """Feature extraction classes.
 """
-from functools import wraps 
-import re 
+from functools import wraps
+import re
 
-from chunk import BILOUChunkEncoder 
-from io_ import LTFDocument, LAFDocument 
+from chunk import BILOUChunkEncoder
 
 __all__ = ['OrthographicEncoder'] 
 
