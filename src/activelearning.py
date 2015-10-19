@@ -34,7 +34,7 @@ class ActiveLearning(object):
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]  # get the list of ltf file
-        self.raw_set = self.raw_set[:300]
+        # self.raw_set = self.raw_set[:300]
         #########
 
         self.init_training_num = init_training_num
@@ -124,12 +124,10 @@ class ActiveLearning(object):
             print('\tcurrent iteration training set size: ' + str((i+1)*self.increment))
             # x = []
             # index = []
-            print 'i=================================================:'
-            print i  # todo: for debug
+            print 'i:' + str(i)  # todo: for debug
             for j in range(self.folder_num):
                 self.test_set_initialization(j)
-                print 'j===============================================:'
-                print j  # todo:for debug
+                print 'j:' + str(j)  # todo:for debug
                 if i == 0:
                     self.current_training_set[j] = self.training_set_initialization()
                     # print self.current_training_set  # todo
@@ -233,8 +231,8 @@ class ActiveLearning(object):
                         entropy = 0
                         for i in range(1, 18):
                             tmp = float(m2.group(i))
-                            print i
-                            print tmp
+                            # print i
+                            # print tmp
                             if tmp > 0:
                                 entropy += -(tmp * math.log(tmp))
                         if entropy > math.pow(1, -21):
@@ -250,6 +248,7 @@ class ActiveLearning(object):
         for item in sorted_entropy[:sample_size]:
             sent_doc = item[0]
             sent_doc_xml = sent_doc.replace('_probs.txt', 'ltf.xml')
+            print sent_doc_xml  # todo: for Tongtao
             # print sent_doc_xml
             add_one = self.train_set.index('./test_split/ltf/' + sent_doc_xml + '\n')
             if add_one not in self.current_training_set[folder_order]:
@@ -336,7 +335,7 @@ class ActiveLearning(object):
             temp = random.randint(0, len(self.train_set) - 1)  # actually it is not a good method
             if temp not in self.current_training_set[folder_order]:
                 training_set_to_add.append(temp)
-        print training_set_to_add
+        # print training_set_to_add
         return training_set_to_add  # return a list of number...
 
 
@@ -399,7 +398,7 @@ if __name__ == "__main__":
         f = open('./result.txt', 'a')
         f.write('**********iteration time = ' + str(i) + '\n')
         f.close()
-        act = ActiveLearning(increment=10, data_path=data_path, init_training_num=10, folder_num=5)  # set the initial num and increment
+        act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5, folder_num=5)  # set the initial num and increment
         act.do_training('token entropy sampling')  # uncertainty sampling
 
 

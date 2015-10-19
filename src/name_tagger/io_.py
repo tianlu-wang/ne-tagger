@@ -51,7 +51,7 @@ class Tree(object):
             Output file for XML.
         """
         self.tree.write(xmlf, encoding='utf-8', pretty_print=True,
-                        xml_declaration=True) 
+                        xml_declaration=True)   # todo:maybe wrong for language like Yoruba
 
 
 class LTFDocument(Tree):
