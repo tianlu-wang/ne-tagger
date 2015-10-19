@@ -134,12 +134,15 @@ if __name__ == '__main__':
     # Calculate hits, misses, and false alarms.
     sys_fns = glob.glob(os.path.join(args.sys_dir, '*.laf.xml'))  # select all *.laf.xml files in the system result
     n_hit = n_fa = n_miss = 0
+    i = 0
     for sys_fn in sys_fns:
         n_hit_, n_fa_, n_miss_ = calc_stats(sys_fn, args.ref_dir,
                                             args.ltf_dir)
         n_hit += n_hit_
         n_fa += n_fa_
         n_miss += n_miss_
+        i += 1
+
 
     # Calculate precision, recall, and f1.
     if n_hit > 0:
@@ -152,7 +155,7 @@ if __name__ == '__main__':
         f1 = 0
     result_path = './result.txt'
     f = open(result_path, 'a')
-    f.write(str(precision)+' '+str(recall)+' '+str(f1)+'\n')
+    f.write(str(precision)+'\t'+str(recall)+'\t'+str(f1)+'\n')
     f.close()
     logger.info('Hits: %d, Miss: %d, FA: %d' % (n_hit, n_miss, n_fa))
     logger.info('Precision: %f, Recall: %f, F1: %f' % (precision, recall, f1))

@@ -90,7 +90,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print len(positions)
         # print "this is pos 2=============================================="
         positions = self.fix_positions(positions)
-        print positions  # todo
+        # print positions  # todo
         # print len(positions)
         # print "this is labels=============================================="
         labels = [self.get_label(tag) for tag in tags]
@@ -103,10 +103,10 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print begin_ind  # todo
         # print "================================================="
         end_ind = [ii for ii, pos in enumerate(positions) if pos in end_pos]
-        print end_ind  # todo
-        print "================================================="
-        print len(begin_ind)
-        print len(end_ind)
+        # print end_ind  # todo
+        # print "================================================="
+        # print len(begin_ind)
+        # print len(end_ind)
         if len(begin_ind) != len(end_ind):
             raise ChunkingFailedException 
         chunks = [] 
