@@ -3,7 +3,6 @@ __author__ = 'koala'
 
 import os
 import random
-import copy
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import metrics
@@ -34,7 +33,7 @@ class ActiveLearning(object):
         assert(os.path.exists(raw_path))
         f_raw = open(raw_path, 'r')
         self.raw_set = [line for line in f_raw.readlines()]  # get the list of ltf file
-        # self.raw_set = self.raw_set[:300]
+        self.raw_set = self.raw_set[:300]
         #########
 
         self.init_training_num = init_training_num
@@ -115,12 +114,7 @@ class ActiveLearning(object):
         y_f[]: f1 score in every loop(write in file)
         """
         for i in range(int((len(self.raw_set)-len(self.raw_set)/self.folder_num)/self.increment)):
-            ###################################
-            subprocess.call(self.cmd_del_syslaf)
-            subprocess.call(self.cmd_mk_syslaf)
-            subprocess.call(self.cmd_del_probs)
-            subprocess.call(self.cmd_mk_probs)
-            #####################################
+        # for i in range(7):
             print('\tcurrent iteration training set size: ' + str((i+1)*self.increment))
             # x = []
             # index = []
@@ -157,6 +151,12 @@ class ActiveLearning(object):
                 for item in self.test_set:
                     tag_list.append(item[:-1])
                 tag_command = ['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
+                ###################################
+                subprocess.call(self.cmd_del_syslaf)
+                subprocess.call(self.cmd_mk_syslaf)
+                subprocess.call(self.cmd_del_probs)
+                subprocess.call(self.cmd_mk_probs)
+                #####################################
                 subprocess.call(tag_command)
                 ################################################
                 for item in train_list:
@@ -393,12 +393,12 @@ def figure_plot(save_dir, learning_result):
 if __name__ == "__main__":
     data_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger'
 
-    iteration = 3
+    iteration = 1
     for i in range(iteration):
         f = open('./result.txt', 'a')
         f.write('**********iteration time = ' + str(i) + '\n')
         f.close()
-        act = ActiveLearning(increment=5, data_path=data_path, init_training_num=5, folder_num=5)  # set the initial num and increment
+        act = ActiveLearning(increment=10, data_path=data_path, init_training_num=10, folder_num=5)  # set the initial num and increment
         act.do_training('token entropy sampling')  # uncertainty sampling
 
 
