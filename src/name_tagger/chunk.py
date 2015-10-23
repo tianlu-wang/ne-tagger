@@ -107,13 +107,19 @@ class BILOUChunkEncoder(ChunkEncoder):
         # print "================================================="
         # print len(begin_ind)
         # print len(end_ind)
-        if len(begin_ind) != len(end_ind):
-            raise ChunkingFailedException 
-        chunks = [] 
+        try:
+            if len(begin_ind) != len(end_ind):
+                raise ChunkingFailedException
+        except ChunkingFailedException:
+            print positions
+        chunks = []
         for bi, ei in zip(begin_ind, end_ind):
-            if ei < bi:
+            try:
+                if ei < bi:
+                    raise ChunkingFailedException
+            except ChunkingFailedException:
                 print ei
-                raise ChunkingFailedException 
+                print bi
             chunks.append([bi, ei, labels[bi]]) 
         return chunks 
 
@@ -206,6 +212,8 @@ class BILOUChunkEncoder(ChunkEncoder):
                     position = 'O'
                 if prev_position is None:
                     if next_position in ['O', 'L', 'B', 'U', 'I']:
+                        position = 'U'
+                    elif next_position is None:
                         position = 'U'
                 elif next_position is None:
                     if prev_position in ['O']:

@@ -80,7 +80,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             subprocess.call(cmd, stdout=f)
         # Load tagged output.
 
-        probf = os.getcwd() + ltf.replace('ltf', 'probs')[1:-9] + '_' + 'probs.txt'
+        probf = os.getcwd() + '/hausa_test/probs/' + ltf[17:] + '.txt'
         # print probf
         cmd_ = ['crfsuite', 'tag',
                '-m', modelf, '-i',
