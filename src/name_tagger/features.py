@@ -2,6 +2,7 @@
 """
 from functools import wraps
 import re
+import os
 
 from chunk import BILOUChunkEncoder
 
@@ -26,7 +27,7 @@ class Encoder(object):
     chunker : chunk.ChunkEncoder
         ChunkEncoder instance used to generate tags.
     """
-    def __init__(self, n_left=2, n_right=2):
+    def __init__(self, n_left=5, n_right=5):
         self.chunker = BILOUChunkEncoder() 
         self.n_left = n_left 
         self.n_right = n_right 
@@ -165,7 +166,16 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    def __init__(self, n_left=2, n_right=2, max_prefix_len=4, max_suffix_len=4):
+    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/Dics/input'
+    lexicon = [[]]
+    for roots, dirs, files in os.walk(dict_path):
+        for file in files:
+            f = open(dict_path + '/'+file, 'r')
+            lexicon.append([line[:-1] for line in f.readlines()])
+    lexicon.pop(0)
+    lexicon.pop(0)
+
+    def __init__(self, n_left=5, n_right=5, max_prefix_len=5, max_suffix_len=5):
         super(OrthographicEncoder, self).__init__(n_left, n_right) 
         self.prefix_lengths = range(1, max_prefix_len+1) 
         self.suffix_lengths = range(1, max_suffix_len+1) 
@@ -175,27 +185,31 @@ class OrthographicEncoder(Encoder):
         feats = [token]
         feats.append(token.lower())  # Lowercase feature
         # Prefix features n=1,...,4 .
-        n_char = len(token) 
+        n_char = len(token)
         for prefix_len in self.prefix_lengths:
             if prefix_len <= n_char:
-                feats.append(token[:prefix_len]) 
+                feats.append(token[:prefix_len])
             else:
-                feats.append(None) 
+                feats.append(None)
 
         # Suffix features n=1,...,4 .
         for suffix_len in self.suffix_lengths:
             if suffix_len <= n_char:
                 feats.append(token[-suffix_len:]) 
             else:
-                feats.append(None) 
+                feats.append(None)
+
+        for i in range(len(self.lexicon)):
+            feats.append(token in self.lexicon[i])
 
         feats.extend(word_type(token))
-        #print feats
-        return feats 
+        # print feats
+        return feats
 
 
-ALL_DIGITS_REO = re.compile(r'\d+$') 
-ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$') 
+ALL_DIGITS_REO = re.compile(r'\d+$')
+ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$')
+HAVE_DIGITS_REO = re.compile(r'\d')
 
 def word_type(word):
     """Determine word type of token.
@@ -226,9 +240,13 @@ def word_type(word):
     all_capitalized = word.isupper() 
     all_digits = word.isdigit() 
     all_nonletters = ALL_NONLETTERS_REO.match(word) is not None 
-    contains_period = '.' in word 
+    contains_period = '.' in word
+    contains_hyphen = '-' in word
+    contains_comma = ',' in word
+    contains_digit = bool(HAVE_DIGITS_REO.search(word))
+    contains_apostrophe = '\'' in word
 
-    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period 
+    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period, contains_hyphen, contains_comma, contains_digit, contains_apostrophe
 
 
 def roll(feats, k=0):

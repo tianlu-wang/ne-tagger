@@ -260,6 +260,9 @@ def load_doc(xmlf, cls, logger):
     """
     try:
         assert(os.path.exists(xmlf))
+    except AssertionError:
+        print xmlf
+    try:
         doc = cls(xmlf) 
     except KeyError:
         logger.warn('Unable to open %s. Skipping.' % xmlf) 
