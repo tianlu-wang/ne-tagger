@@ -3,7 +3,7 @@
 from functools import wraps
 import re
 import os
-
+from bs4 import BeautifulSoup
 from chunk import BILOUChunkEncoder
 
 __all__ = ['OrthographicEncoder'] 
@@ -175,10 +175,11 @@ class OrthographicEncoder(Encoder):
     lexicon.pop(0)
     lexicon.pop(0)
 
-    def __init__(self, n_left=5, n_right=5, max_prefix_len=5, max_suffix_len=5):
+    def __init__(self, n_left=5, n_right=5, max_prefix_len=5, max_suffix_len=5, frequency = {}):
         super(OrthographicEncoder, self).__init__(n_left, n_right) 
         self.prefix_lengths = range(1, max_prefix_len+1) 
-        self.suffix_lengths = range(1, max_suffix_len+1) 
+        self.suffix_lengths = range(1, max_suffix_len+1)
+        self.frequency = frequency
 
     @wraps(Encoder.get_feats_for_token)
     def get_feats_for_token(self, token):
@@ -201,6 +202,9 @@ class OrthographicEncoder(Encoder):
 
         for i in range(len(self.lexicon)):
             feats.append(token in self.lexicon[i])
+
+
+        feats.append(self.frequency.get(token))
 
         feats.extend(word_type(token))
         # print feats

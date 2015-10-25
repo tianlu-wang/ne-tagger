@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import re
 
 from features import OrthographicEncoder
 from io_ import load_doc, LTFDocument, LAFDocument, write_crfsuite_file
@@ -114,11 +115,13 @@ if __name__ == '__main__':
                                      add_help=False,
                                      usage='%(prog)s [options] model_dir laf_dir lafs') 
     parser.add_argument('model_dir', nargs='?',
-                        help='Model output dir') 
+                        help='Model output dir')
+    parser.add_argument('frequency', nargs='?',
+                        help='frequency file')
     parser.add_argument('ltf_dir', nargs='?',
                         help='.ltf.xml file dir') 
     parser.add_argument('lafs', nargs='*',
-                        help='.ltf.xml files to be processed') 
+                        help='.ltf.xml files to be processed')
     parser.add_argument('-S', nargs='?', default=None,
                         metavar='fn', dest='scpf',
                         help='Set script file (Default: None)') 
@@ -168,14 +171,28 @@ if __name__ == '__main__':
         os.makedirs(args.model_dir) 
     else:
         logger.error('Model directory already exists. Exiting.') 
-        sys.exit(1) 
+        sys.exit(1)
+
+    # load frequency
+    frequency = dict()
+    if not os.path.exists(args.frequency):
+        logger.error('can not find frequency file')
+    else:
+        f_fre = open(args.frequency,'r')
+        for line in f_fre.readlines():
+            match = re.match(r'(.*)\t(.*)\n', line)
+            if not match is None:
+                frequency[match.group(1)] = float(match.group(2))
+            else:
+                print 'match wrong in frequency file'
+    print frequency
 
     # Create working directory.
     temp_dir = tempfile.mkdtemp() 
 
     # Initialize and save encoder.
     enc = OrthographicEncoder(args.n_left, args.n_right,
-                              args.max_prefix_len, args.max_suffix_len) 
+                              args.max_prefix_len, args.max_suffix_len, frequency)
     encf = os.path.join(args.model_dir, 'tagger.enc') 
     with open(encf, 'w') as f:
         cPickle.dump(enc, f, protocol=2) 

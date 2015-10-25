@@ -80,14 +80,14 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             subprocess.call(cmd, stdout=f)
         # Load tagged output.
 
-        # probf = os.getcwd() + '/hausa_test/probs/' + ltf[17:] + '.txt'
-        #
-        # # print probf
-        # cmd_ = ['crfsuite', 'tag',
-        #        '-m', modelf, '-i',
-        #        featsf]
-        # with open(probf, 'w') as f:
-        #     subprocess.call(cmd_, stdout=f)
+        probf = os.getcwd() + '/hausa_test/probs/' + ltf[17:] + '.txt'
+
+        # print probf
+        cmd_ = ['crfsuite', 'tag',
+               '-m', modelf, '-i',
+               featsf]
+        with open(probf, 'w') as f:
+            subprocess.call(cmd_, stdout=f)
 
         with open(tagsf, 'r') as f:
             tags = [line.strip() for line in f]
