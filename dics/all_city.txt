@@ -1,0 +1,1131 @@
+Alabama
+alabama
+Alaska
+alaska
+Arizona
+arizona
+Arkansas
+arkansas
+California
+california
+Colorado
+colorado
+Connecticut
+connecticut
+Delaware
+delaware
+District of Columbia
+district of Columbia
+District of Columbia
+district of Columbia
+Florida
+florida
+Georgia
+georgia
+Hawaii
+hawaii
+Idaho
+idaho
+Illinois
+illinois
+Indiana
+indiana
+Iowa
+iowa
+Kansas
+kansas
+Kentucky
+kentucky
+Louisiana
+louisiana
+WEATHER
+wEATHER
+Maryland
+maryland
+Massachusetts
+massachusetts
+Michigan
+michigan
+Minnesota
+minnesota
+Mississippi
+mississippi
+Missouri
+missouri
+Montana
+montana
+Nebraska
+nebraska
+Nevada
+nevada
+New Hampshire
+new Hampshire
+New Jersey
+new Jersey
+New Mexico
+new Mexico
+NEW YORK
+nEW YORK
+North Carolina
+north Carolina
+North Dakota
+north Dakota
+Ohio
+ohio
+Oklahoma
+oklahoma
+Oregon
+oregon
+Pennsylvania
+pennsylvania
+Rhode Island
+rhode Island
+South Carolina
+south Carolina
+SOUTH DAKOTA
+sOUTH DAKOTA
+Tennessee
+tennessee
+Texas
+texas
+Utah
+utah
+Vermont
+vermont
+Virginia
+virginia
+Washington
+washington
+West Virginia
+west Virginia
+Wisconsin
+wisconsin
+Wyoming
+wyoming
+Alabama
+alabama
+Alaska
+alaska
+Arizona
+arizona
+Arkansas
+arkansas
+California
+california
+Colorado
+colorado
+Connecticut
+connecticut
+Conn.
+conn.
+Delaware
+delaware
+Florida
+florida
+Georgia
+georgia
+Hawaii
+hawaii
+Idaho
+idaho
+Illinois
+illinois
+Indiana
+indiana
+Iowa
+iowa
+Kansas
+kansas
+Kentucky
+kentucky
+Louisiana
+louisiana
+Maine
+maine
+Maryland
+maryland
+Massachusetts
+massachusetts
+Michigan
+michigan
+Minnesota
+minnesota
+Mississippi
+mississippi
+Missouri
+missouri
+Montana
+montana
+Nebraska
+nebraska
+Nevada
+nevada
+New Hampshire
+new Hampshire
+New Jersey
+new Jersey
+New Mexico
+new Mexico
+New York
+new York
+North Carolina
+north Carolina
+North Dakota
+north Dakota
+Ohio
+ohio
+Oklahoma
+oklahoma
+Oregon
+oregon
+Tama.
+tama.
+Pennsylvania
+pennsylvania
+Rhode Island
+rhode Island
+South Carolina
+south Carolina
+South Dakota
+south Dakota
+Tennessee
+tennessee
+Texas
+texas
+Utah
+utah
+Vermont
+vermont
+Virginia
+virginia
+Washington
+washington
+Washington DC
+washington DC
+West Virginia
+west Virginia
+Wisconsin
+wisconsin
+Wyoming
+wyoming
+Puerto Rico
+puerto Rico
+Federated States of Micronesia
+federated States of Micronesia
+Federated States of Micronesia
+federated States of Micronesia
+AL
+aL
+AK
+aK
+AZ
+aZ
+AR
+aR
+CA
+cA
+CO
+cO
+CT
+cT
+DE
+dE
+DC
+dC
+FL
+fL
+GA
+gA
+HI
+hI
+ID
+iD
+Il
+il
+IN
+iN
+IA
+iA
+KS
+kS
+Ky
+ky
+LA
+lA
+ME
+mE
+MD
+mD
+MA
+mA
+MI
+mI
+MN
+mN
+MS
+mS
+MO
+mO
+MT
+mT
+NE
+nE
+NV
+nV
+NH
+nH
+NJ
+nJ
+NM
+nM
+NY
+nY
+NC
+nC
+ND
+nD
+OH
+oH
+OR
+oR
+OR
+oR
+PA
+pA
+PR
+pR
+RI
+rI
+SC
+sC
+SD
+sD
+TN
+tN
+TX
+tX
+UT
+uT
+VT
+vT
+VA
+vA
+WA
+wA
+WV
+wV
+WI
+wI
+WY
+wY
+AB
+aB
+Al
+al
+Ak
+ak
+Az
+az
+Ar
+ar
+Ca
+ca
+Co
+co
+CT
+cT
+De
+de
+Dc
+dc
+FL
+fL
+To
+to
+Hi
+hi
+Id
+id
+Il
+il
+A
+a
+Ia
+ia
+Ks
+ks
+Ky
+ky
+La
+la
+Me
+me
+Md
+md
+Too
+too
+Mi
+mi
+Mn
+mn
+Ms
+ms
+Mo
+mo
+Mat
+mat
+Is
+is
+NV
+nV
+Nh
+nh
+NJ
+nJ
+Nm
+nm
+NY
+nY
+NC
+nC
+Nd
+nd
+Oh
+oh
+Or
+or
+Or
+or
+Pa
+pa
+Pr
+pr
+Ri
+ri
+Sc
+sc
+SD
+sD
+TN
+tN
+TX
+tX
+UT
+uT
+Vt
+vt
+Va
+va
+To
+to
+WV
+wV
+Wi
+wi
+WY
+wY
+Al.
+al.
+Ak.
+ak.
+Az.
+az.
+Ar.
+ar.
+Ca.
+ca.
+Co.
+co.
+CT.
+cT.
+De.
+de.
+Dc.
+dc.
+FL.
+fL.
+To.
+to.
+Hi.
+hi.
+Id.
+id.
+Il.
+il.
+A.
+a.
+Ia.
+ia.
+Ks.
+ks.
+Ky.
+ky.
+La.
+la.
+Me.
+me.
+Md.
+md.
+Too.
+too.
+Mic
+mic
+Mn.
+mn.
+Ms.
+ms.
+Mo.
+mo.
+Mountain
+mountain
+Is.
+is.
+NV.
+nV.
+Nh.
+nh.
+NJ.
+nJ.
+Nm.
+nm.
+NY.
+nY.
+NC.
+nC.
+Nd.
+nd.
+Oh.
+oh.
+Or.
+or.
+Or.
+or.
+Pa.
+pa.
+Pr.
+pr.
+Ri.
+ri.
+Sc.
+sc.
+SD.
+sD.
+TN.
+tN.
+TX.
+tX.
+UT.
+uT.
+Vt.
+vt.
+Va.
+va.
+To.
+to.
+WV.
+wV.
+Wi.
+wi.
+WY.
+wY.
+Alberta
+alberta
+NF
+nF
+Newfoundland
+newfoundland
+PE
+pE
+Prince Edward
+prince Edward
+BC
+bC
+British Columbia
+british Columbia
+NS
+nS
+Nova Scotia
+nova Scotia
+QB
+qB
+Quebec
+quebec
+MB
+mB
+Manitoba
+manitoba
+NT
+nT
+Northwest Terra.
+northwest Terra.
+SK
+sK
+Sasketchewan
+sasketchewan
+NB
+nB
+Saskatchewan
+saskatchewan
+Nu
+nu
+Nunavut
+nunavut
+Yk
+yk
+Yukon
+yukon
+ON
+oN
+Ontario
+ontario
+Ariz.
+ariz.
+Del.
+del.
+I.Terr.
+i.Terr.
+I. Terra.
+i. Terra.
+Md.
+md.
+Mont.
+mont.
+N.Y.
+n.Y.
+N. Y.
+n. Y.
+Vt.
+vt.
+Va.
+va.
+Neb.
+neb.
+Box.
+box.
+Geo.
+geo.
+On.
+on.
+Mich.
+mich.
+N.Dak.
+n.Dak.
+S.Dak.
+s.Dak.
+N. Dak.
+n. Dak.
+S. Dak.
+s. Dak.
+Wash.
+wash.
+Calif.
+calif.
+Ky.
+ky.
+Minna.
+minna.
+N.H.
+n.H.
+N. H.
+n. H.
+O.
+o.
+Tenn.
+tenn.
+D.C.
+d.C.
+D. C.
+d. C.
+Colonel
+colonel
+M.
+m.
+Miss.
+miss.
+N.J.
+n.J.
+N. J.
+n. J.
+Tex.
+tex.
+W.V.
+w.V.
+W. V.
+w. V.
+W.Vir.
+w.Vir.
+W. Vir.
+w. Vir.
+Wisc.
+wisc.
+U. Terra.
+u. Terra.
+Penn.
+penn.
+N.Mex.
+n.Mex.
+N. Mex.
+n. Mex.
+Me.
+me.
+Ind.
+ind.
+Alabama.
+alabama.
+Alaska.
+alaska.
+Arizona.
+arizona.
+Arkansas.
+arkansas.
+California.
+california.
+Colorado.
+colorado.
+Connecticut.
+connecticut.
+Delaware.
+delaware.
+District of Columbia.
+district of Columbia.
+District of Columbia.
+district of Columbia.
+Florida.
+florida.
+Georgia.
+georgia.
+Hawaii.
+hawaii.
+Idaho.
+idaho.
+Illinois.
+illinois.
+Indiana.
+indiana.
+Iowa.
+iowa.
+Kansas.
+kansas.
+Kentucky.
+kentucky.
+Louisiana.
+louisiana.
+MAINE.
+mAINE.
+Of Maryland.
+of Maryland.
+Massachusetts.
+massachusetts.
+Michigan.
+michigan.
+Minnesota.
+minnesota.
+Mississippi.
+mississippi.
+Missouri.
+missouri.
+Montana.
+montana.
+Nebraska.
+nebraska.
+Nevada.
+nevada.
+New Hampshire.
+new Hampshire.
+New Jersey.
+new Jersey.
+New Mexico.
+new Mexico.
+NEW YORK.
+nEW YORK.
+North Carolina.
+north Carolina.
+North Dakota.
+north Dakota.
+Ohio.
+ohio.
+Oklahoma.
+oklahoma.
+Oregon.
+oregon.
+Pennsylvania.
+pennsylvania.
+Rhode Island.
+rhode Island.
+South Carolina.
+south Carolina.
+SOUTH DAKOTA.
+sOUTH DAKOTA.
+Tennessee.
+tennessee.
+Texas.
+texas.
+Utah.
+utah.
+Vermont.
+vermont.
+Virginia.
+virginia.
+Washington.
+washington.
+West Virginia.
+west Virginia.
+Wisconsin.
+wisconsin.
+Wyoming.
+wyoming.
+Alabama.
+alabama.
+Alaska.
+alaska.
+Arizona.
+arizona.
+Arkansas.
+arkansas.
+California.
+california.
+Colorado.
+colorado.
+Connecticut.
+connecticut.
+Delaware.
+delaware.
+Florida.
+florida.
+Georgia.
+georgia.
+Hawaii.
+hawaii.
+Idaho.
+idaho.
+Illinois.
+illinois.
+Indiana.
+indiana.
+Iowa.
+iowa.
+Kansas.
+kansas.
+Kentucky.
+kentucky.
+Louisiana.
+louisiana.
+Maine.
+maine.
+Maryland.
+maryland.
+Massachusetts.
+massachusetts.
+Michigan.
+michigan.
+Minnesota.
+minnesota.
+Mississippi.
+mississippi.
+Missouri.
+missouri.
+Montana.
+montana.
+Nebraska.
+nebraska.
+Nevada.
+nevada.
+New Hampshire.
+new Hampshire.
+New Jersey.
+new Jersey.
+New Mexico.
+new Mexico.
+New York.
+new York.
+North Carolina.
+north Carolina.
+North Dakota.
+north Dakota.
+Ohio.
+ohio.
+Oklahoma.
+oklahoma.
+Oregon.
+oregon.
+Pennsylvania.
+pennsylvania.
+Rhode Island.
+rhode Island.
+South Carolina.
+south Carolina.
+South Dakota.
+south Dakota.
+Tennessee.
+tennessee.
+Texas.
+texas.
+Utah.
+utah.
+Vermont.
+vermont.
+Virginia.
+virginia.
+Washington.
+washington.
+Washington DC.
+washington DC.
+West Virginia.
+west Virginia.
+Wisconsin.
+wisconsin.
+Wyoming.
+wyoming.
+Puerto Rico.
+puerto Rico.
+Federated States of Micronesia.
+federated States of Micronesia.
+Federated States of Micronesia.
+federated States of Micronesia.
+AL.
+aL.
+AK.
+aK.
+AZ.
+aZ.
+AR.
+aR.
+CA.
+cA.
+CO.
+cO.
+CT.
+cT.
+DE.
+dE.
+DC.
+dC.
+FL.
+fL.
+GA.
+gA.
+HI.
+hI.
+ID.
+iD.
+Il.
+il.
+IN.
+iN.
+IA.
+iA.
+KS.
+kS.
+Ky.
+ky.
+LA.
+lA.
+ME.
+mE.
+MD.
+mD.
+MA.
+mA.
+MI.
+mI.
+MN.
+mN.
+MS.
+mS.
+MO.
+mO.
+MT.
+mT.
+NE.
+nE.
+NV.
+nV.
+NH.
+nH.
+NJ.
+nJ.
+NM.
+nM.
+NY.
+nY.
+NC.
+nC.
+ND.
+nD.
+OH.
+oH.
+OR.
+oR.
+OR.
+oR.
+PA.
+pA.
+PR.
+pR.
+RI.
+rI.
+SC.
+sC.
+SD.
+sD.
+TN.
+tN.
+TX.
+tX.
+UT.
+uT.
+VT.
+vT.
+VA.
+vA.
+WA.
+wA.
+WV.
+wV.
+WI.
+wI.
+WY.
+wY.
+AB.
+aB.
+Alberta.
+alberta.
+NF.
+nF.
+Newfoundland.
+newfoundland.
+PE.
+pE.
+Prince Edward.
+prince Edward.
+BC.
+bC.
+British Columbia.
+british Columbia.
+NS.
+nS.
+Nova Scotia.
+nova Scotia.
+QB.
+qB.
+Quebec.
+quebec.
+MB.
+mB.
+Manitoba.
+manitoba.
+NT.
+nT.
+Northwest Terra ..
+northwest Terra ..
+SK.
+sK.
+Sasketchewan.
+sasketchewan.
+NB.
+nB.
+New Brunswick.
+new Brunswick.
+Nu.
+nu.
+Nunavut.
+nunavut.
+Yk.
+yk.
+Yukon.
+yukon.
+ON.
+oN.
+Ontario.
+ontario.
+Ariz ..
+ariz ..
+Del ..
+del ..
+I.Terr ..
+i.Terr ..
+I. Terra ..
+i. Terra ..
+Md ..
+md ..
+Mont ..
+mont ..
+N.Y ..
+n.Y ..
+N. Y ..
+n. Y ..
+Vt ..
+vt ..
+Va ..
+va ..
+Neb ..
+neb ..
+Box ..
+box ..
+Geo ..
+geo ..
+On ..
+on ..
+Mich ..
+mich ..
+N.Dak ..
+n.Dak ..
+S.Dak ..
+s.Dak ..
+N. Dak ..
+n. Dak ..
+S. Dak ..
+s. Dak ..
+Wash ..
+wash ..
+Calif ..
+calif ..
+Ky ..
+ky ..
+Minna ..
+minna ..
+N.H ..
+n.H ..
+N. H ..
+n. H ..
+He ..
+he ..
+Tenn ..
+tenn ..
+D.C ..
+d.C ..
+D. C ..
+d. C ..
+Col ..
+col ..
+M ..
+m ..
+Miss ..
+miss ..
+N.J ..
+n.J ..
+N. J ..
+n. J ..
+Tex ..
+tex ..
+W.V ..
+w.V ..
+W. V ..
+w. V ..
+W.Vir ..
+w.Vir ..
+W. Highway ..
+w. Highway ..
+Wisc ..
+wisc ..
+U. Terra ..
+u. Terra ..
+Penn ..
+penn ..
+N.Mex ..
+n.Mex ..
+N. Mex ..
+n. Mex ..
+I ..
+i ..
+Ind ..ind ..

@@ -1,0 +1,54 @@
+Xi Jinping                              	PER     	Shugaba Xi Jinping zai gana da shugabannin kasashen yankin Pasifik dake da huldar diplomasiyya tare da kasar Sin, in ji mista Qin
+Qin                                     	PERSON  	Mr. Qin further stated that the Chinese leader will also meet leaders of the Pacific zone with whom China maintains diplomatic relations.
+(end)
+
+
+Qin                                     	PER     	Shugaba Xi Jinping zai gana da shugabannin kasashen yankin Pasifik dake da huldar diplomasiyya tare da kasar Sin, in ji mista Qin
+Qin                                     	PERSON  	Mr. Qin further stated that the Chinese leader will also meet leaders of the Pacific zone with whom China maintains diplomatic relations.
+Chinese                                 	LOCATION	Mr. Qin further stated that the Chinese leader will also meet leaders of the Pacific zone with whom China maintains diplomatic relations.
+Pacific                                 	LOCATION	Mr. Qin further stated that the Chinese leader will also meet leaders of the Pacific zone with whom China maintains diplomatic relations.
+China                                   	LOCATION	Mr. Qin further stated that the Chinese leader will also meet leaders of the Pacific zone with whom China maintains diplomatic relations.
+(end)
+
+
+Xi                                      	PER     	Daga cikin wadanda suka rufawa shugaba Xi baya yayin ziyarar, sun hada da uwargidansa Peng Liyuan, wakilin ofishin siyasa na kwamitin tsakiya na jamʼiyyar kwaminis ta Sin, shugaban ofishin nazarin manufofin kwamitin tsakiya na JKS Wang Huning, wakilin ofishin siyasa na kwamitin tsakiya na jamʼiyyar kwaminis ta Sin, mataimakin firaministan majalisar gudanarwar kasar Wang Yang da dai sauransu.
+Chinese                                 	LOCATION	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Peng Liyuan,                            	PERSON  	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Communist Party’                        	ORGANIZATION	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Central Committee,                      	ORGANIZATION	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Central Policy Research Office          	ORGANIZATION	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Wang Huning,                            	PERSON  	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+Wang Yang                               	PERSON  	Those accompanying the Chinese president include his wife Peng Liyuan, a secretary of the Communist Party’s Central Committee, Director of the Central Policy Research Office JKS Wang Huning, representative of the party’s Political wing, politburo vice prime minister Wang Yang and others.
+(end)
+
+Xi                                      	PER     	Zhang ya kara da cewa a lokacin taron shugaba Xi zai yi bayanin matsayar kasar game da manyan batutuwan da suka shafi tattalin arzikin duniya, zai kuma bada shawarwari, da tayin kara hadin gwiwa a wannan taron.
+China’                                  	LOCATION	Zhang says during the summit, the president will explain China’s position on several major issues including the global economy, and also present recommendations on other topics.
+(possible choices)
+Zhang                                   	PERSON  	Zhang says during the summit, the president will explain China’s position on several major issues including the global economy, and also present recommendations on other topics.
+
+
+dandalin tattalin arzikin duniya        	ORG     	Za a gudanar da taron dandalin tattalin arzikin duniya WEF na shekara 2015 a Davos dake kasar Switzerland domin magance manyan matsalolin dake addabar duniya.
+The World Economic Forum                    ORGANIZATION	The World Economic Forum annual meeting of 2015 aimed at improving the state of the world's will be held at Davos in Switzerland.
+(possible choices)
+
+Global Digital Broadcast                	ORG     	Ya kara tabbatar cewa “kai a takaice ma dai, wannan adireshi na kwamfutar kamfanin Global Digital Broadcast ne, daya cikin manyan kamfanonin da ke kasar Burtaniya.
+Britain.                                	LOCATION	He added that “in short, this address is that of Global Digital Broadcast computer, one of the major companies in Britain.
+(possible choices)
+
+Inyass                                  	PER     	Shine sheikh ibrahim dan shehu Adullahi Inyass.
+Shehu Abdulahi Inyass.                  	PERSON  	Sheikh Ibrahim is the son of Shehu Abdulahi Inyass.
+(possible choices)
+Ibrahim   
+
+Kungiyar kiwon lafiyar                  	ORG     	WASHINGTON D.C— Kungiyar kiwon lafiyar Najeriya zata kashe yawan kudi Naira miliyan 415 shekara mai zuwa domin kauda cutar kanjamau da zazzabin cizon sauro.
+WASHINGTON D.C-                         	LOCATION	WASHINGTON D.C- Nigeria's Health (Organization) will spend a total of 415 million Naira next year towards the eradication of HIV/AIDS and malaria.
+Nigeria'                                	LOCATION	WASHINGTON D.C- Nigeria's Health (Organization) will spend a total of 415 million Naira next year towards the eradication of HIV/AIDS and malaria.
+(end)
+
+harkokin wajen                          	ORG     	A jiya ne mamba a majalisar zartarwar kasar Sin Yang Jiechi ya gana da ministan harkokin wajen kasar Zambia Harry Kalaba da karamin minista a maʼaikatar harkokin wajen kasar ta Uganda Henry Oryem Okello a birnin Beijing na kasar Sin.
+Yang Jiechi                             	PERSON  	It was yesterday that a member of the Chinese council Yang Jiechi met the Zambian minister of foreign affairs Harry Kalaba and Ugandan minister of state for foreign affairs Henry Oryem Okello in Beijing of China.
+Harry Kalaba                            	PERSON  	It was yesterday that a member of the Chinese council Yang Jiechi met the Zambian minister of foreign affairs Harry Kalaba and Ugandan minister of state for foreign affairs Henry Oryem Okello in Beijing of China.
+Henry Oryem Okello                      	PERSON  	It was yesterday that a member of the Chinese council Yang Jiechi met the Zambian minister of foreign affairs Harry Kalaba and Ugandan minister of state for foreign affairs Henry Oryem Okello in Beijing of China.
+Beijing                                 	LOCATION	It was yesterday that a member of the Chinese council Yang Jiechi met the Zambian minister of foreign affairs Harry Kalaba and Ugandan minister of state for foreign affairs Henry Oryem Okello in Beijing of China.
+China.                                  	LOCATION	It was yesterday that a member of the Chinese council Yang Jiechi met the Zambian minister of foreign affairs Harry Kalaba and Ugandan minister of state for foreign affairs Henry Oryem Okello in Beijing of China.
+(end)

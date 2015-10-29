@@ -185,7 +185,7 @@ if __name__ == '__main__':
                 frequency[match.group(1)] = float(match.group(2))
             else:
                 print 'match wrong in frequency file'
-    print frequency
+    # print frequency
 
     # Create working directory.
     temp_dir = tempfile.mkdtemp() 

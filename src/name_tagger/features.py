@@ -166,14 +166,15 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/Dics/input'
+    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/Dics/output'
     lexicon = [[]]
     for roots, dirs, files in os.walk(dict_path):
         for file in files:
             f = open(dict_path + '/'+file, 'r')
             lexicon.append([line[:-1] for line in f.readlines()])
-    lexicon.pop(0)
-    lexicon.pop(0)
+    print 'this is lexicon[0]'
+    print lexicon.pop(0)
+    print str(len(lexicon))+'-----------this is len of lexicon'
 
     def __init__(self, n_left=5, n_right=5, max_prefix_len=5, max_suffix_len=5, frequency = {}):
         super(OrthographicEncoder, self).__init__(n_left, n_right) 
@@ -183,6 +184,12 @@ class OrthographicEncoder(Encoder):
 
     @wraps(Encoder.get_feats_for_token)
     def get_feats_for_token(self, token):
+        # print 'this is type of token:'
+        # print type(token)
+        if type(token) is unicode:
+            token = token.encode('ascii', 'replace')
+            # print token
+            # print type(token)
         feats = [token]
         feats.append(token.lower())  # Lowercase feature
         # Prefix features n=1,...,4 .
@@ -203,17 +210,27 @@ class OrthographicEncoder(Encoder):
         for i in range(len(self.lexicon)):
             feats.append(token in self.lexicon[i])
 
-
+        # if token[0] is 'o':
+        # print token
+        # print 'this is frequency:'
+        # print self.frequency.get(token)
         feats.append(self.frequency.get(token))
 
         feats.extend(word_type(token))
+        # if token[0] is 'o':
+        # print 'this is feats:'
         # print feats
+        # print 'this is type of feats[0]:'
+        # print type(feats[0])
         return feats
 
 
 ALL_DIGITS_REO = re.compile(r'\d+$')
 ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$')
 HAVE_DIGITS_REO = re.compile(r'\d')
+HAVE_APOSTROPHE_UNICODE_FRONT = re.compile(r'[a-zA-Z]+\?.*')
+HAVE_APOSTROPHE_UNICODE_BACK = re.compile(r'.*\?[a-zA-Z]+')
+HAVE_APOSTROPHE_UNICODE_BETWEEN = re.compile(r'[a-zA-Z]+\?[a-zA-Z]+')
 
 def word_type(word):
     """Determine word type of token.
@@ -248,9 +265,14 @@ def word_type(word):
     contains_hyphen = '-' in word
     contains_comma = ',' in word
     contains_digit = bool(HAVE_DIGITS_REO.search(word))
-    contains_apostrophe = '\'' in word
+    contains_single_quote = '\'' in word
+    contains_apostrophe = bool(HAVE_APOSTROPHE_UNICODE_FRONT.search(word)) or \
+                          bool(HAVE_APOSTROPHE_UNICODE_BACK.search(word)) or \
+                          bool(HAVE_APOSTROPHE_UNICODE_BETWEEN.search(word))
 
-    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period, contains_hyphen, contains_comma, contains_digit, contains_apostrophe
+
+    return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period, \
+           contains_hyphen, contains_comma, contains_digit, contains_single_quote, contains_apostrophe
 
 
 def roll(feats, k=0):
