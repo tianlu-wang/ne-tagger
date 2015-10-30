@@ -19,7 +19,7 @@ def laf2tab(xml, out):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print 'USAGE: python laf2tab.py <input dir> <output dir>'
+        print 'USAGE: python laf2tab.py <input dir> <output2 dir>'
     else:
         indir = sys.argv[1]
         outdir = sys.argv[2]

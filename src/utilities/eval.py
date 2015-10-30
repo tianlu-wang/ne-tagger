@@ -1,18 +1,18 @@
+#!/usr/bin/python
 #-*- coding: utf-8 -*-
 import sys
 import os
 import subprocess
 
 if __name__ == '__main__':
-    for i in range(100):
-        attach = str((i+1)*10)
-        in_dir = 'python laf2tab.py /Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/hausa_test/segment_entropy_sampling/'
-        out_file = ' /Users/koala/Documents/code/lorelei-eval/outputs/active_1000/round'+attach
-        s = in_dir+'round'+attach+'/output'+out_file
-        print s
-        subprocess.call(s, shell = True)
-        in_file = 'python segment2document.py /Users/koala/Documents/code/lorelei-eval/outputs/active_1000/round'+attach
-        out_file = ' /Users/koala/Documents/code/lorelei-eval/result/round'+attach+'_document.tab'
-        s = in_file+out_file
-        print s
-        subprocess.call(s, shell = True)
+    if len(sys.argv) != 4:
+        print 'USAGE: eval.py <input_dir> <output_dir1> <output_dir2>'
+    else:
+        input_dir = sys.argv[1]
+        output_dir1 = sys.argv[2]
+        output_dir2 = sys.argv[3]
+        for i in os.listdir(input_dir):
+            cmd = ['python', './src/utilities/laf2tab.py', '%s/%s/output' % (input_dir, i), '%s/%s' % (output_dir1, i)]
+            subprocess.call(cmd)
+            cmd = ['python', './src/utilities/segment2document.py', '%s/%s' % (output_dir1, i), '%s/%s.tab' % (output_dir2, i)]
+            subprocess.call(cmd)

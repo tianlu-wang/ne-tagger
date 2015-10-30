@@ -166,7 +166,7 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/Dics/output'
+    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/dics'
     lexicon = [[]]
     for roots, dirs, files in os.walk(dict_path):
         for file in files:

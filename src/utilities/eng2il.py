@@ -2,6 +2,9 @@
 import re
 import sys
 import os
+"""
+translate English words(GPE,ORG,PER) to incident language with the PROB file provided by LDC
+"""
 
 def eng2il(input_file, parallel_data, output_file):
     f_in = open(input_file, 'r')

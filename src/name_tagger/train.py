@@ -115,7 +115,7 @@ if __name__ == '__main__':
                                      add_help=False,
                                      usage='%(prog)s [options] model_dir laf_dir lafs') 
     parser.add_argument('model_dir', nargs='?',
-                        help='Model output dir')
+                        help='Model output2 dir')
     parser.add_argument('frequency', nargs='?',
                         help='frequency file')
     parser.add_argument('ltf_dir', nargs='?',

@@ -149,7 +149,7 @@ class BILOUChunkEncoder(ChunkEncoder):
         return label 
 
     def fix_positions(self, positions):
-        """Fix some pathologies present in tag sequences output by CRFSuite.
+        """Fix some pathologies present in tag sequences output2 by CRFSuite.
 
         Namely, this fixes illegal sequences such as [O, I], [U, I], [I, U],
         [I, O], etc.

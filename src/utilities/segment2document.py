@@ -20,7 +20,7 @@ def segment2document(in_file, out_file):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print 'USAGE: python segment2document.py <input file> <output file>'
+        print 'USAGE: python segment2document.py <input file> <output2 file>'
     else:
         indir = sys.argv[1]
         outdir = sys.argv[2]

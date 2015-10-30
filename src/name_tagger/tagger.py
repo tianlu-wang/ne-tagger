@@ -46,10 +46,10 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         CRFSuite model file.
 
     tagged_dir : str
-        Directory to which to output LAF files.
+        Directory to which to output2 LAF files.
 
     tagged_ext : str
-        Extension to used for output LAF files.
+        Extension to used for output2 LAF files.
     """
     # Create working directory.                                              
     temp_dir = tempfile.mkdtemp()
@@ -78,7 +78,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
                featsf]
         with open(tagsf, 'w') as f:
             subprocess.call(cmd, stdout=f)
-        # Load tagged output.
+        # Load tagged output2.
 
         probf = os.getcwd() + '/hausa_test/probs/' + ltf[17:] + '.txt'
 
@@ -155,10 +155,10 @@ if __name__ == '__main__':
                         help='Set script file (Default: None)') 
     parser.add_argument('-L', nargs='?', default='./',
                         metavar='dir', dest='tagged_dir',
-                        help="Set output mentions dir (Default: current)") 
+                        help="Set output2 mentions dir (Default: current)")
     parser.add_argument('-X', nargs='?', default='.laf.xml',
                         metavar='ext', dest='ext',
-                        help="Set output mentions file extension (Default: .laf.xml)") 
+                        help="Set output2 mentions file extension (Default: .laf.xml)")
     parser.add_argument('-j', nargs='?', default=1, type=int,
                         metavar='n', dest='n_jobs',
                         help='Set num threads to use (default: 1)') 

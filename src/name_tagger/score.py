@@ -14,13 +14,13 @@ configure_logger(logger)
 
 
 def calc_stats(sys_laf, ref_dir, ltf_dir):
-    """Return hits, false alarms, and misses for system output LAF relative
+    """Return hits, false alarms, and misses for system output2 LAF relative
     to reference LAF located in ref_dir.
     
     Inputs
     ------
     sys_laf : str
-        LAF file containing system output.
+        LAF file containing system output2.
 
     ref_dir : str
         Directory containing reference LAF files.
@@ -116,7 +116,7 @@ def convert_mentions(mentions, token_onsets, token_offsets):
 ##########################
 if __name__ == '__main__':
     # Parse command line arguments.
-    parser = argparse.ArgumentParser(description='Score named entity tagger output.',
+    parser = argparse.ArgumentParser(description='Score named entity tagger output2.',
                                      add_help=False,
                                      usage='%(prog)s [options] ref_dir sys_dir ltf_dir')
     parser.add_argument('ref_dir', nargs='?',

@@ -51,7 +51,7 @@ class CustomStreamHandler(logging.Handler):
 
 
 def configure_logger(logger, debug=False, stdout=None, stderr=None):
-    """Configure logger to output logging modules to console via
+    """Configure logger to output2 logging modules to console via
     stdout and stderr.
 
     Inputs
@@ -60,7 +60,7 @@ def configure_logger(logger, debug=False, stdout=None, stderr=None):
         Logger instance to configure.
 
     debug : bool, optional
-        If True, DEBUG level messages output to stdout.
+        If True, DEBUG level messages output2 to stdout.
         (Default: False)
 
     stdout : file handle, optional
