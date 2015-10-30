@@ -1,4 +1,4 @@
-supervised name tagger of low  resource languages
+supervised name tagger for low  resource languages
 --------------------------------------------------
 * use CRF model as a baseline   
 * add active learning to cut down the time cost since only few people are proficiency of low resource language.  
