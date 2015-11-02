@@ -16,17 +16,20 @@ from bs4 import BeautifulSoup
 
 class ActiveLearning(object):
 
-    def __init__(self, init_train_num=50, increment=1, work_dir=None, total_train_sentences=100):
+    def __init__(self, init_train_num=50, increment=10, work_dir=None, total_train_sentences=100):
         train_path = os.path.join(work_dir, 'data_path_laf')
         assert(os.path.exists(train_path))
         f_train = open(train_path, 'r')
         all_set = [line for line in f_train.readlines()]  # get the list of ltf file
         self.train_set = []
-        self.total_sentences = total_train_sentences
-        while len(self.train_set) < int(self.total_sentences):
+        self.total_sentences = int(total_train_sentences)
+        while len(self.train_set) < self.total_sentences:
             temp = all_set[random.randint(0, len(all_set) - 1)]
             if temp not in self.train_set:
                 self.train_set.append(temp)  # get training files randomly
+
+        print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
+        print len(self.train_set)
 
         self.frequency = dict()
         sum = 0.0
@@ -88,8 +91,8 @@ class ActiveLearning(object):
         add increment part in every loop
         :return: tagged file in random_sampling or segment_entropy_sampling
         """
-        for i in range(len(self.train_set)/self.increment):
-            if i == 0:
+        while(len(self.current_train_set) <= self.total_sentences):
+            if len(self.current_train_set) == 0:
                 self.current_train_set = self.training_set_initialization()
                 print 'the initial training set is:'
                 print self.current_train_set
@@ -101,8 +104,8 @@ class ActiveLearning(object):
             train_command = ['./src/name_tagger/train.py', self.MODEL_DIR, './frequency.txt', self.LTF_DIR] + train_list
 
             ## output train list: mainly for debug
-            f = open('./train_list2.txt', 'w+')
-            f.write(str((i+1)*self.increment))
+            f = open('./train_list.txt', 'w+')
+            f.write('len of current train set:'+str(len(self.current_train_set)))
             f.write('\n')
             for i in range(len(train_list)):
                 f.write(train_list[i])
@@ -114,21 +117,22 @@ class ActiveLearning(object):
             subprocess.call(self.cmd_mk_syslaf)
             subprocess.call(self.cmd_del_probs)
             subprocess.call(self.cmd_mk_probs)
-            print '--------------------------------------begin tag---------------------------------------'
+            print '--------------------------------------begin tag in doing traing---------------------------------------'
             subprocess.call(self.tag_command)
             for item in train_list:
                 if item.replace('laf', 'ltf') in self.test_set:
                     print '*********************************overlap************************************'
                 else:
                     pass
-            new_dir = os.path.join(work_dir, sampling_method) + '/round' + str(i+1)
+            new_dir = os.path.join(work_dir, sampling_method) + '/round' + str(len(self.current_train_set))
             subprocess.call(['mkdir', new_dir])
             subprocess.call(['cp', '-r', self.SYS_LAF_DIR, new_dir])
             print 'how many test file are analyzed:'
             subprocess.call('ls -l '+new_dir+'/output'+' | '+'wc -l', shell=True)
 
-            break
 
+            if len(self.current_train_set) == self.total_sentences:
+                return 0
             if sampling_method == 'segment_entropy_sampling':
                 self.current_train_set += self.segment_entropy()
                 print 'current training set is:'
@@ -153,7 +157,7 @@ class ActiveLearning(object):
         subprocess.call(self.cmd_del_probs)
         subprocess.call(self.cmd_mk_probs)
         tag_command = ['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + tag_list
-        print '---------------------------------begin tag-----------------------------------'
+        print '---------------------------------begin tag in segment entropy-----------------------------------'
         subprocess.call(tag_command)
         subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
         pattern1 = re.compile(r'(.*):(.*)')
@@ -275,9 +279,9 @@ if __name__ == "__main__":
         init_train_num = sys.argv[5]
         iteration = 1
         for i in range(iteration):
-            # act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
-            #                      total_train_sentences=total_train_sentences)  # set the initial num and increment
-            # act.do_training(sampling_method)  # uncertainty sampling
+            act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
+                                 total_train_sentences=total_train_sentences)  # set the initial num and increment
+            act.do_training(sampling_method)  # uncertainty sampling
             cmd = ['python', './src/utilities/eval.py', work_dir+'/'+sampling_method, './src/eval/output1', './src/eval/input']
             subprocess.call(cmd)
 
