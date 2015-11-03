@@ -30,8 +30,8 @@ Lambu
 lambu
 Zauren
 zauren
-Hill
-hill
+Tudun
+tudun
 Otel
 otel
 Gidan
@@ -46,8 +46,6 @@ Tafkin
 tafkin
 Tsauni
 tsauni
-Gidan
-gidan
 Wurin
 wurin
 Fadama
@@ -72,5 +70,7 @@ Wurin
 wurin
 Garin
 garin
-Valley
-valley
+Kwarin
+kwarin
+Kudu
+kudu

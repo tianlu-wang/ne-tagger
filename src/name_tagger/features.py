@@ -1,9 +1,13 @@
-"""Feature extraction classes.
-"""
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+__author__ = 'koala'
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 from functools import wraps
 import re
 import os
-from bs4 import BeautifulSoup
+import codecs
 from chunk import BILOUChunkEncoder
 
 __all__ = ['OrthographicEncoder'] 
@@ -27,7 +31,7 @@ class Encoder(object):
     chunker : chunk.ChunkEncoder
         ChunkEncoder instance used to generate tags.
     """
-    def __init__(self, n_left=5, n_right=5):
+    def __init__(self, n_left=2, n_right=2):
         self.chunker = BILOUChunkEncoder() 
         self.n_left = n_left 
         self.n_right = n_right 
@@ -166,17 +170,17 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    dict_path = '/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/dics'
+    dict_path = './dics'
     lexicon = [[]]
     for roots, dirs, files in os.walk(dict_path):
         for file in files:
-            f = open(dict_path + '/'+file, 'r')
+            f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
             lexicon.append([line[:-1] for line in f.readlines()])
     print 'this is lexicon[0]'
     print lexicon.pop(0)
     print str(len(lexicon))+'-----------this is len of lexicon'
 
-    def __init__(self, n_left=5, n_right=5, max_prefix_len=5, max_suffix_len=5, frequency = {}):
+    def __init__(self, n_left=2, n_right=2, max_prefix_len=4, max_suffix_len=4, frequency = {}):
         super(OrthographicEncoder, self).__init__(n_left, n_right) 
         self.prefix_lengths = range(1, max_prefix_len+1) 
         self.suffix_lengths = range(1, max_suffix_len+1)
@@ -186,10 +190,6 @@ class OrthographicEncoder(Encoder):
     def get_feats_for_token(self, token):
         # print 'this is type of token:'
         # print type(token)
-        if type(token) is unicode:
-            token = token.encode('ascii', 'replace')
-            # print token
-            # print type(token)
         feats = [token]
         feats.append(token.lower())  # Lowercase feature
         # Prefix features n=1,...,4 .
@@ -208,7 +208,7 @@ class OrthographicEncoder(Encoder):
                 feats.append(None)
 
         for i in range(len(self.lexicon)):
-            feats.append(token in self.lexicon[i])
+            feats.append(unicode(token) in self.lexicon[i])
 
         # if token[0] is 'o':
         # print token
@@ -217,20 +217,14 @@ class OrthographicEncoder(Encoder):
         feats.append(self.frequency.get(token))
 
         feats.extend(word_type(token))
-        # if token[0] is 'o':
-        # print 'this is feats:'
+        # print 'this is len of feats'
         # print feats
-        # print 'this is type of feats[0]:'
-        # print type(feats[0])
         return feats
 
 
 ALL_DIGITS_REO = re.compile(r'\d+$')
 ALL_NONLETTERS_REO = re.compile(r'[^a-zA-Z]+$')
 HAVE_DIGITS_REO = re.compile(r'\d')
-HAVE_APOSTROPHE_UNICODE_FRONT = re.compile(r'[a-zA-Z]+\?.*')
-HAVE_APOSTROPHE_UNICODE_BACK = re.compile(r'.*\?[a-zA-Z]+')
-HAVE_APOSTROPHE_UNICODE_BETWEEN = re.compile(r'[a-zA-Z]+\?[a-zA-Z]+')
 
 def word_type(word):
     """Determine word type of token.
@@ -266,13 +260,11 @@ def word_type(word):
     contains_comma = ',' in word
     contains_digit = bool(HAVE_DIGITS_REO.search(word))
     contains_single_quote = '\'' in word
-    contains_apostrophe = bool(HAVE_APOSTROPHE_UNICODE_FRONT.search(word)) or \
-                          bool(HAVE_APOSTROPHE_UNICODE_BACK.search(word)) or \
-                          bool(HAVE_APOSTROPHE_UNICODE_BETWEEN.search(word))
+    contains_asporophe = unicode('ʼ') in word
 
 
     return begins_cap, all_capitalized, all_digits, all_nonletters, contains_period, \
-           contains_hyphen, contains_comma, contains_digit, contains_single_quote, contains_apostrophe
+           contains_hyphen, contains_comma, contains_digit, contains_single_quote, contains_asporophe
 
 
 def roll(feats, k=0):

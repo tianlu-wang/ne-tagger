@@ -1,5 +1,11 @@
 """Miscellaneous IO classes and functions.
 """
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+__author__ = 'koala'
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 import os 
 import StringIO 
 

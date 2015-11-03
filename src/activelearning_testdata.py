@@ -1,6 +1,10 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 __author__ = 'koala'
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import codecs
 import os
 import random
 import matplotlib.pyplot as plt
@@ -19,8 +23,9 @@ class ActiveLearning(object):
     def __init__(self, init_train_num=50, increment=10, work_dir=None, total_train_sentences=100):
         train_path = os.path.join(work_dir, 'data_path_laf')
         assert(os.path.exists(train_path))
-        f_train = open(train_path, 'r')
+        f_train = codecs.open(train_path, 'r', encoding='utf-8')
         all_set = [line for line in f_train.readlines()]  # get the list of ltf file
+        f_train.close()
         self.train_set = []
         self.total_sentences = int(total_train_sentences)
         while len(self.train_set) < self.total_sentences:
@@ -36,7 +41,7 @@ class ActiveLearning(object):
         for f in self.train_set:
             soup = BeautifulSoup(open(f.replace('laf', 'ltf')[:-1]).read(), 'html.parser')
             for token in soup.find_all('token'):
-                tmp = token.string.encode('ascii', 'replace')
+                tmp = token.string
                 if tmp in self.frequency.keys():
                     self.frequency[tmp] = self.frequency.get(tmp) + 1
                 else:
@@ -44,14 +49,14 @@ class ActiveLearning(object):
                 sum += 1
         self.frequency.update((k, v / sum) for (k, v) in self.frequency.iteritems())  # get frequency of every word
 
-        f_fre = open('frequency.txt', 'w')  # take down the frequency to debug
+        f_fre = codecs.open('frequency.txt', 'w', encoding='utf-8')  # take down the frequency to debug
         for key in self.frequency.keys():
             f_fre.write(key+'\t'+str(self.frequency.get(key))+'\n')
         f_fre.close()
-
         test_path = os.path.join(work_dir, 'test.scp')
-        f_test = open(test_path, 'r')
+        f_test = codecs.open(test_path, 'r', encoding='utf-8')
         self.test_set = [line[:-1] for line in f_test.readlines()]  # get the list of test file
+        f_test.close()
         #############
         print 'just to check that the test_set is normal: test_set[1] is ' + self.test_set[1]  # for debug
         #########
@@ -104,13 +109,13 @@ class ActiveLearning(object):
             train_command = ['./src/name_tagger/train.py', self.MODEL_DIR, './frequency.txt', self.LTF_DIR] + train_list
 
             ## output train list: mainly for debug
-            f = open('./train_list.txt', 'w+')
-            f.write('len of current train set:'+str(len(self.current_train_set)))
-            f.write('\n')
-            for i in range(len(train_list)):
-                f.write(train_list[i])
-                f.write('\n')
-            f.close()
+            # f = codecs.open('./train_list.txt', 'a')
+            # f.write('len of current train set:'+str(len(self.current_train_set)))
+            # f.write('\n')
+            # for i in range(len(train_list)):
+            #     f.write(train_list[i])
+            #     f.write('\n')
+            # f.close()
 
             subprocess.call(train_command)
             subprocess.call(self.cmd_del_syslaf)
@@ -167,7 +172,7 @@ class ActiveLearning(object):
             for file in files:
                 flag_num = 0
                 entropy_num = 0
-                f = open(self.PROBS_DIR+'/'+file, 'r')
+                f = codecs.open(self.PROBS_DIR+'/'+file, 'r', encoding='utf-8')
                 for line in f.readlines():
                     m1 = re.match(pattern1, line, flags=0)
                     if not m1 is None:
@@ -207,6 +212,7 @@ class ActiveLearning(object):
         training_set_to_add = []
         sample_size = self.increment
         sub = len(self.train_set) - len(self.current_train_set)
+        print len(self.current_train_set)
         if sub < self.increment:
             sample_size = sub
         while len(training_set_to_add) < sample_size:
