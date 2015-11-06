@@ -11,7 +11,7 @@ def segment2document(in_file, out_file):
     f_out = open(out_file, 'w')
     for line in f_in.readlines():
         m1 = re.search(r'(.*)\t(.*)\t(.*)\t(.*)\t(.*)\t(.*)\t(.*)\t(.*)', line)
-        m2 = re.search(r'(.*)_segment(.*):(.*)', m1.group(4))
+        m2 = re.search(r'(.*)-(.*):(.*)', m1.group(4))
         f_out.write(m1.group(1)+'\t'+m1.group(2)+'\t'+m1.group(3)+'\t'+m2.group(1)+':'+m2.group(3)+'\t'+m1.group(5)+'\t'+m1.group(6)+'\t'+m1.group(7)+'\t'+m1.group(8)+'\n')
     f_in.close()
     f_out.close()

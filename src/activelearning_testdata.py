@@ -285,9 +285,9 @@ if __name__ == "__main__":
         init_train_num = sys.argv[5]
         iteration = 1
         for i in range(iteration):
-            act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
-                                 total_train_sentences=total_train_sentences)  # set the initial num and increment
-            act.do_training(sampling_method)  # uncertainty sampling
+            # act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
+            #                      total_train_sentences=total_train_sentences)  # set the initial num and increment
+            # act.do_training(sampling_method)  # uncertainty sampling
             cmd = ['python', './src/utilities/eval.py', work_dir+'/'+sampling_method, './src/eval/output1', './src/eval/input']
             subprocess.call(cmd)
 

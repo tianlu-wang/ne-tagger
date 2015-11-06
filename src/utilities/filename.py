@@ -1,8 +1,10 @@
 __author__ = 'koala'
-
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import sys
 import os
-
 
 def check_single_file(rootDir):
     list_dirs = os.walk(rootDir)
@@ -49,11 +51,21 @@ def check_two_files(dir_laf, dir_ltf):
         print(ltf)
 
 
-def select(dir_ltf):
+def select(dir_ltf, out_file):
     list_ltf = os.walk(dir_ltf)
-    train_file = open("./hausa_test/test.scp", "w")
+    train_file = open(out_file, "w")
     for root, dirs, files in list_ltf:
         for f in files:
-            train_file.write('./hausa_test/'+'test/'+f+"\n")
+            train_file.write(dir_ltf+'/'+f+"\n")
 
-select('./hausa_test/test')
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print 'USAGE: python filename.py <input dir> <output file>'
+    else:
+        indir = sys.argv[1]
+        outfile = sys.argv[2]
+        select(indir, outfile)
+
+
+
