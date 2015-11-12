@@ -20,7 +20,7 @@ from itertools import repeat
 
 class ActiveLearning(object):
 
-    def __init__(self, init_train_num=50, increment=10, work_dir=None, max_train_sentences=100, num_process=2):
+    def __init__(self, init_train_num=50, increment=10, work_dir=None, total_train_sentence=2000,  max_train_sentences=100, num_process=2):
         ltf_path = os.path.join(work_dir, 'data_path_ltf')
         assert(os.path.exists(ltf_path))
         f_ltf = codecs.open(ltf_path, 'r', encoding='utf-8')
@@ -28,7 +28,7 @@ class ActiveLearning(object):
         f_ltf.close()
         all_laf = [item.replace('ltf', 'laf') for item in all_ltf]  # get list of laf file
 
-        self.train_set = all_laf[:50]
+        self.train_set = all_laf[:int(total_train_sentence)]
         print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
         print len(self.train_set)
 
@@ -247,24 +247,25 @@ def prob_score((probs_dir, file_list)):
     return sum_score
 
 if __name__ == "__main__":
-    if len(sys.argv) != 7:
+    if len(sys.argv) != 8:
         print 'USAGE: ./src/activelearning_eval.py <work dir> <sampling method(segment_entropy_sampling or ' \
               'random_sampling or sequential_sampling)> ' \
-              '<max_train_sentences> <increment> <init_train_num><num_process>'
+              '<total_training_sentences> <max_train_sentences> <increment> <init_train_num><num_process>'
     else:
         work_dir = sys.argv[1]
         sampling_method = sys.argv[2]
-        max_train_sentences = sys.argv[3]
-        increment = sys.argv[4]
-        init_train_num = sys.argv[5]
-        num_process = sys.argv[6]
-        iteration = 1
-        for i in range(iteration):
-            act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
-                                 max_train_sentences=max_train_sentences, num_process=num_process)  # set the initial num and increment
-            act.do_training(sampling_method)  # uncertainty sampling
-            cmd = ['python', './src/utilities/eval.py', work_dir+'/'+sampling_method, './src/eval/output1', './src/eval/input']
-            subprocess.call(cmd)
+        total_train_sentence = sys.argv[3]
+        max_train_sentences = sys.argv[4]
+        increment = sys.argv[5]
+        init_train_num = sys.argv[6]
+        num_process = sys.argv[7]
+
+        act = ActiveLearning(increment=increment, init_train_num=init_train_num, work_dir=work_dir,
+                             total_train_sentence=total_train_sentence,
+                             max_train_sentences=max_train_sentences, num_process=num_process)  # set the initial num and increment
+        act.do_training(sampling_method)  # uncertainty sampling
+        cmd = ['python', './src/utilities/eval.py', work_dir+'/'+sampling_method, './src/eval/output1', './src/eval/input']
+        subprocess.call(cmd)
 
 
 
