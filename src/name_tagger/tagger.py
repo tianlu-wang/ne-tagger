@@ -80,7 +80,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             subprocess.call(cmd, stdout=f)
         # Load tagged output2.
 
-        probf = os.getcwd() + '/hausa_test/probs/' + ltf[17:] + '.txt'
+        probf = ltf.replace('ltf', 'probs')
 
         # print probf
         cmd_ = ['crfsuite', 'tag',
@@ -143,11 +143,12 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
 ##########################
 if __name__ == '__main__':
     # parse command line args
+    print 'tagger.py called'
     parser = argparse.ArgumentParser(description='Perform named entity tagging.',
                                      add_help=False,
                                      usage='%(prog)s [options] model ltfs') 
     parser.add_argument('model_dir', nargs='?',
-                        help='Model dir') 
+                        help='Model dir')
     parser.add_argument('ltfs', nargs='*',
                         help='LTF files to be processed') 
     parser.add_argument('-S', nargs='?', default=None,
