@@ -10,7 +10,7 @@ def eng2il(input_file, parallel_data, output_file):
     f_in = open(input_file, 'r')
     words = []
     for line in f_in.readlines():
-        words.append(line[:-1])
+        words.append(line[:-1])  # be careful
     f_parallel = open(parallel_data, 'r')
     f_output = open(output_file, 'w')
 
@@ -44,5 +44,6 @@ if __name__ == '__main__':
         indir = sys.argv[1]
         parallel_data = sys.argv[2]
         outdir = sys.argv[3]
-        for i in os.listdir(indir):
-            eng2il('%s/%s' % (indir, i), parallel_data, '%s/%s' % (outdir, i))
+        for root, dirs, files in os.walk(indir):
+            for i in files:
+                eng2il('%s/%s' % (indir, i), parallel_data, '%s/%s' % (outdir, i))

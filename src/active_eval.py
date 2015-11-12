@@ -207,7 +207,7 @@ class ActiveLearning(object):
         sub = len(self.train_set) - len(self.current_train_set)
         if sub < self.increment:
             sample_size = sub
-        tag_list = [item.replace('laf', 'ltf')[:-1] for item in self.train_set if item not in self.current_train_set]
+        tag_list = [item for item in range(len(self.train_set)) if item not in self.current_train_set]
         training_set_to_add = tag_list[:sample_size]
         print training_set_to_add
         return training_set_to_add
