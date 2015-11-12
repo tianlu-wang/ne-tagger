@@ -121,7 +121,7 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
-            subprocess.call('ls -l '+self.SYS_LAF_DIR)  # todo
+            subprocess.call('ls -l '+self.SYS_LAF_DIR, shell=True)  # todo
             for item in train_list:
                 if item.replace('laf', 'ltf') in test_set:
                     print '*********************************overlap************************************'
@@ -229,6 +229,8 @@ def prob_score((probs_dir, file_list)):
                 if len(m1.group(1)) > 2:
                     flag_num += 1
                 m2 = re.match(pattern2, m1.group(2), flags=0)
+                if m2 is None:
+                    print 'something wrong in probs file cause if m1 is not none then m2 is not none'
                 entropy = 0
                 for i in range(1, 18):
                     tmp = float(m2.group(i))
@@ -237,7 +239,8 @@ def prob_score((probs_dir, file_list)):
                 if entropy > math.pow(1, -21):
                     entropy_num += 1
             else:
-                print line
+                pass
+                # print line
         sum_score[item] = entropy_num + flag_num
         f.close()
     print 'finish calculate score'
