@@ -121,6 +121,7 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
+            subprocess.call('ls -l '+self.SYS_LAF_DIR)  # todo
             for item in train_list:
                 if item.replace('laf', 'ltf') in test_set:
                     print '*********************************overlap************************************'
@@ -137,16 +138,15 @@ class ActiveLearning(object):
                 return 0
             if sampling_method == 'segment_entropy_sampling':
                 self.current_train_set += self.segment_entropy()
-                print 'current training set is:'
-                print self.current_train_set  # for debug
             elif sampling_method == 'random_sampling':
                 self.current_train_set += self.random_sampling()
-                print 'current training set is:'
-                print self.current_train_set  # for debug
             elif sampling_method == 'sequential_sampling':
                 self.current_train_set += self.sequential_sampling()
-                print 'current training set is:'
-                print self.current_train_set  # for debug
+
+            print 'current training set size is(after adding):'
+            print len(self.current_train_set)
+            print 'current training set is(after adding):'
+            print self.current_train_set  # for debug
 
     def segment_entropy(self):
         print('\tgetting new training data in segment_entropy_sampling...')
@@ -236,6 +236,8 @@ def prob_score((probs_dir, file_list)):
                         entropy += -(tmp * math.log(tmp))
                 if entropy > math.pow(1, -21):
                     entropy_num += 1
+            else:
+                print line
         sum_score[item] = entropy_num + flag_num
         f.close()
     print 'finish calculate score'
