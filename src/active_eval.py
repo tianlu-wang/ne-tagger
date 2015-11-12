@@ -121,7 +121,7 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
-            subprocess.call('ls -l '+self.SYS_LAF_DIR, shell=True)  # todo
+            # subprocess.call('ls -l '+self.SYS_LAF_DIR, shell=True)  # todo
             for item in train_list:
                 if item.replace('laf', 'ltf') in test_set:
                     print '*********************************overlap************************************'
@@ -168,8 +168,8 @@ class ActiveLearning(object):
             sum_TK.update(item)
         sorted_entropy = sorted(sum_TK.items(), key=operator.itemgetter(1), reverse=True)
         ############################################
-        print 'top 10 of sorted_entropy:'
-        print sorted_entropy[:10]
+        print 'top 3 of sorted_entropy:'
+        print sorted_entropy[:3]
         training_set_to_add = []
         sample_size = self.increment
         if len(sorted_entropy) < self.increment:
