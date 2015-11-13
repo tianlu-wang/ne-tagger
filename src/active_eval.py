@@ -61,11 +61,16 @@ class ActiveLearning(object):
         self.SYS_LAF_DIR = os.path.join(work_dir, 'output')   # directory for tagger result (LAF files)
         self.REF_LAF_DIR = os.path.join(work_dir, 'laf')      # directory containing gold standard LAF files
         self.PROBS_DIR = os.path.join(work_dir, 'probs')
+        self.MAX_PROB = os.path.join(work_dir,'maxprobs')
+        self.WIKI = os.path.join(work_dir, 'wiki')
+        self.dics = os.path.join(work_dir, 'dics')
         self.cmd_del_model = ['rm', '-r', self.MODEL_DIR]
         self.cmd_del_syslaf = ['rm', '-r', self.SYS_LAF_DIR]
         self.cmd_mk_syslaf = ['mkdir', self.SYS_LAF_DIR]
         self.cmd_del_probs = ['rm', '-r', self.PROBS_DIR]
         self.cmd_mk_probs = ['mkdir', self.PROBS_DIR]
+        self.cmd_del_maxprobs = ['rm', '-r', self.MAX_PROB]
+        self.cmd_mk_maxprobs = ['mkdir', self.MAX_PROB]
 
     def training_set_initialization(self):
         """
@@ -102,6 +107,8 @@ class ActiveLearning(object):
             subprocess.call(self.cmd_mk_syslaf)
             subprocess.call(self.cmd_del_probs)
             subprocess.call(self.cmd_mk_probs)
+            subprocess.call(self.cmd_del_maxprobs)
+            subprocess.call(self.cmd_mk_maxprobs)
             print '--------------------------------------begin tag in doing training-----------------------------------'
             test_set = [item.replace('laf', 'ltf')[:-1] for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
             tag_mul_list = [[]]
@@ -211,6 +218,112 @@ class ActiveLearning(object):
         training_set_to_add = tag_list[:sample_size]
         print training_set_to_add
         return training_set_to_add
+
+    def post_processing(self, test_list):
+        ### get wiki resource
+        for file in os.listdir(self.WIKI):
+            f = open(file, 'r')
+            if file == 'per':
+                wiki_per = [line[:-1] for line in f.readlines()]
+            elif file == 'org':
+                wiki_org = [line[:-1] for line in f.readlines()]
+            elif file == 'loc':
+                wiki_loc = [line[:-1] for line in f.readlines()]
+            f.close()
+        ##### get gazetteers resource
+        dic_loc = []
+        dic_org = []
+        dic_per = []
+        dic_prep = []
+        for file in os.listdir(self.dics):
+            f = open(file, 'r')
+            if 'name' in file or 'title' in file:
+                dic_per.extend([line[:-1] for line in f.readlines()])
+            elif 'country' in file or 'city' in file or 'location' in file:
+                dic_loc.extend([line[:-1] for line in f.readlines()])
+            elif 'org' in file:
+                dic_org.extend([line[:-1] for line in f.readlines()])
+            elif 'prep' in file:
+                dic_prep.extend([line[:-1] for line in f.readlines()])
+            f.close()
+        for test_file in test_list:
+            # tokens:text & start char & end start & pos tag
+            tokens = []
+            soup = BeautifulSoup(open(test_file).read(), 'html.parser')
+            for token in soup.find_all('token'):
+                tokens.append((token.string, int(token['start_char']), int(token['end_char']), token['pos']))
+
+            # max_probs: max prob
+            max_prob_file = test_file.replace('ltf', 'maxprobs')
+            max_probs = [float(line[:-1]) for line in open(max_prob_file).readlines()]
+
+            # output: text & start_char & end char & type
+            output = []
+            output_file = test_file.replace('ltf', 'output').replace('output.xml', 'laf.xml')
+            soup = BeautifulSoup(open(output_file).read(), 'html.parser')
+            for annotation in soup.find_all('annotation'):
+                output.append((annotation.find('extent').string,
+                               annotation.find('extent')['start_char'],
+                               annotation.find('extent')['end_char'], annotation['type']))
+
+            for token in tokens:
+                # fix the boundary in the output
+                if token[0] in [item[0] for item in output]:
+                    fix_boundary()
+                # check wiki list
+                wiki_candidates = []
+                for item in wiki_loc:
+                    if token in item:
+                        wiki_candidates.append((item, len(item.split(' ')), 'loc'))
+                for item in wiki_org:
+                    if token in item:
+                        wiki_candidates.append((item, len(item.split(' ')), 'org'))
+                for item in wiki_per:
+                    if token in item:
+                        wiki_candidates.append((item, len(item.split(' ')), 'per'))
+                if not len(wiki_candidates) is 0:  # find candidates in wiki resource
+                    for item in wiki_candidates:
+                        if tokens[tokens.index(token): tokens.index(token)+item[1]] == item[0]:
+                            print 'find an entity in wiki candidate'
+                            print item[0]
+
+    def fix_boundary(self):
+
+    def insert_ann(self,file_name, type, start_char, end_char, string):
+        soup = BeautifulSoup(open(file_name).read(), 'html.parser')
+        new_ann = soup.new_tag('annotation')
+        new_ann['id'] = os.path.basename(file_name)+'_inn'
+        new_ann['task'] = 'NE'
+        new_ann['type'] = type
+        new_extent = soup.new_tag('extent')
+        new_extent['start_char'] = start_char
+        new_extent['end_char'] = end_char
+        new_extent.string = string
+        new_ann.append(new_extent)
+        soup.annotation.insert_after(new_ann)
+        out = open(file_name, 'w')
+        out.write(soup.prettify())
+        out.close()
+
+    def update_ann(self,file_name, type, start_char, end_char, string, old_start):
+        soup = BeautifulSoup(open(file_name).read(), 'html.parser')
+        for annotation in soup.find_all('annotation'):
+            if int(annotation.find('extent')['start_char']) == int(old_start):
+                old_annotation = annotation
+                break
+        new_ann = soup.new_tag('annotation')
+        new_ann['id'] = os.path.basename(file_name)+'_inn'
+        new_ann['task'] = 'NE'
+        new_ann['type'] = type
+        new_extent = soup.new_tag('extent')
+        new_extent['start_char'] = start_char
+        new_extent['end_char'] = end_char
+        new_extent.string = string
+        new_ann.append(new_extent)
+        old_annotation.replace_with(new_ann)
+        out = open(file_name, 'w')
+        out.write(soup.prettify())
+        out.close()
 
 
 def prob_score((probs_dir, file_list)):

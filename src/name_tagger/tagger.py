@@ -89,6 +89,14 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         with open(probf, 'w') as f:
             subprocess.call(cmd_, stdout=f)
 
+        maxprobf = ltf.replace('ltf', 'maxprobs')
+
+        cmd_ = ['/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/lib/crf/bin/crfsuite','tag',
+               '-m', modelf, '-i',
+               featsf]
+        with open(maxprobf, 'w') as f:
+            subprocess.call(cmd_, stdout=f)
+
         with open(tagsf, 'r') as f:
             tags = [line.strip() for line in f]
             # print len(tags)  # todo
@@ -99,7 +107,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         # Chunk tags.
         chunks = chunker.tags_to_chunks(tags)  # todo:bughere
         # Construct mentions.
-        doc_id = ltf_doc.doc_id 
+        doc_id = ltf_doc.doc_id
         mentions = []
         n = 1 
         for token_bi, token_ei, tag in chunks:

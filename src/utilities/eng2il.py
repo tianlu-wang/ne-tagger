@@ -21,13 +21,13 @@ def eng2il(input_file, parallel_data, output_file):
         if not match is None:
             if match.group(1) in words:
                 if last_one_eng != match.group(1):
-                    f_output.write(last_one_il+'\n')
+                    f_output.write(last_one_il+'\t'+last_one_eng+'\n')
                     last_one_eng = match.group(1)
                     last_one_il = match.group(2)
-                    score = match.group(3)
+                    score = float(match.group(3))
                 else:
-                    if match.group(3) > score:
-                        score = match.group(3)
+                    if score < float(match.group(3)):
+                        score = float(match.group(3))
                         last_one_il = match.group(2)
         else:
             print'no match in this line:'
