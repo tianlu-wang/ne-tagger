@@ -19,7 +19,8 @@ def laf2tab(xml, out):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print 'USAGE: python laf2tab.py <input dir> <output2 dir>'
+        print 'USAGE: python laf2tab.py <input dir> <output file>'
+        print 'this script will turn all laf file under input dir into a tab file'
     else:
         indir = sys.argv[1]
         outdir = sys.argv[2]
