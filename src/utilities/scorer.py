@@ -1,4 +1,9 @@
-def evaluate_tagging(eval_tab_path, selected_il):
+import os
+import io
+import sys
+
+
+def evaluate_tagging(eval_tab_path, work_dir):
     def process_tab_file(eval_file_path, doc_ids):
         tab_file = io.open(eval_file_path, 'r', -1, 'utf-8')
 
@@ -28,12 +33,14 @@ def evaluate_tagging(eval_tab_path, selected_il):
         return round(a / float(b), 2)
 
     # run scorer
-    if selected_il == 'hausa':
-        ground_truth_path = os.path.join(APP_ROOT, 'eval/gold/hau_all_gold_without_ttl_and_sn.tab')
-    elif selected_il == 'yoruba':
-        ground_truth_path = os.path.join(APP_ROOT, 'eval/gold/yoruba_all_gold_without_ttl.tab')
-    elif selected_il == 'turkish':
-        ground_truth_path = os.path.join(APP_ROOT, 'eval/gold/turkish_all_gold_without_ttl.tab')
+    # if selected_il == 'hausa':
+    #     ground_truth_path = os.path.join(work_dir, 'gold.tab')
+    # elif selected_il == 'yoruba':
+    #     ground_truth_path = os.path.join(work_dir, 'gold.tab')
+    # elif selected_il == 'turkish':
+    #     ground_truth_path = os.path.join(work_dir, 'gold.tab')
+
+    ground_truth_path = os.path.join(work_dir, 'gold.tab')
 
     # preproccessing eval-tab file
     doc_ids = get_doc_ids(eval_tab_path)
@@ -197,3 +204,32 @@ def evaluate_tagging(eval_tab_path, selected_il):
     }
 
     return result
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print 'USAGE: python scorer.py <input dir> <work dir>'
+        print 'this script calculate the score of every file in the input dir and output into scores.txt in work dir'
+        print 'gold.tab should be put in work dir'
+    else:
+        in_dir = sys.argv[1]
+        work_dir = sys.argv[2]
+        scores = open(os.path.join(work_dir, 'scores.txt'), 'w')
+        scores.write('filename'+'\t'+ 'identification_prec' + '\t' + 'identification_recall' + '\t' + 'identification_f1' + '\t' +
+                     'per_id_prec' + '\t' + 'per_id_recall' + '\t' + 'per_id_f1' + '\t' +
+                     'org_id_prec' + '\t' + 'org_id_recall' + '\t' + 'org_id_f1' + '\t' +
+                     'gpe_id_prec' + '\t' + 'gpe_id_recall' + '\t' + 'gpe_id_f1' + '\t' +
+                     'per_prec' + '\t' + 'per_recall' + '\t' + 'per_f1' + '\t' +
+                     'org_prec' + '\t' + 'org_recall' + '\t' + 'org_f1' + '\t' +
+                     'gpe_prec' + '\t' + 'gpe_recall' + '\t' + 'gpe_f1' + '\t' +
+                     'typing_prec' + '\t' + 'typing_recall' + '\t' + 'typing_f1' + '\t' +
+                     'e2e_prec' + '\t' + 'e2e_recall' + '\t' + 'e2e_f1' + '\t' +
+                      'evaluated_doc_num'+ '\n')
+        for i in os.listdir(in_dir):
+            result = evaluate_tagging('%s/%s' % (in_dir, i), work_dir)
+            s = i + '\t'
+            for item in result:
+                s += str(result[item]) + '\t'
+            scores.write(s+'\n')
+        scores.close()
+
+

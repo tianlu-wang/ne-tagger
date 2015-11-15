@@ -72,6 +72,45 @@ class ActiveLearning(object):
         self.cmd_del_maxprobs = ['rm', '-r', self.MAX_PROB]
         self.cmd_mk_maxprobs = ['mkdir', self.MAX_PROB]
 
+        ### get wiki resource
+        for file in os.listdir(self.WIKI):
+            f = open(file, 'r')
+            if file == 'per':
+                self.wiki_per = [line[:-1] for line in f.readlines()]
+            elif file == 'org':
+                self.wiki_org = [line[:-1] for line in f.readlines()]
+            elif file == 'loc':
+                self.wiki_loc = [line[:-1] for line in f.readlines()]
+            f.close()
+
+        ##### get gazetteers resource
+        self.dic_name = []
+        self.dic_title = []
+        self.dic_country = []
+        self.dic_city = []
+        self.dic_locsuffix = []
+        self.dic_orgsuffix = []
+        self.dic_prep = []
+        for file in os.listdir(self.dics):
+            f = open(file, 'r')
+            if 'name' in file:
+                self.dic_name.extend([line[:-1] for line in f.readlines()])
+            elif 'title' in file:
+                self.dic_title.extend([line[:-1] for line in f.readlines()])
+            elif 'country' in file:
+                self.dic_country.extend([line[:-1] for line in f.readlines()])
+            elif 'city' in file:
+                self.dic_city.extend([line[:-1] for line in f.readlines()])
+            elif 'loc' in file:
+                self.dic_locsuffix.extend([line[:-1] for line in f.readlines()])
+            elif 'org' in file:
+                self.dic_orgsuffix.extend([line[:-1] for line in f.readlines()])
+            elif 'prep' in file:
+                self.dic_prep.extend([line[:-1] for line in f.readlines()])
+            f.close()
+
+
+
     def training_set_initialization(self):
         """
         randomly select several documents as the start point
@@ -220,32 +259,6 @@ class ActiveLearning(object):
         return training_set_to_add
 
     def post_processing(self, test_list):
-        ### get wiki resource
-        for file in os.listdir(self.WIKI):
-            f = open(file, 'r')
-            if file == 'per':
-                wiki_per = [line[:-1] for line in f.readlines()]
-            elif file == 'org':
-                wiki_org = [line[:-1] for line in f.readlines()]
-            elif file == 'loc':
-                wiki_loc = [line[:-1] for line in f.readlines()]
-            f.close()
-        ##### get gazetteers resource
-        dic_loc = []
-        dic_org = []
-        dic_per = []
-        dic_prep = []
-        for file in os.listdir(self.dics):
-            f = open(file, 'r')
-            if 'name' in file or 'title' in file:
-                dic_per.extend([line[:-1] for line in f.readlines()])
-            elif 'country' in file or 'city' in file or 'location' in file:
-                dic_loc.extend([line[:-1] for line in f.readlines()])
-            elif 'org' in file:
-                dic_org.extend([line[:-1] for line in f.readlines()])
-            elif 'prep' in file:
-                dic_prep.extend([line[:-1] for line in f.readlines()])
-            f.close()
         for test_file in test_list:
             # tokens:text & start char & end start & pos tag
             tokens = []
@@ -265,11 +278,14 @@ class ActiveLearning(object):
                 output.append((annotation.find('extent').string,
                                annotation.find('extent')['start_char'],
                                annotation.find('extent')['end_char'], annotation['type']))
-
-            for token in tokens:
+            token_index = 0  # the end of last entity
+            while token_index < len(tokens):
                 # fix the boundary in the output
-                if token[0] in [item[0] for item in output]:
-                    fix_boundary()
+                for item in output:
+                    if token[0] == item[0].split(' ')[0]:  # already exist in sys output
+                        self.fix()
+
+
                 # check wiki list
                 wiki_candidates = []
                 for item in wiki_loc:
@@ -287,8 +303,28 @@ class ActiveLearning(object):
                             print 'find an entity in wiki candidate'
                             print item[0]
 
-    def fix_boundary(self):
-
+    # to get a area in which may exist wiki or dic word
+    def get_span(self, tokens, token_start, token_end, span_width):
+        span = []
+        tmp = token_start - span_width
+        while tmp < 0:
+            span.append(None)
+            tmp += 1
+        span.extend(tokens[tmp:token_start])
+        span.extend(tokens[token_start:token_end])
+        tmp = token_end + span_width
+        if tmp < len(tokens) - 1:
+            span.extend(tokens[token_end:tmp])
+        else:
+            span.extend(tokens[token_end:])
+            while tmp > len(tokens) - 1:
+                span.append(None)
+                tmp -= 1
+        return span
+    # fix type and boundary based on crf, dics, wiki and capitalized
+    def fix(self, token, span, crf, dics, wiki):  # token:tuple, span:n tuple, crf:output entity, dics:tuple, wiki,tuple
+        if not crf is None:
+            score =
     def insert_ann(self,file_name, type, start_char, end_char, string):
         soup = BeautifulSoup(open(file_name).read(), 'html.parser')
         new_ann = soup.new_tag('annotation')
