@@ -72,42 +72,42 @@ class ActiveLearning(object):
         self.cmd_del_maxprobs = ['rm', '-r', self.MAX_PROB]
         self.cmd_mk_maxprobs = ['mkdir', self.MAX_PROB]
 
-        ### get wiki resource
-        for file in os.listdir(self.WIKI):
-            f = open(file, 'r')
-            if file == 'per':
-                self.wiki_per = [line[:-1] for line in f.readlines()]
-            elif file == 'org':
-                self.wiki_org = [line[:-1] for line in f.readlines()]
-            elif file == 'loc':
-                self.wiki_loc = [line[:-1] for line in f.readlines()]
-            f.close()
-
-        ##### get gazetteers resource
-        self.dic_name = []
-        self.dic_title = []
-        self.dic_country = []
-        self.dic_city = []
-        self.dic_locsuffix = []
-        self.dic_orgsuffix = []
-        self.dic_prep = []
-        for file in os.listdir(self.dics):
-            f = open(file, 'r')
-            if 'name' in file:
-                self.dic_name.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'title' in file:
-                self.dic_title.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'country' in file:
-                self.dic_country.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'city' in file:
-                self.dic_city.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'loc' in file:
-                self.dic_locsuffix.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'org' in file:
-                self.dic_orgsuffix.extend([line.split('\t')[0] for line in f.readlines()])
-            elif 'prep' in file:
-                self.dic_prep.extend([line.split('\t')[0] for line in f.readlines()])
-            f.close()
+        # ### get wiki resource
+        # for file in os.listdir(self.WIKI):
+        #     f = open(file, 'r')
+        #     if file == 'per':
+        #         self.wiki_per = [line[:-1] for line in f.readlines()]
+        #     elif file == 'org':
+        #         self.wiki_org = [line[:-1] for line in f.readlines()]
+        #     elif file == 'loc':
+        #         self.wiki_loc = [line[:-1] for line in f.readlines()]
+        #     f.close()
+        #
+        # ##### get gazetteers resource
+        # self.dic_name = []
+        # self.dic_title = []
+        # self.dic_country = []
+        # self.dic_city = []
+        # self.dic_locsuffix = []
+        # self.dic_orgsuffix = []
+        # self.dic_prep = []
+        # for file in os.listdir(self.dics):
+        #     f = open(file, 'r')
+        #     if 'name' in file:
+        #         self.dic_name.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'title' in file:
+        #         self.dic_title.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'country' in file:
+        #         self.dic_country.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'city' in file:
+        #         self.dic_city.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'loc' in file:
+        #         self.dic_locsuffix.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'org' in file:
+        #         self.dic_orgsuffix.extend([line.split('\t')[0] for line in f.readlines()])
+        #     elif 'prep' in file:
+        #         self.dic_prep.extend([line.split('\t')[0] for line in f.readlines()])
+        #     f.close()
 
 
 
