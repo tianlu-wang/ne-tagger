@@ -208,7 +208,7 @@ class OrthographicEncoder(Encoder):
                 feats.append(None)
 
         # for i in range(len(self.lexicon)):
-        #     feats.append(unicode(token) in self.lexicon[i])
+        #     feats.append(unicode(token.lower()) in self.lexicon[i])
 
         # if token[0] is 'o':
         # print token

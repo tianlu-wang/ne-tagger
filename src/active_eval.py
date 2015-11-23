@@ -94,19 +94,19 @@ class ActiveLearning(object):
         for file in os.listdir(self.dics):
             f = open(file, 'r')
             if 'name' in file:
-                self.dic_name.extend([line[:-1] for line in f.readlines()])
+                self.dic_name.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'title' in file:
-                self.dic_title.extend([line[:-1] for line in f.readlines()])
+                self.dic_title.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'country' in file:
-                self.dic_country.extend([line[:-1] for line in f.readlines()])
+                self.dic_country.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'city' in file:
-                self.dic_city.extend([line[:-1] for line in f.readlines()])
+                self.dic_city.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'loc' in file:
-                self.dic_locsuffix.extend([line[:-1] for line in f.readlines()])
+                self.dic_locsuffix.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'org' in file:
-                self.dic_orgsuffix.extend([line[:-1] for line in f.readlines()])
+                self.dic_orgsuffix.extend([line.split('\t')[0] for line in f.readlines()])
             elif 'prep' in file:
-                self.dic_prep.extend([line[:-1] for line in f.readlines()])
+                self.dic_prep.extend([line.split('\t')[0] for line in f.readlines()])
             f.close()
 
 
@@ -167,7 +167,7 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
-            # subprocess.call('ls -l '+self.SYS_LAF_DIR, shell=True)  # todo
+            self.post_processing(test_set)  # do post processing
             for item in train_list:
                 if item.replace('laf', 'ltf') in test_set:
                     print '*********************************overlap************************************'
@@ -257,109 +257,205 @@ class ActiveLearning(object):
         training_set_to_add = tag_list[:sample_size]
         print training_set_to_add
         return training_set_to_add
-
-    def post_processing(self, test_list):
-        for test_file in test_list:
-            # tokens:text & start char & end start & pos tag
-            tokens = []
-            soup = BeautifulSoup(open(test_file).read(), 'html.parser')
-            for token in soup.find_all('token'):
-                tokens.append((token.string, int(token['start_char']), int(token['end_char']), token['pos']))
-
-            # max_probs: max prob
-            max_prob_file = test_file.replace('ltf', 'maxprobs')
-            max_probs = [float(line[:-1]) for line in open(max_prob_file).readlines()]
-
-            # output: text & start_char & end char & type
-            output = []
-            output_file = test_file.replace('ltf', 'output').replace('output.xml', 'laf.xml')
-            soup = BeautifulSoup(open(output_file).read(), 'html.parser')
-            for annotation in soup.find_all('annotation'):
-                output.append((annotation.find('extent').string,
-                               annotation.find('extent')['start_char'],
-                               annotation.find('extent')['end_char'], annotation['type']))
-            token_index = 0  # the end of last entity
-            while token_index < len(tokens):
-                # fix the boundary in the output
-                for item in output:
-                    if token[0] == item[0].split(' ')[0]:  # already exist in sys output
-                        self.fix()
-
-
-                # check wiki list
-                wiki_candidates = []
-                for item in wiki_loc:
-                    if token in item:
-                        wiki_candidates.append((item, len(item.split(' ')), 'loc'))
-                for item in wiki_org:
-                    if token in item:
-                        wiki_candidates.append((item, len(item.split(' ')), 'org'))
-                for item in wiki_per:
-                    if token in item:
-                        wiki_candidates.append((item, len(item.split(' ')), 'per'))
-                if not len(wiki_candidates) is 0:  # find candidates in wiki resource
-                    for item in wiki_candidates:
-                        if tokens[tokens.index(token): tokens.index(token)+item[1]] == item[0]:
-                            print 'find an entity in wiki candidate'
-                            print item[0]
-
-    # to get a area in which may exist wiki or dic word
-    def get_span(self, tokens, token_start, token_end, span_width):
-        span = []
-        tmp = token_start - span_width
-        while tmp < 0:
-            span.append(None)
-            tmp += 1
-        span.extend(tokens[tmp:token_start])
-        span.extend(tokens[token_start:token_end])
-        tmp = token_end + span_width
-        if tmp < len(tokens) - 1:
-            span.extend(tokens[token_end:tmp])
-        else:
-            span.extend(tokens[token_end:])
-            while tmp > len(tokens) - 1:
-                span.append(None)
-                tmp -= 1
-        return span
-    # fix type and boundary based on crf, dics, wiki and capitalized
-    def fix(self, token, span, crf, dics, wiki):  # token:tuple, span:n tuple, crf:output entity, dics:tuple, wiki,tuple
-        if not crf is None:
-            score =
-    def insert_ann(self,file_name, type, start_char, end_char, string):
-        soup = BeautifulSoup(open(file_name).read(), 'html.parser')
-        new_ann = soup.new_tag('annotation')
-        new_ann['id'] = os.path.basename(file_name)+'_inn'
-        new_ann['task'] = 'NE'
-        new_ann['type'] = type
-        new_extent = soup.new_tag('extent')
-        new_extent['start_char'] = start_char
-        new_extent['end_char'] = end_char
-        new_extent.string = string
-        new_ann.append(new_extent)
-        soup.annotation.insert_after(new_ann)
-        out = open(file_name, 'w')
-        out.write(soup.prettify())
-        out.close()
-
-    def update_ann(self,file_name, type, start_char, end_char, string, old_start):
-        soup = BeautifulSoup(open(file_name).read(), 'html.parser')
-        for annotation in soup.find_all('annotation'):
-            if int(annotation.find('extent')['start_char']) == int(old_start):
-                old_annotation = annotation
-                break
-        new_ann = soup.new_tag('annotation')
-        new_ann['id'] = os.path.basename(file_name)+'_inn'
-        new_ann['task'] = 'NE'
-        new_ann['type'] = type
-        new_extent = soup.new_tag('extent')
-        new_extent['start_char'] = start_char
-        new_extent['end_char'] = end_char
-        new_extent.string = string
-        new_ann.append(new_extent)
-        old_annotation.replace_with(new_ann)
-        out = open(file_name, 'w')
-        out.write(soup.prettify())
-        out.close()
+    #
+    # def post_processing(self, test_list):  # in test_list is ltf file
+    #     for test_file in test_list:
+    #         # tokens:text & start char & end start & pos tag
+    #         tokens = []
+    #         soup = BeautifulSoup(open(test_file).read(), 'html.parser')
+    #         for token in soup.find_all('token'):
+    #             tokens.append((token.string, int(token['start_char']), int(token['end_char']), token['pos']))
+    #
+    #         # max_probs: max prob
+    #         max_prob_file = test_file.replace('ltf', 'maxprobs')
+    #         max_probs = [float(line[:-1]) for line in open(max_prob_file).readlines()]
+    #
+    #         # output: text & start_char & end char & type
+    #         output = []
+    #         output_file = test_file.replace('ltf', 'output').replace('output.xml', 'laf.xml')
+    #         soup = BeautifulSoup(open(output_file).read(), 'html.parser')
+    #         for annotation in soup.find_all('annotation'):
+    #             output.append((annotation.find('extent').string,
+    #                            annotation.find('extent')['start_char'],
+    #                            annotation.find('extent')['end_char'], annotation['type']))
+    #
+    #         token_index = 0  # the end of last entity
+    #         while token_index < len(tokens):
+    #             # fix the boundary in the output
+    #             for item in output:
+    #                 if tokens[token_index][0] == item[0].split(' ')[0]:  # already exist in sys output
+    #                     self.fix()  # fix function should return the end of the entity
+    #
+    # # fix boundary based on crf, dics, wiki and capitalized
+    # def fix(self, file_name, tokens, maxprobs, crf, span_width):  # token:tuple, span:n tuple, crf:output entity, dics:tuple, wiki,tuple
+    #     if not crf is None:
+    #         entity = [crf[0].split(' ')]  # entity is a list, each element is word in sys laf
+    #         old_start_token = self.get_token(tokens, entity[0])
+    #         crf_type = crf[3]  # type get from crf model
+    #         span = self.get_span(tokens, tokens.index(entity[0]), tokens.index(entity[-1]), span_width)  # set the span_width manually
+    #         span_string = ' '.join(item[0] for item in span)
+    #         # check wiki resource
+    #         if crf_type is 'LOC':
+    #             for item in self.wiki_loc:
+    #                 if item in span_string and crf[0] in item:
+    #                     entity = item.split(' ')  # update the result as the wiki entity
+    #             for i in list(reversed(range(span_width))):
+    #                 word = span[i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_country+self.dic_city+self.dic_locsuffix:
+    #                     entity.insert(0, word)
+    #                     # if span[i] is capitalized and it's in loc dics, put it into entity
+    #                 elif word.lower() in self.dic_locsuffix:  # TODO:lower() function is to assure
+    #                     entity.insert(0, word)
+    #                     # if word is in location suffix, put it into entity TODO: I am not sure about doing so
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP','CONJ', 'punct']:
+    #                         break
+    #                     # if word is a prep or punctuation mark, then just stop here
+    #             for i in range(span_width):
+    #                 word = span[-i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_country+self.dic_city+self.dic_locsuffix:
+    #                     entity.insert(0, word)
+    #                     # if span[i] is capitalized and it's in loc dics, put it into entity
+    #                 elif word.lower() in self.dic_locsuffix:  # TODO:lower() function is to assure
+    #                     entity.insert(0, word)
+    #                     # if word is in location suffix, put it into entity TODO: I am not sure about doing so
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP','CONJ', 'punct']:
+    #                         break
+    #                     # if word is a prep or punctuation mark, then just stop here
+    #             start_token = self.get_token(tokens, entity[0])
+    #             end_token = self.get_token(tokens, entity[-1])
+    #             self.update_ann(file_name, 'LOC', start_token[2], end_token[2], ' '.join(item for item in entity), old_start_token[3])
+    #         if crf_type is 'PER':
+    #             for item in self.wiki_per:
+    #                 if item in span_string and crf[0] in item:
+    #                     entity = item.split(' ')  # update the result as the wiki entity
+    #             for i in list(reversed(range(span_width))):
+    #                 word = span[i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_name:
+    #                     entity.insert(0, word)
+    #                 elif word.lower() in self.dic_title:
+    #                     break
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP','CONJ', 'punct']:
+    #                         break
+    #             for i in range(span_width):
+    #                 word = span[-i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_name:
+    #                     entity.insert(0, word)
+    #                 elif word.lower() in self.dic_title:
+    #                     break
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP','CONJ', 'punct']:
+    #                         break
+    #             start_token = self.get_token(tokens, entity[0])
+    #             end_token = self.get_token(tokens, entity[-1])
+    #             self.update_ann(file_name, 'PER', start_token[2], end_token[2], ' '.join(item for item in entity), old_start_token[3])
+    #         if crf_type is 'ORG':
+    #             for item in self.wiki_org:
+    #                 if item in span_string and crf[0] in item:
+    #                     entity = item.split(' ')  # update the result as the wiki entity
+    #             for i in list(reversed(range(span_width))):
+    #                 word = span[i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_name:
+    #                     entity.insert(0, word)
+    #                 elif word.lower() in self.dic_title:
+    #                     break
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP', 'CONJ', 'punct']:
+    #                         break
+    #             for i in range(span_width):
+    #                 word = span[-i]
+    #                 if word[0].isupper() is True and word.lower() in self.dic_name:
+    #                     entity.insert(0, word)
+    #                 elif word.lower() in self.dic_title:
+    #                     break
+    #                 else:
+    #                     token = self.get_token(tokens, word)
+    #                     if token[3] in ['VERB', 'PREP','CONJ', 'punct']:
+    #                         break
+    #             start_token = self.get_token(tokens, entity[0])
+    #             end_token = self.get_token(tokens, entity[-1])
+    #             self.update_ann(file_name, 'PER', start_token[2], end_token[2], ' '.join(item for item in entity), old_start_token[3])
+    #     if wiki
+    #
+    #
+    #
+    #
+    # # to get a area in which may exist wiki or dic word
+    # def get_span(self, tokens, token_start, token_end, span_width):
+    #     span = []
+    #     tmp = token_start - span_width
+    #     while tmp < 0:
+    #         span.append(None)
+    #         tmp += 1
+    #     span.extend(tokens[tmp:token_start])
+    #     span.extend(tokens[token_start:token_end])
+    #     tmp = token_end + span_width
+    #     if tmp < len(tokens) - 1:
+    #         span.extend(tokens[token_end:tmp])
+    #     else:
+    #         span.extend(tokens[token_end:])
+    #         while tmp > len(tokens) - 1:
+    #             span.append(None)
+    #             tmp -= 1
+    #     return span
+    # def get_token(self, tokens, text):
+    #     for token in tokens:
+    #         if token[0] is text:
+    #             return token
+    #     print 'cannot find this token, the string is'
+    #     print '***********'+text+'***************'
+    #     return 0
+    # # get the index of the token given the text
+    # def get_token_index(self, tokens, text):
+    #     for token in tokens:
+    #         if token[0] is text:
+    #             return tokens.index(token)
+    #     print 'cannot find index of this token in tokens, the string is:'
+    #     print '************'+text+'**************'
+    #     return 0
+    #
+    # def insert_ann(self,file_name, type, start_char, end_char, string):
+    #     soup = BeautifulSoup(open(file_name).read(), 'html.parser')
+    #     new_ann = soup.new_tag('annotation')
+    #     new_ann['id'] = os.path.basename(file_name)+'_inn'
+    #     new_ann['task'] = 'NE'
+    #     new_ann['type'] = type
+    #     new_extent = soup.new_tag('extent')
+    #     new_extent['start_char'] = start_char
+    #     new_extent['end_char'] = end_char
+    #     new_extent.string = string
+    #     new_ann.append(new_extent)
+    #     soup.annotation.insert_after(new_ann)
+    #     out = open(file_name, 'w')
+    #     out.write(soup.prettify())
+    #     out.close()
+    #
+    # def update_ann(self,file_name, type, start_char, end_char, string, old_start):
+    #     soup = BeautifulSoup(open(file_name).read(), 'html.parser')
+    #     for annotation in soup.find_all('annotation'):
+    #         if int(annotation.find('extent')['start_char']) == int(old_start):
+    #             old_annotation = annotation
+    #             break
+    #     new_ann = soup.new_tag('annotation')
+    #     new_ann['id'] = os.path.basename(file_name)+'_inn'
+    #     new_ann['task'] = 'NE'
+    #     new_ann['type'] = type
+    #     new_extent = soup.new_tag('extent')
+    #     new_extent['start_char'] = start_char
+    #     new_extent['end_char'] = end_char
+    #     new_extent.string = string
+    #     new_ann.append(new_extent)
+    #     old_annotation.replace_with(new_ann)
+    #     out = open(file_name, 'w')
+    #     out.write(soup.prettify())
+    #     out.close()
 
 
 def prob_score((probs_dir, file_list)):

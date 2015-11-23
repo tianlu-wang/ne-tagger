@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5ceb2e0-8741-446c-a984-b12f8409d779" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/train_test.sh" afterPath="$PROJECT_DIR$/example/train_test.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ne-tagger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,18 +36,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="active_eval.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="active_eval.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/active_eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47019866">
-              <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="262" column="62" selection-start-line="262" selection-start-column="62" selection-end-line="262" selection-end-column="62" />
               <folding>
-                <element signature="e#5355#9136#0" expanded="false" />
-                <element signature="e#5355#5487#1" expanded="false" />
-                <element signature="e#9177#10817#0" expanded="false" />
-                <element signature="e#10858#11435#0" expanded="false" />
-                <element signature="e#11480#11931#0" expanded="false" />
+                <element signature="e#5425#5557#1" expanded="false" />
+                <element signature="e#9235#10875#0" expanded="false" />
+                <element signature="e#10916#11493#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="features.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/name_tagger/features.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="210" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,11 +75,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test_split/probs/NW_CRI_HAU_006450_20141129_segment-6._probs.txt" />
-        <option value="$PROJECT_DIR$/test_split/probs/NW_CRI_HAU_006294_20141113_segment-0._probs.txt" />
-        <option value="$PROJECT_DIR$/test_split/train_test3.sh" />
-        <option value="$PROJECT_DIR$/test_split/train.scp" />
-        <option value="$PROJECT_DIR$/test_split/test.scp" />
         <option value="$PROJECT_DIR$/result_xiaoman.txt" />
         <option value="$PROJECT_DIR$/result2.txt" />
         <option value="$PROJECT_DIR$/src/activelearning2.py" />
@@ -86,7 +89,6 @@
         <option value="$PROJECT_DIR$/train_files.txt" />
         <option value="$PROJECT_DIR$/train_list2.txt" />
         <option value="$PROJECT_DIR$/result.txt" />
-        <option value="$PROJECT_DIR$/src/utilities/lower2upper.py" />
         <option value="$PROJECT_DIR$/src/utilities/__init__.py" />
         <option value="$PROJECT_DIR$/src/name_tagger/io_.py" />
         <option value="$PROJECT_DIR$/dics/all_name.txt" />
@@ -98,7 +100,6 @@
         <option value="$PROJECT_DIR$/a.txt" />
         <option value="$PROJECT_DIR$/src/utilities/xml2lxf.py" />
         <option value="$PROJECT_DIR$/src/utilities/filename.py" />
-        <option value="$PROJECT_DIR$/src/name_tagger/features.py" />
         <option value="$PROJECT_DIR$/src/activelearning_testdata.py" />
         <option value="$PROJECT_DIR$/src/utilities/segment2document.py" />
         <option value="$PROJECT_DIR$/src/utilities/eval.py" />
@@ -114,10 +115,17 @@
         <option value="$PROJECT_DIR$/hausa_test/dics/all_name.txt" />
         <option value="$PROJECT_DIR$/hausa_test/dics/all_title.txt" />
         <option value="$PROJECT_DIR$/hausa_test/dics/known_city.txt" />
+        <option value="$PROJECT_DIR$/hausa_test/dics/special_preposition.txt" />
         <option value="$PROJECT_DIR$/hausa_test/dics/locationsuffix.txt" />
         <option value="$PROJECT_DIR$/hausa_test/dics/orgsuffix.txt" />
-        <option value="$PROJECT_DIR$/hausa_test/dics/special_preposition.txt" />
+        <option value="$PROJECT_DIR$/src/utilities/lower2upper.py" />
+        <option value="$PROJECT_DIR$/hausa_test/dics/locationsuffix_u.txt" />
+        <option value="$PROJECT_DIR$/hausa_test/dics/all_name_u.txt" />
+        <option value="$PROJECT_DIR$/hausa_test/wiki/loc" />
+        <option value="$PROJECT_DIR$/hausa_test/wiki/org" />
+        <option value="$PROJECT_DIR$/hausa_test/wiki/per" />
         <option value="$PROJECT_DIR$/src/active_eval.py" />
+        <option value="$PROJECT_DIR$/src/name_tagger/features.py" />
       </list>
     </option>
   </component>
@@ -129,9 +137,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-40" />
     <option name="y" value="23" />
-    <option name="width" value="1461" />
+    <option name="width" value="1366" />
     <option name="height" value="680" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -207,57 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utilities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eval" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hausa_test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ne-tagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hausa_test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dics" />
+              <option name="myItemId" value="name_tagger" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -578,50 +535,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-40" y="23" width="1461" height="680" extended-state="0" />
+    <frame x="0" y="23" width="1366" height="680" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18197279" sideWeight="0.48535872" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35544217" sideWeight="0.48535872" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27210885" sideWeight="0.49244714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1888654" sideWeight="0.4907162" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20392749" sideWeight="0.4907162" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28247735" sideWeight="0.50928384" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43207857" sideWeight="0.5146413" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4744898" sideWeight="0.4939577" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5510204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33843538" sideWeight="0.48535872" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4744898" sideWeight="0.4939577" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28247735" sideWeight="0.50928384" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43207857" sideWeight="0.5146413" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27210885" sideWeight="0.49244714" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.4907162" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5510204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -648,7 +584,7 @@
           <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="64" />
+      <option name="time" value="65" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -674,24 +610,27 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hausa_test/laf/NW_CRI_HAU_006079_20110329_segment-1.laf.xml">
+    <entry file="file://$PROJECT_DIR$/src/active_eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#5425#5557#1" expanded="false" />
+            <element signature="e#9235#10875#0" expanded="false" />
+            <element signature="e#10916#11493#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/laf/NW_CRI_HAU_006079_20110329_segment-2.laf.xml">
+    <entry file="file://$PROJECT_DIR$/src/active_eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/laf/NW_CRI_HAU_006079_20110329_segment-3.laf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#5425#5557#1" expanded="false" />
+            <element signature="e#9235#10875#0" expanded="false" />
+            <element signature="e#10916#11493#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -905,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-0.laf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/eval/hau_test_gold_without_ttl_and_sn.tab">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5976096">
@@ -922,35 +854,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-1.laf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/name_tagger/features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15923567">
-          <caret line="253" column="34" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/wiki/loc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3121018">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-2.laf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2857143">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hausa_test/laf/NW_AMI_HAU_006001_20141128_segment-2.laf.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42857143">
@@ -958,21 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/laf2tab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33518004">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/scorer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7922438">
           <caret line="230" column="45" selection-start-line="230" selection-start-column="45" selection-end-line="230" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -980,101 +872,133 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3324937">
           <caret line="1145" column="83" selection-start-line="1145" selection-start-column="80" selection-end-line="1145" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/special_preposition.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-2.laf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30612245">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-1.laf.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hausa_test/output/NW_AMI_HAU_006001_20141128_segment-0.laf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hausa_test/ltf/NW_AMI_HAU_006001_20141128_segment-6.ltf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.98615915">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/lower2upper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8304498">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hausa_test/dics/orgsuffix_u.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/orgsuffix.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/dics/locationsuffix_u.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.7593583">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/locationsuffix.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/dics/all_name_u.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.71925133">
+          <caret line="2565" column="7" selection-start-line="2565" selection-start-column="7" selection-end-line="2565" selection-end-column="7" />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/known_city.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/dics/know_city_u.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.39839572">
+          <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/country.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/wiki/loc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.3324468">
+          <caret line="71283" column="4" selection-start-line="71283" selection-start-column="0" selection-end-line="71283" selection-end-column="4" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/all_name.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/wiki/org">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.3325062">
+          <caret line="42852" column="7" selection-start-line="42852" selection-start-column="3" selection-end-line="42852" selection-end-column="7" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hausa_test/dics/all_title.txt">
+    <entry file="file://$PROJECT_DIR$/hausa_test/wiki/per">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.17287233">
+          <caret line="281008" column="13" selection-start-line="281008" selection-start-column="13" selection-end-line="281008" selection-end-column="13" />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/laf2tab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.37921348">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="10" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/active_eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47019866">
-          <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="262" column="62" selection-start-line="262" selection-start-column="62" selection-end-line="262" selection-end-column="62" />
           <folding>
-            <element signature="e#5355#9136#0" expanded="false" />
-            <element signature="e#5355#5487#1" expanded="false" />
-            <element signature="e#9177#10817#0" expanded="false" />
-            <element signature="e#10858#11435#0" expanded="false" />
-            <element signature="e#11480#11931#0" expanded="false" />
+            <element signature="e#5425#5557#1" expanded="false" />
+            <element signature="e#9235#10875#0" expanded="false" />
+            <element signature="e#10916#11493#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/name_tagger/features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="210" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>

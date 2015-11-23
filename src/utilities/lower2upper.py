@@ -7,13 +7,14 @@ def lower2upper(input_file, output_file):
     output = open(output_file, 'w')
 
     for line in input_f.readlines():
-        if line[0].isupper():
-            output.write(line)
-            output.write(line[0].lower()+line[1:])
-        else:
-            output.write(line[0].upper()+line[1:])
-            output.write(line)
-            pass
+        # if line[0].isupper():
+        #     output.write(line)
+        #     output.write(line[0].lower()+line[1:])
+        # else:
+        #     output.write(line[0].upper()+line[1:])
+        #     output.write(line)
+        #     pass
+        output.write(line.lower())
     input_f.close()
     output.close()
 
