@@ -167,7 +167,7 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
-            self.post_processing(test_set)  # do post processing
+            # self.post_processing(test_set)  # do post processing
             for item in train_list:
                 if item.replace('laf', 'ltf') in test_set:
                     print '*********************************overlap************************************'
