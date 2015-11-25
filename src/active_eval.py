@@ -61,7 +61,7 @@ class ActiveLearning(object):
         self.SYS_LAF_DIR = os.path.join(work_dir, 'output')   # directory for tagger result (LAF files)
         self.REF_LAF_DIR = os.path.join(work_dir, 'laf')      # directory containing gold standard LAF files
         self.PROBS_DIR = os.path.join(work_dir, 'probs')
-        self.MAX_PROB = os.path.join(work_dir,'maxprobs')
+        # self.MAX_PROB = os.path.join(work_dir,'maxprobs')
         self.WIKI = os.path.join(work_dir, 'wiki')
         self.dics = os.path.join(work_dir, 'dics')
         self.cmd_del_model = ['rm', '-r', self.MODEL_DIR]
@@ -69,8 +69,8 @@ class ActiveLearning(object):
         self.cmd_mk_syslaf = ['mkdir', self.SYS_LAF_DIR]
         self.cmd_del_probs = ['rm', '-r', self.PROBS_DIR]
         self.cmd_mk_probs = ['mkdir', self.PROBS_DIR]
-        self.cmd_del_maxprobs = ['rm', '-r', self.MAX_PROB]
-        self.cmd_mk_maxprobs = ['mkdir', self.MAX_PROB]
+        # self.cmd_del_maxprobs = ['rm', '-r', self.MAX_PROB]
+        # self.cmd_mk_maxprobs = ['mkdir', self.MAX_PROB]
 
         # ### get wiki resource
         # for file in os.listdir(self.WIKI):
@@ -146,8 +146,8 @@ class ActiveLearning(object):
             subprocess.call(self.cmd_mk_syslaf)
             subprocess.call(self.cmd_del_probs)
             subprocess.call(self.cmd_mk_probs)
-            subprocess.call(self.cmd_del_maxprobs)
-            subprocess.call(self.cmd_mk_maxprobs)
+            # subprocess.call(self.cmd_del_maxprobs)
+            # subprocess.call(self.cmd_mk_maxprobs)
             print '--------------------------------------begin tag in doing training-----------------------------------'
             test_set = [item.replace('laf', 'ltf')[:-1] for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
             tag_mul_list = [[]]
