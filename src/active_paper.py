@@ -102,6 +102,7 @@ class ActiveLearning(object):
             if temp not in self.init_train_set:
                 self.init_train_set.append(temp)
         assert(index > 0 for index in self.init_train_set)
+        self.cal_token(self.init_train_set)
         return self.init_train_set
 
     def do_training(self, sampling_method):
@@ -218,6 +219,7 @@ class ActiveLearning(object):
             else:
                 print 'add_one is in current_training_set'
         print training_set_to_add
+        self.cal_token(training_set_to_add)
         return training_set_to_add
 
     def random_sampling(self):
