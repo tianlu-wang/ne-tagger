@@ -1,6 +1,10 @@
 #!/usr/bin/env python
-import re
+#-*- coding: utf-8 -*-
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import sys
+import re
 import os
 """
 translate English words(GPE,ORG,PER) to incident language with the PROB file provided by LDC
@@ -21,7 +25,7 @@ def eng2il(input_file, parallel_data, output_file):
         if not match is None:
             if match.group(1) in words:
                 if last_one_eng != match.group(1):
-                    f_output.write(last_one_il+'\t'+last_one_eng+'\n')
+                    f_output.write(last_one_il +'\n')
                     last_one_eng = match.group(1)
                     last_one_il = match.group(2)
                     score = float(match.group(3))
