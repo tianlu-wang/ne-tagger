@@ -205,7 +205,7 @@ if __name__ == '__main__':
         return os.stat(fn).st_size == 0 
     if not is_empty(trainf):
         modelf = os.path.join(args.model_dir, 'tagger.crf') 
-        cmd = ['crfsuite', 'learn',
+        cmd = ['/home/wangtianlu/local/bin/crfsuite', 'learn',
                '-m', modelf,
                '-a', 'pa', # Train with passive aggressive algorithm.
                '-p', 'type=%d' % args.update,

@@ -170,14 +170,18 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    # dict_path = './dics'
-    # lexicon = [[]]
-    # for roots, dirs, files in os.walk(dict_path):
-    #     for file in files:
-    #         f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
-    #         lexicon.append([line[:-1] for line in f.readlines()])
+    dict_path = './hausa_test/dics'
+    lexicon = [[]]
+    for roots, dirs, files in os.walk(dict_path):
+	for file in files:
+		f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
+		lexicon.append([line[:-1] for line in f.readlines()])
     # print 'this is lexicon[0]'
     # print lexicon.pop(0)
+    # print lexicon
+    # print lexicon[1][1]
+    # print lexicon[6][1]
+    # print lexicon[7][1]
     # print str(len(lexicon))+'-----------this is len of lexicon'
 
     def __init__(self, n_left=2, n_right=2, max_prefix_len=4, max_suffix_len=4, frequency = {}):
@@ -207,8 +211,8 @@ class OrthographicEncoder(Encoder):
             else:
                 feats.append(None)
 
-        # for i in range(len(self.lexicon)):
-        #     feats.append(unicode(token.lower()) in self.lexicon[i])
+        for i in range(len(self.lexicon)):
+            feats.append(unicode(token.lower()) in self.lexicon[i])
 
         # if token[0] is 'o':
         # print token

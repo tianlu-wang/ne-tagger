@@ -163,6 +163,7 @@ class ActiveLearning(object):
             cmds.pop(0)
             processes = [Popen(cmd) for cmd in cmds]
             for p in processes: p.wait()
+	    # for p in processes: p.kill()
 
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
@@ -209,6 +210,8 @@ class ActiveLearning(object):
         prob_mul_list.pop(0)
         pool = mp.Pool(processes=self.num_process)
         results = pool.map(prob_score, zip(repeat(self.PROBS_DIR), prob_mul_list))
+	pool.close()
+	pool.join()
         sum_TK = results[0].copy()
         for item in results[1:]:
             sum_TK.update(item)
