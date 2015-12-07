@@ -90,6 +90,7 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
         with open(probf, 'w') as f:
             subprocess.call(cmd_, stdout=f)
 
+
         # maxprobf = ltf.replace('ltf', 'maxprobs')
         #
         # cmd_ = ['/Users/koala/Documents/lab/Blender/LORELEI/active_learning/ne-tagger/lib/crf/bin/crfsuite','tag',
