@@ -68,7 +68,10 @@ class ActiveLearning(object):
         self.train_set = all_laf[:int(total_train_sentence)]
         print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
         print len(self.train_set)
-
+#	for i in self.train_set:
+#	    print i
+ #       raw_input()
+        #print self.train_set
         self.frequency = dict()
         sum = 0.0
         for f in self.train_set:
