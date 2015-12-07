@@ -170,16 +170,30 @@ class OrthographicEncoder(Encoder):
     suffix_lengths : list of int
         List of lengths of suffixes to be considered.
     """
-    dict_path = './dics'
-    lexicon = [[]]
-    for roots, dirs, files in os.walk(dict_path):
-        for file in files:
-            f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
-            lexicon.append([line[:-1] for line in f.readlines()])
+#<<<<<<< HEAD
+ #   dict_path = './dics'
+  #  lexicon = [[]]
+   # for roots, dirs, files in os.walk(dict_path):
+    #    for file in files:
+     #       f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
+      #      lexicon.append([line[:-1] for line in f.readlines()])
+#=======
+ #   dict_path = './hausa_test/dics'
+  #  lexicon = [[]]
+   # for roots, dirs, files in os.walk(dict_path):
+#	for file in files:
+#		f = codecs.open(dict_path + '/'+file, 'r', encoding='utf-8')
+#		lexicon.append([line[:-1] for line in f.readlines()])
+#>>>>>>> 10f5e976f747c070ccf3cbe1c036af7907994ac1
     # print 'this is lexicon[0]'
     # print str(len(lexicon))+'-----------this is len of lexicon original'
     # print lexicon.pop(0)
+#<<<<<<< HEAD
     # print lexicon[0][1]
+#=======
+    # print lexicon
+    # print lexicon[1][1]
+#>>>>>>> 10f5e976f747c070ccf3cbe1c036af7907994ac1
     # print lexicon[6][1]
     # print lexicon[7][1]
     # print str(len(lexicon))+'-----------this is len of lexicon'
@@ -211,8 +225,8 @@ class OrthographicEncoder(Encoder):
             else:
                 feats.append(None)
 
-        for i in range(len(self.lexicon)):
-            feats.append(unicode(token.lower()) in self.lexicon[i])
+ #       for i in range(len(self.lexicon)):
+  #          feats.append(unicode(token.lower()) in self.lexicon[i])
 
         # if token[0] is 'o':
         # print token

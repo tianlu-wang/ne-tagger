@@ -14,5 +14,5 @@ if __name__ == '__main__':
         for i in os.listdir(input_dir):
             cmd = ['python', './src/utilities/laf2tab.py', '%s/%s/output' % (input_dir, i), '%s/%s' % (output_dir1, i)]
             subprocess.call(cmd)
-            cmd = ['python', './src/utilities/segment2document.py', '%s/%s' % (output_dir1, i), '%s/%s.tab' % (output_dir2, i)]
-            subprocess.call(cmd)
+            # cmd = ['python', './src/utilities/segment2document.py', '%s/%s' % (output_dir1, i), '%s/%s.tab' % (output_dir2, i)]
+            # subprocess.call(cmd)

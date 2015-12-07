@@ -163,6 +163,7 @@ class ActiveLearning(object):
             cmds.pop(0)
             processes = [Popen(cmd) for cmd in cmds]
             for p in processes: p.wait()
+	    # for p in processes: p.kill()
 
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
