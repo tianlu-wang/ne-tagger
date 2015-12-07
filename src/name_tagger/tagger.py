@@ -80,7 +80,8 @@ def tag_file(ltf, aligner, enc, chunker, modelf, tagged_dir, tagged_ext):
             subprocess.call(cmd, stdout=f)
         # Load tagged output2.
 
-        probf = ltf.replace('ltf', 'probs')
+        probf1 = ltf.replace('ltf', 'probs')
+	probf = probf1.replace('test', 'probs')
 
         # print probf
         cmd_ = ['/home/wangtianlu/local/bin/crfsuite', 'tag',
