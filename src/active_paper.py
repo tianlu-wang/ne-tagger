@@ -181,6 +181,7 @@ class ActiveLearning(object):
         cmds.pop(0)
         processes = [Popen(cmd) for cmd in cmds]
         for p in processes: p.wait()
+
         print 'how many test file are in probs after segment entropy sampling:'
         subprocess.call('ls -l '+work_dir+'/probs'+' | '+'wc -l', shell=True)
         all_file = []
@@ -198,6 +199,8 @@ class ActiveLearning(object):
 
         pool = mp.Pool(processes=self.num_process)
         results = pool.map(prob_score, zip(repeat(self.PROBS_DIR), prob_mul_list))
+        pool.kill()
+        pool.join()
 
         sum_TK = results[0].copy()
         for item in results[1:]:
@@ -252,7 +255,7 @@ class ActiveLearning(object):
     def cal_token(self, set):
         temp_sum = 0
         for f in set:
-            soup = BeautifulSoup(open(f.replace('laf', 'ltf')).read(), 'html.parser')
+            soup = BeautifulSoup(open(self.train_set[f].replace('laf', 'ltf')).read(), 'html.parser')
             for token in soup.find_all('token'):
                 temp_sum += 1
         print "the temp_sum"
