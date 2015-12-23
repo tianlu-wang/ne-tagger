@@ -255,7 +255,7 @@ class ActiveLearning(object):
         # print temp_sum
         self.token_num += temp_sum
         print "all_token_sum: " + str(self.token_num)
-        f = codecs.open('token_num.txt', 'a', encoding='utf-8')
+        f = codecs.open(os.path.join(work_dir, 'token_num.txt'), 'a', encoding='utf-8')
         f.write('training size'+ str(len(self.current_train_set))+'\n')
         f.write(str(self.token_num)+'\n')
         f.close()
