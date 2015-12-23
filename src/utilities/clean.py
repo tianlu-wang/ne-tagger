@@ -3,7 +3,7 @@ import sys
 import os
 import subprocess
 
-def clean(dir):
+def clean(dir, work_dir):
     subprocess.call(['rm', '-r', dir])
     subprocess.call(['mkdir', dir])
     subprocess.call(['rm', '-r', 'src/eval/input'])
