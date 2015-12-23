@@ -57,11 +57,11 @@ class ActiveLearning(object):
         if (i+1)*len_chunk < len(test_set):
             self.tag_mul_list.append(test_set[(i+1)*len_chunk:])
         self.tag_mul_list.pop(0)
-        cmds = [[]]
+        self.cmds = [[]]
         for item in self.tag_mul_list:
-            cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
-        cmds.pop(0)
-        self.processes = [Popen(cmd) for cmd in cmds]
+            self.cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
+        self.cmds.pop(0)
+
 
         self.train_set = all_laf[:int(total_train_sentence)]
         print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
@@ -126,7 +126,8 @@ class ActiveLearning(object):
             subprocess.call(self.cmd_del_probs)
             subprocess.call(self.cmd_mk_probs)
             print '--------------------------------------begin tag in doing training-----------------------------------'
-            for p in self.processes: p.wait()
+            processes = [Popen(cmd) for cmd in self.cmds]
+            for p in processes: p.wait()
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
@@ -175,7 +176,8 @@ class ActiveLearning(object):
         #     cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
         # cmds.pop(0)
         # processes = [Popen(cmd) for cmd in cmds]
-        for p in self.processes: p.wait()
+        processes = [Popen(cmd) for cmd in self.cmds]
+        for p in processes: p.wait()
         print 'how many test file are in probs after segment entropy sampling:'
         subprocess.call('ls -l '+work_dir+'/probs'+' | '+'wc -l', shell=True)
         all_file = []
