@@ -251,6 +251,7 @@ class ActiveLearning(object):
             cmd = ['python', './src/utilities/eval.py', os.path.join(work_dir, sampling_method),
                    os.path.join(work_dir, 'result'), 'temp_result2']
             subprocess.call(cmd)
+            print "has arrive 15000 and finish all cmd"
             raw_input()
 
 def prob_score((probs_dir, file_list)):
