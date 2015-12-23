@@ -163,21 +163,19 @@ class ActiveLearning(object):
         subprocess.call(self.cmd_mk_syslaf)
         subprocess.call(self.cmd_del_probs)
         subprocess.call(self.cmd_mk_probs)
-        # test_set = [item.replace('laf', 'ltf') for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
-        # tag_mul_list = [[]]
-        # len_chunk = len(test_set)/self.num_process
-        # for i in range(self.num_process):
-        #     tag_mul_list.append(test_set[i*len_chunk:(i+1)*len_chunk])
-        # if (i+1)*len_chunk < len(test_set):
-        #     tag_mul_list.append(test_set[(i+1)*len_chunk:])
-        # tag_mul_list.pop(0)
-        # cmds = [[]]
-        # for item in tag_mul_list:
-        #     cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
-        # cmds.pop(0)
-        # processes = [Popen(cmd) for cmd in cmds]
-        processes = [Popen(cmd) for cmd in self.cmds]
-        for p in processes: p.wait()
+        test_set = [item.replace('laf', 'ltf') for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
+        tag_mul_list = [[]]
+        len_chunk = len(test_set)/self.num_process
+        for i in range(self.num_process):
+            tag_mul_list.append(test_set[i*len_chunk:(i+1)*len_chunk])
+        if (i+1)*len_chunk < len(test_set):
+            tag_mul_list.append(test_set[(i+1)*len_chunk:])
+        tag_mul_list.pop(0)
+        cmds = [[]]
+        for item in tag_mul_list:
+            cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
+        cmds.pop(0)
+        processes = [Popen(cmd) for cmd in cmds]
         print 'how many test file are in probs after segment entropy sampling:'
         subprocess.call('ls -l '+work_dir+'/probs'+' | '+'wc -l', shell=True)
         all_file = []
