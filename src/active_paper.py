@@ -57,21 +57,16 @@ class ActiveLearning(object):
         if (i+1)*len_chunk < len(test_set):
             self.tag_mul_list.append(test_set[(i+1)*len_chunk:])
         self.tag_mul_list.pop(0)
-
-        ##### for debug TODO: should remove when running
-       # for i in all_ltf:
-        #    if not i.replace('ltf', 'laf') in all_laf:
-         #       print 'not all file match in laf and ltf train file'
-          #      print i
-           #     print '!!!!!!!!!!!!!!!!!!'
+        cmds = [[]]
+        for item in self.tag_mul_list:
+            cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
+        cmds.pop(0)
+        self.processes = [Popen(cmd) for cmd in cmds]
 
         self.train_set = all_laf[:int(total_train_sentence)]
         print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
         print len(self.train_set)
-#	for i in self.train_set:
-#	    print i
- #       raw_input()
-        #print self.train_set
+
         self.frequency = dict()
         sum = 0.0
         for f in self.train_set:
@@ -131,14 +126,7 @@ class ActiveLearning(object):
             subprocess.call(self.cmd_del_probs)
             subprocess.call(self.cmd_mk_probs)
             print '--------------------------------------begin tag in doing training-----------------------------------'
-            # test_set = [item.replace('laf', 'ltf')[:-1] for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
-            cmds = [[]]
-            for item in self.tag_mul_list:
-                cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
-            cmds.pop(0)
-            processes = [Popen(cmd) for cmd in cmds]
-            for p in processes: p.wait()
-
+            for p in self.processes: p.wait()
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
@@ -170,24 +158,24 @@ class ActiveLearning(object):
 
     def segment_entropy(self):
         print('\tgetting new training data in segment_entropy_sampling...')
-	subprocess.call(self.cmd_del_syslaf)
+        subprocess.call(self.cmd_del_syslaf)
         subprocess.call(self.cmd_mk_syslaf)
         subprocess.call(self.cmd_del_probs)
         subprocess.call(self.cmd_mk_probs)
-        test_set = [item.replace('laf', 'ltf') for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
-        tag_mul_list = [[]]
-        len_chunk = len(test_set)/self.num_process
-        for i in range(self.num_process):
-            tag_mul_list.append(test_set[i*len_chunk:(i+1)*len_chunk])
-        if (i+1)*len_chunk < len(test_set):
-            tag_mul_list.append(test_set[(i+1)*len_chunk:])
-        tag_mul_list.pop(0)
-        cmds = [[]]
-        for item in tag_mul_list:
-            cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
-        cmds.pop(0)
-        processes = [Popen(cmd) for cmd in cmds]
-        for p in processes: p.wait()
+        # test_set = [item.replace('laf', 'ltf') for item in self.train_set if self.train_set.index(item) not in self.current_train_set]
+        # tag_mul_list = [[]]
+        # len_chunk = len(test_set)/self.num_process
+        # for i in range(self.num_process):
+        #     tag_mul_list.append(test_set[i*len_chunk:(i+1)*len_chunk])
+        # if (i+1)*len_chunk < len(test_set):
+        #     tag_mul_list.append(test_set[(i+1)*len_chunk:])
+        # tag_mul_list.pop(0)
+        # cmds = [[]]
+        # for item in tag_mul_list:
+        #     cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
+        # cmds.pop(0)
+        # processes = [Popen(cmd) for cmd in cmds]
+        for p in self.processes: p.wait()
         print 'how many test file are in probs after segment entropy sampling:'
         subprocess.call('ls -l '+work_dir+'/probs'+' | '+'wc -l', shell=True)
         all_file = []
@@ -205,8 +193,8 @@ class ActiveLearning(object):
 
         pool = mp.Pool(processes=self.num_process)
         results = pool.map(prob_score, zip(repeat(self.PROBS_DIR), prob_mul_list))
-	pool.terminate()
-	pool.join()
+        pool.terminate()
+        pool.join()
         sum_TK = results[0].copy()
         for item in results[1:]:
             sum_TK.update(item)
@@ -263,17 +251,16 @@ class ActiveLearning(object):
             soup = BeautifulSoup(open(self.train_set[f].replace('laf', 'ltf')).read(), 'html.parser')
             for token in soup.find_all('token'):
                 temp_sum += 1
-        print "the temp_sum"
-        print temp_sum
+        # print "the temp_sum"
+        # print temp_sum
         self.token_num += temp_sum
-        print "all_token_sum:"
-        print self.token_num
-        f = codecs.open('token_num.txt', 'a', encoding='utf-8') 
-	f.write('training size'+ str(len(self.current_train_set))+'\n')
+        print "all_token_sum: " + str(self.token_num)
+        f = codecs.open('token_num.txt', 'a', encoding='utf-8')
+        f.write('training size'+ str(len(self.current_train_set))+'\n')
         f.write(str(self.token_num)+'\n')
         f.close()
-	if self.token_num > 15000:
-	    raw_input()
+        if self.token_num > 15000:
+            raw_input()
 
 def prob_score((probs_dir, file_list)):
     print 'calculating prob score in every file...'
@@ -285,9 +272,9 @@ def prob_score((probs_dir, file_list)):
         flag_num = 0
         entropy_num = 0
         f = codecs.open(probs_dir +'/'+item, 'r', encoding='utf-8')
-	token_num = 0
+        token_num = 0
         for line in f.readlines():
-	    token_num += 1
+            token_num += 1
             m1 = re.match(pattern1, line, flags=0)
             if not m1 is None:
                 if len(m1.group(1)) > 2:
@@ -304,8 +291,7 @@ def prob_score((probs_dir, file_list)):
                     entropy_num += 1
             else:
                 pass
-                # print line
-#	print 'token_num is'+str(token_num)
+
         sum_score[item] = entropy_num + float(flag_num)/float(token_num)
         f.close()
     print 'finish calculate score'
