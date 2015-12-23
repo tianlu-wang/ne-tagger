@@ -57,11 +57,10 @@ class ActiveLearning(object):
         if (i+1)*len_chunk < len(test_set):
             self.tag_mul_list.append(test_set[(i+1)*len_chunk:])
         self.tag_mul_list.pop(0)
-        self.cmds = [[]]
+        self.cmds = [[]]  # test set tag command
         for item in self.tag_mul_list:
             self.cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
         self.cmds.pop(0)
-
 
         self.train_set = all_laf[:int(total_train_sentence)]
         print "%%%%%%%%%%%%%%%%this is the len of initial train set:%%%%%%%%%%%%%%%%%%"
@@ -79,15 +78,10 @@ class ActiveLearning(object):
                     self.frequency[tmp] = 1
                 sum += 1
         self.frequency.update((k, v / sum) for (k, v) in self.frequency.iteritems())  # get frequency of every word
-
         f_fre = codecs.open('frequency.txt', 'w', encoding='utf-8')  # take down the frequency to debug
         for key in self.frequency.keys():
             f_fre.write(key+'\t'+str(self.frequency.get(key))+'\n')
         f_fre.close()
-
-
-
-
 
     def training_set_initialization(self):
         """
@@ -131,12 +125,6 @@ class ActiveLearning(object):
             print '--------------------------------finish tag in doing training--------------------------------'
             print 'how many files in sys laf dir:'
             subprocess.call('ls -l '+self.SYS_LAF_DIR+' | '+'wc -l', shell=True)
-            # for item in train_list:
-            #     if item.replace('laf', 'ltf') in test_set:
-            #         print '*********************************overlap************************************'
-            #         print item
-            #     else:
-            #         pass
             new_dir = os.path.join(work_dir, sampling_method) + '/round' + str(len(self.current_train_set))
             subprocess.call(['mkdir', new_dir])
             subprocess.call(['cp', '-r', self.SYS_LAF_DIR, new_dir])
@@ -253,10 +241,8 @@ class ActiveLearning(object):
             soup = BeautifulSoup(open(self.train_set[f].replace('laf', 'ltf')).read(), 'html.parser')
             for token in soup.find_all('token'):
                 temp_sum += 1
-        # print "the temp_sum"
-        # print temp_sum
-        self.token_num += temp_sum
         print "all_token_sum: " + str(self.token_num)
+        self.token_num += temp_sum
         f = codecs.open(os.path.join(work_dir, 'token_num.txt'), 'a', encoding='utf-8')
         f.write('training size'+ str(len(self.current_train_set))+'\n')
         f.write(str(self.token_num)+'\n')
