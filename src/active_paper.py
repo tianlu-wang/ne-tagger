@@ -263,6 +263,9 @@ class ActiveLearning(object):
         f.write(str(self.token_num)+'\n')
         f.close()
         if self.token_num > 15000:
+            cmd = ['python', './src/utilities/eval.py', os.path.join(work_dir, sampling_method),
+                   os.path.join(work_dir, 'result'), 'temp_result2']
+            subprocess.call(cmd)
             raw_input()
 
 def prob_score((probs_dir, file_list)):
@@ -318,5 +321,4 @@ if __name__ == "__main__":
                              total_train_sentence=total_train_sentence,
                              max_train_sentences=max_train_sentences, num_process=num_process)  # set the initial num and increment
         act.do_training(sampling_method)  # uncertainty sampling
-        cmd = ['python', './src/utilities/eval.py', work_dir+'/'+sampling_method, './src/eval/output1', './src/eval/input']
-        subprocess.call(cmd)
+
