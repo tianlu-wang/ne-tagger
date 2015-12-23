@@ -176,6 +176,7 @@ class ActiveLearning(object):
             cmds.append(['./src/name_tagger/tagger.py', '-L', self.SYS_LAF_DIR, self.MODEL_DIR] + item)
         cmds.pop(0)
         processes = [Popen(cmd) for cmd in cmds]
+        for p in processes: p.wait()
         print 'how many test file are in probs after segment entropy sampling:'
         subprocess.call('ls -l '+work_dir+'/probs'+' | '+'wc -l', shell=True)
         all_file = []
