@@ -245,6 +245,7 @@ class ActiveLearning(object):
         tag_list = [item for item in range(len(self.train_set)) if item not in self.current_train_set]
         training_set_to_add = tag_list[:sample_size]
         print training_set_to_add
+        self.cal_token(training_set_to_add)
         return training_set_to_add
 
     def cal_token(self, set):
